@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 const navigation = [
   { icon: "⌂", label: "accueil", href: "/dashboard" },
-  { icon: "✧", label: "somatch AI", href: "#" },
+  { icon: "✧", label: "somatch AI", href: "/somatch-ai" },
   { icon: "◯", label: "explorer", href: "/explorer" },
   { icon: "▥", label: "tendances", href: "/tendances" },
   { icon: "⊞", label: "catégories", href: "/categories" },
@@ -17,12 +17,14 @@ const secondaryNavigation = [
   ["?", "Support"],
 ] as const;
 
-export function AppSidebar({ active }: { active: "accueil" | "explorer" | "tendances" | "catégories" }) {
+export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" }) {
   const aiDescription = active === "tendances"
     ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
       ? "votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
-      : "votre copilote IA pour des campagnes d’influence plus performantes.";
+      : active === "somatch AI"
+        ? "votre copilote IA pour créer vos castings parfaits en quelques secondes."
+        : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
       <div className="dashboard-brand" aria-label="SoMatch">
