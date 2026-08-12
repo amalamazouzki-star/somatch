@@ -4,7 +4,7 @@ const navigation = [
   { icon: "⌂", label: "accueil", href: "/dashboard" },
   { icon: "✧", label: "somatch AI", href: "#" },
   { icon: "◯", label: "explorer", href: "/explorer" },
-  { icon: "▥", label: "tendances", href: "#" },
+  { icon: "▥", label: "tendances", href: "/tendances" },
   { icon: "⊞", label: "catégories", href: "#" },
   { icon: "♡", label: "favoris", href: "#" },
   { icon: "▣", label: "mes campagnes", href: "#" },
@@ -17,7 +17,10 @@ const secondaryNavigation = [
   ["?", "Support"],
 ] as const;
 
-export function AppSidebar({ active }: { active: "accueil" | "explorer" }) {
+export function AppSidebar({ active }: { active: "accueil" | "explorer" | "tendances" }) {
+  const aiDescription = active === "tendances"
+    ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
+    : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
       <div className="dashboard-brand" aria-label="SoMatch">
@@ -36,7 +39,7 @@ export function AppSidebar({ active }: { active: "accueil" | "explorer" }) {
       </nav>
       <section className="sidebar-ai-card">
         <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
-        <p>votre copilote IA pour des campagnes d’influence plus performantes.</p>
+        <p>{aiDescription}</p>
         <button type="button">découvrir somatch AI <span>→</span></button>
       </section>
       <button className="sidebar-profile" type="button">
