@@ -1,23 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-const navigation = [
-  ["⌂", "accueil"],
-  ["✧", "somatch AI"],
-  ["◯", "explorer"],
-  ["▥", "tendances"],
-  ["⊞", "catégories"],
-  ["♡", "favoris"],
-  ["▣", "mes campagnes"],
-  ["⬡", "influenceurs certifiés"],
-] as const;
-
-const secondaryNavigation = [
-  ["♙", "profil"],
-  ["⚙", "paramètres"],
-  ["?", "Support"],
-] as const;
+import { AppHeader, AppSidebar } from "../components/AppShell";
 
 const creators = [
   { name: "maya el amrani", handle: "@mayaelamrani", niche: "beauty · lifestyle", image: "/dashboard/maya.png", platforms: ["instagram", "tiktok"], followers: "256K", engagement: "4,8%", score: 92 },
@@ -46,15 +30,6 @@ const campaigns = [
   { title: "Café du Matin", detail: "food · boissons", people: "6 influenceurs", image: "/dashboard/campaign-cafe.png", status: "terminée" },
   { title: "Summer Collection", detail: "mode · lifestyle", people: "7 influenceurs", image: "/dashboard/campaign-summer.png", status: "terminée" },
 ];
-
-function Brand() {
-  return (
-    <div className="dashboard-brand" aria-label="SoMatch">
-      <span>somatch</span>
-      <img src="/somatch-logo-mark.png" alt="" />
-    </div>
-  );
-}
 
 function PlatformBadge({ name }: { name: string }) {
   return <span className={`platform-badge ${name}`} aria-label={name}>{name === "tiktok" ? "♪" : name === "youtube" ? "▶" : ""}</span>;
@@ -97,38 +72,10 @@ export default function Dashboard() {
 
   return (
     <main className="dashboard-page">
-      <aside className="dashboard-sidebar">
-        <Brand />
-        <nav className="primary-nav" aria-label="Navigation principale">
-          {navigation.map(([icon, label], index) => (
-            <button type="button" className={index === 0 ? "active" : ""} key={label}>
-              <i>{icon}</i><span>{label}</span>{label === "influenceurs certifiés" && <em>bientôt disponible</em>}
-            </button>
-          ))}
-        </nav>
-        <nav className="secondary-nav" aria-label="Navigation du compte">
-          {secondaryNavigation.map(([icon, label]) => <button type="button" key={label}><i>{icon}</i><span>{label}</span></button>)}
-        </nav>
-        <section className="sidebar-ai-card">
-          <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
-          <p>votre copilote IA pour des campagnes d’influence plus performantes.</p>
-          <button type="button">découvrir somatch AI <span>→</span></button>
-        </section>
-        <button className="sidebar-profile" type="button">
-          <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
-          <span><strong>sara benali</strong><small>marketeuse</small></span>
-          <b>⌄</b>
-        </button>
-      </aside>
+      <AppSidebar active="accueil" />
 
       <section className="dashboard-main">
-        <header className="dashboard-header">
-          <div><h1>bonjour, sara 👋</h1><p>découvrez, analysez et collaborez avec les meilleurs créateurs.</p></div>
-          <div className="header-actions">
-            <button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button>
-            <button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
-          </div>
-        </header>
+        <AppHeader title="bonjour, sara 👋" subtitle="découvrez, analysez et collaborez avec les meilleurs créateurs." />
 
         <div className="dashboard-columns">
           <div className="dashboard-center">
@@ -175,7 +122,7 @@ export default function Dashboard() {
           <aside className="dashboard-right">
             <section className="dashboard-panel upcoming-panel">
               <div className="panel-heading"><h2>à venir</h2><button type="button">voir tout →</button></div>
-              {upcoming.map((item) => <div className="upcoming-item" key={item.name}><img src={item.image} alt={item.name} /><span><strong>{item.name}</strong><small>{item.type}</small><small>{item.date}</small></span><PlatformBadge name={item.platform} /></div>)}
+              {upcoming.map((item) => <div className="upcoming-item" key={item.name}><img src={item.image} alt={item.name} /><span className="upcoming-copy"><strong>{item.name}</strong><small>{item.type}</small><small>{item.date}</small></span><PlatformBadge name={item.platform} /></div>)}
             </section>
             <section className="inspiration-card">
               <div><i>✦</i><h2>besoin d’inspiration ?</h2></div>

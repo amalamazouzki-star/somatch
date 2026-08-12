@@ -105,3 +105,49 @@ button { color: inherit; }
   .card-logo { width:clamp(92px,25vw,126px); }
   .field > span { width:38px; }
 }
+
+/* Login micro-interactions */
+.login-card,.field,.benefit,.primary-button,.social-button,.forgot,.signup button,.card-logo {
+  transition:transform .38s cubic-bezier(.2,.8,.2,1),box-shadow .38s ease,border-color .3s ease,filter .3s ease,background-position .5s ease;
+}
+.field { border:1px solid transparent; }
+.primary-button,.social-button { position:relative; overflow:hidden; isolation:isolate; }
+.primary-button { background-size:180% 100%; background-position:0 0; }
+.primary-button::after {
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:-60%;
+  bottom:-60%;
+  left:-38%;
+  width:20%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);
+  transform:skewX(-20deg);
+  transition:left .68s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+}
+.login-page button:focus-visible,.login-page input:focus-visible { outline:3px solid rgba(236,47,113,.36); outline-offset:3px; }
+
+@media (hover:hover) and (pointer:fine) {
+  .login-card:hover { border-color:rgba(255,255,255,.25); box-shadow:inset 0 0 48px rgba(255,255,255,.025),0 24px 90px rgba(0,0,0,.36); }
+  .card-logo:hover { transform:translateY(-3px) scale(1.06); filter:drop-shadow(0 10px 14px rgba(235,45,116,.22)); }
+  .field:hover,.field:focus-within { transform:translateY(-2px); border-color:rgba(235,48,117,.38); box-shadow:0 10px 24px rgba(0,0,0,.19),0 0 0 4px rgba(235,48,117,.05); }
+  .benefit:hover { transform:translateY(-5px); border-color:rgba(229,56,139,.48); background:rgba(33,18,33,.66); box-shadow:0 12px 27px rgba(0,0,0,.22); }
+  .benefit:hover > i { animation:login-icon-pop .65s cubic-bezier(.2,.8,.2,1); }
+  .primary-button:hover { transform:translateY(-3px) scale(1.01); background-position:100% 0; box-shadow:0 14px 34px rgba(226,44,111,.25); filter:saturate(1.1); }
+  .primary-button:hover::after { left:125%; }
+  .primary-button:active { transform:translateY(0) scale(.975); }
+  .social-button:hover { transform:translateY(-4px); background:#282831; box-shadow:0 13px 26px rgba(0,0,0,.28); }
+  .social-button:hover i { animation:login-icon-pop .55s cubic-bezier(.2,.8,.2,1); }
+  .forgot:hover,.signup button:hover { filter:brightness(1.2); transform:translateY(-1px); }
+}
+
+@keyframes login-icon-pop {
+  0% { transform:scale(.82); }
+  58% { transform:scale(1.2) rotate(-5deg); }
+  100% { transform:scale(1) rotate(0); }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .login-page * { animation:none!important; transition-duration:.01ms!important; transition-delay:0s!important; }
+}
