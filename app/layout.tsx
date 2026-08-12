@@ -4,6 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Connexion | SoMatch",
   description: "Connectez-vous à votre compte SoMatch.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({
