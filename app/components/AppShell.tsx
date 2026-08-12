@@ -7,7 +7,7 @@ const navigation = [
   { icon: "▥", label: "tendances", href: "/tendances" },
   { icon: "⊞", label: "catégories", href: "/categories" },
   { icon: "♡", label: "favoris", href: "/favoris" },
-  { icon: "▣", label: "mes campagnes", href: "#" },
+  { icon: "▣", label: "mes campagnes", href: "/campagnes" },
   { icon: "⬡", label: "influenceurs certifiés", href: "#", soon: true },
 ];
 
@@ -17,7 +17,7 @@ const secondaryNavigation = [
   ["?", "Support"],
 ] as const;
 
-export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" }) {
+export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" }) {
   const aiDescription = active === "tendances"
     ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
@@ -26,7 +26,9 @@ export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "exp
         ? "votre copilote IA pour créer vos castings parfaits en quelques secondes."
         : active === "favoris"
           ? "votre copilote IA pour analyser vos sélections et créer des castings gagnants."
-          : "votre copilote IA pour des campagnes d’influence plus performantes.";
+          : active === "mes campagnes"
+            ? "votre copilote IA pour créer, optimiser et piloter vos campagnes d’influence."
+            : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
       <div className="dashboard-brand" aria-label="SoMatch">
