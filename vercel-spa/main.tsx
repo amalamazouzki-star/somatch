@@ -7,6 +7,7 @@ import InfluencerProfile from "../app/influenceur/maya-el-amrani/page";
 import Trends from "../app/tendances/page";
 import Categories from "../app/categories/page";
 import SomatchAi from "../app/somatch-ai/page";
+import Favorites from "../app/favoris/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -14,6 +15,7 @@ import "../app/influenceur/maya-el-amrani/profile.css";
 import "../app/tendances/trends.css";
 import "../app/categories/categories.css";
 import "../app/somatch-ai/somatch-ai.css";
+import "../app/favoris/favoris.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -23,6 +25,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/tendances": { component: Trends, title: "Tendances | SoMatch" },
   "/categories": { component: Categories, title: "Catégories | SoMatch" },
   "/somatch-ai": { component: SomatchAi, title: "SoMatch AI | SoMatch" },
+  "/favoris": { component: Favorites, title: "Favoris | SoMatch" },
 };
 
 const normalizedPath = window.location.pathname.replace(/\/$/, "") || "/";
