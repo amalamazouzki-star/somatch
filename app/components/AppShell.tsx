@@ -12,12 +12,12 @@ const navigation = [
 ];
 
 const secondaryNavigation = [
-  ["♙", "profil"],
-  ["⚙", "paramètres"],
-  ["?", "Support"],
+  { icon: "♙", label: "profil", href: "/profil" },
+  { icon: "⚙", label: "paramètres", href: "#" },
+  { icon: "?", label: "Support", href: "#" },
 ] as const;
 
-export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" }) {
+export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" }) {
   const aiDescription = active === "tendances"
     ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
@@ -28,6 +28,8 @@ export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "exp
           ? "votre copilote IA pour analyser vos sélections et créer des castings gagnants."
           : active === "mes campagnes"
             ? "votre copilote IA pour créer, optimiser et piloter vos campagnes d’influence."
+            : active === "profil"
+              ? "votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
             : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
@@ -43,7 +45,7 @@ export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "exp
         ))}
       </nav>
       <nav className="secondary-nav" aria-label="Navigation du compte">
-        {secondaryNavigation.map(([icon, label]) => <button type="button" key={label}><i>{icon}</i><span>{label}</span></button>)}
+        {secondaryNavigation.map((item) => <a className={active === item.label ? "active" : ""} href={item.href} key={item.label} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}><i>{item.icon}</i><span>{item.label}</span></a>)}
       </nav>
       <section className="sidebar-ai-card">
         <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>

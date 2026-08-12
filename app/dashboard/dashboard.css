@@ -27,7 +27,7 @@
 .dashboard-brand > span { font-size:28px; line-height:1; font-weight:800; letter-spacing:-1.2px; }
 .dashboard-brand img { width:44px; height:27px; object-fit:contain; }
 .primary-nav,.secondary-nav { display:flex; flex-direction:column; gap:4px; }
-.primary-nav button,.primary-nav a,.secondary-nav button {
+.primary-nav button,.primary-nav a,.secondary-nav button,.secondary-nav a {
   position:relative;
   width:100%;
   min-height:43px;
@@ -45,9 +45,9 @@
   cursor:pointer;
   text-decoration:none;
 }
-.primary-nav button i,.primary-nav a i,.secondary-nav button i { width:24px; color:#172038; text-align:center; font-size:25px; line-height:1; font-style:normal; font-weight:400; }
-.primary-nav button.active,.primary-nav a.active { background:linear-gradient(100deg,#fff0f0,#fff5ef); color:#f1285b; }
-.primary-nav button.active i,.primary-nav a.active i { color:#f12872; }
+.primary-nav button i,.primary-nav a i,.secondary-nav button i,.secondary-nav a i { width:24px; color:#172038; text-align:center; font-size:25px; line-height:1; font-style:normal; font-weight:400; }
+.primary-nav button.active,.primary-nav a.active,.secondary-nav a.active { background:linear-gradient(100deg,#fff0f0,#fff5ef); color:#f1285b; }
+.primary-nav button.active i,.primary-nav a.active i,.secondary-nav a.active i { color:#f12872; }
 .primary-nav button em,.primary-nav a em { position:absolute; left:49px; top:33px; padding:4px 10px; border-radius:14px; background:#f2f3f6; color:#657087; font-size:10px; font-style:normal; font-weight:500; white-space:nowrap; }
 .primary-nav button:last-child,.primary-nav a:last-child { min-height:63px; align-items:flex-start; padding-top:11px; }
 .secondary-nav { margin-top:10px; padding-top:18px; border-top:1px solid #eceef2; }
