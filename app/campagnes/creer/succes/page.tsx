@@ -3,7 +3,7 @@
 import { AppSidebar } from "../../../components/AppShell";
 
 const nextSteps = [
-  { icon:"▣", title:"Découvrir votre campagne", copy:"Accédez au détail de votre campagne pour voir les influenceurs, le planning et toutes les recommandations.", href:"/campagnes" },
+  { icon:"▣", title:"Découvrir votre campagne", copy:"Accédez au détail de votre campagne pour voir les influenceurs, le planning et toutes les recommandations.", href:"/campagnes/back-to-school-2026" },
   { icon:"♧", title:"Inviter votre équipe", copy:"Collaborez avec votre équipe sur cette campagne en temps réel.", href:"/profil" },
   { icon:"♙", title:"Ajuster votre casting", copy:"Modifiez, remplacez ou ajoutez des créateurs selon vos besoins.", href:"/campagnes/creer/casting" },
   { icon:"⇩", title:"Exporter votre recommandation", copy:"Téléchargez votre recommandation complète en PDF.", href:"/somatch-ai/recommandation" },
@@ -30,7 +30,7 @@ export default function CampaignSuccessPage() {
         <aside className="success-next-card success-motion-card"><h2>Et maintenant ?</h2><nav>{nextSteps.map(step=><a href={step.href} key={step.title}><i>{step.icon}</i><span><strong>{step.title}</strong><small>{step.copy}</small></span><b>›</b></a>)}</nav></aside>
       </div>
       <section className="success-ai-banner success-motion-card"><i>✣</i><span><strong>somatch AI continue de vous accompagner</strong><small>Besoin d’affiner votre stratégie ou de trouver d’autres talents ? Relancez somatch AI à tout moment.</small></span><a href="/somatch-ai">Relancer somatch AI　✣</a></section>
-      <nav className="success-actions"><a href="/campagnes">▱　Retour à mes campagnes</a><a className="primary" href="/campagnes">Voir ma campagne　→</a></nav>
+      <nav className="success-actions"><a href="/campagnes">▱　Retour à mes campagnes</a><a className="primary" href="/campagnes/back-to-school-2026">Voir ma campagne　→</a></nav>
       <footer className="success-security">♙　Vos données sont sécurisées et confidentielles.　　│　　Besoin d’aide ? Contactez notre support</footer>
     </section>
   </main>;

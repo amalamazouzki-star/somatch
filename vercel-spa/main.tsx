@@ -19,6 +19,7 @@ import CampaignSummaryPage from "../app/campagnes/creer/recapitulatif/page";
 import CompareInfluencersPage from "../app/comparer/page";
 import SomatchRecommendationPage from "../app/somatch-ai/recommandation/page";
 import CampaignSuccessPage from "../app/campagnes/creer/succes/page";
+import CampaignDetailPage from "../app/campagnes/back-to-school-2026/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -37,6 +38,7 @@ import "../app/campagnes/creer/recapitulatif/recapitulatif.css";
 import "../app/comparer/comparer.css";
 import "../app/somatch-ai/recommandation/recommandation.css";
 import "../app/campagnes/creer/succes/succes.css";
+import "../app/campagnes/back-to-school-2026/detail.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -54,6 +56,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/campagnes/creer/casting": { component: CampaignCastingPage, title: "Casting de la campagne | SoMatch" },
   "/campagnes/creer/recapitulatif": { component: CampaignSummaryPage, title: "Récapitulatif de la campagne | SoMatch" },
   "/campagnes/creer/succes": { component: CampaignSuccessPage, title: "Campagne créée | SoMatch" },
+  "/campagnes/back-to-school-2026": { component: CampaignDetailPage, title: "Back to School 2026 | SoMatch" },
   "/comparer": { component: CompareInfluencersPage, title: "Comparer les influenceurs | SoMatch" },
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
