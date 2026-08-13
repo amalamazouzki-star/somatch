@@ -72,7 +72,7 @@ export default function SomatchAi() {
   function generateCasting(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setGenerating(true);
-    window.setTimeout(() => setGenerating(false), 900);
+    window.setTimeout(() => { window.location.href = "/somatch-ai/recommandation"; }, 900);
   }
 
   function toggleFavorite(name: string) {
@@ -135,7 +135,7 @@ export default function SomatchAi() {
             <div className="ai-shortlist-heading"><h2>votre shortlist de créateurs&nbsp; ⓘ</h2><span>5 créateurs sélectionnés</span></div>
             <section className="ai-shortlist-card ai-motion-card">
               <div className="ai-creator-list">{creators.map((creator) => <CreatorRow creator={creator} favorite={favorites.includes(creator.name)} onToggle={() => toggleFavorite(creator.name)} key={creator.name} />)}</div>
-              <footer><button type="button">▣&nbsp; ajouter à une campagne</button><button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄&nbsp; comparer</button><button type="button">créer une campagne&nbsp; →</button></footer>
+              <footer><button type="button" onClick={() => { window.location.href = "/somatch-ai/recommandation"; }}>▣&nbsp; voir la recommandation</button><button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄&nbsp; comparer</button><button type="button" onClick={() => { window.location.href = "/campagnes/creer"; }}>créer une campagne&nbsp; →</button></footer>
             </section>
           </div>
         </div>

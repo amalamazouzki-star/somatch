@@ -17,6 +17,7 @@ import CampaignBriefPage from "../app/campagnes/creer/brief/page";
 import CampaignCastingPage from "../app/campagnes/creer/casting/page";
 import CampaignSummaryPage from "../app/campagnes/creer/recapitulatif/page";
 import CompareInfluencersPage from "../app/comparer/page";
+import SomatchRecommendationPage from "../app/somatch-ai/recommandation/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -33,6 +34,7 @@ import "../app/campagnes/creer/brief/brief.css";
 import "../app/campagnes/creer/casting/casting.css";
 import "../app/campagnes/creer/recapitulatif/recapitulatif.css";
 import "../app/comparer/comparer.css";
+import "../app/somatch-ai/recommandation/recommandation.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -42,6 +44,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/tendances": { component: Trends, title: "Tendances | SoMatch" },
   "/categories": { component: Categories, title: "Catégories | SoMatch" },
   "/somatch-ai": { component: SomatchAi, title: "SoMatch AI | SoMatch" },
+  "/somatch-ai/recommandation": { component: SomatchRecommendationPage, title: "Recommandation SoMatch AI | SoMatch" },
   "/favoris": { component: Favorites, title: "Favoris | SoMatch" },
   "/campagnes": { component: Campaigns, title: "Mes campagnes | SoMatch" },
   "/campagnes/creer": { component: CreateCampaignPage, title: "Créer une campagne | SoMatch" },
