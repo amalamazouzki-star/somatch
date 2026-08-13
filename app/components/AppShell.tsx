@@ -40,25 +40,27 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
             : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
-      <div className="dashboard-brand" aria-label="SoMatch">
-        <span>somatch</span>
-        <img src="/somatch-logo-mark.png" alt="" />
+      <div className="sidebar-scroll-area">
+        <div className="dashboard-brand" aria-label="SoMatch">
+          <span>somatch</span>
+          <img src="/somatch-logo-mark.png" alt="" />
+        </div>
+        <nav className="primary-nav" aria-label="Navigation principale">
+          {navigation.map((item) => (
+            <a className={active === item.label ? "active" : ""} href={item.href} key={item.label} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}>
+              <i>{item.icon}</i><span>{item.label}</span>{item.soon && <em>bientôt disponible</em>}
+            </a>
+          ))}
+        </nav>
+        <nav className="secondary-nav" aria-label="Navigation du compte">
+          {secondaryNavigation.map((item) => <a className={active === item.label ? "active" : ""} href={item.href} key={item.label}><i>{item.icon}</i><span>{item.label}</span></a>)}
+        </nav>
+        <section className="sidebar-ai-card">
+          <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
+          <p>{aiDescription}</p>
+          <button type="button">{context === "create-campaign" ? "essayer maintenant" : active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
+        </section>
       </div>
-      <nav className="primary-nav" aria-label="Navigation principale">
-        {navigation.map((item) => (
-          <a className={active === item.label ? "active" : ""} href={item.href} key={item.label} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}>
-            <i>{item.icon}</i><span>{item.label}</span>{item.soon && <em>bientôt disponible</em>}
-          </a>
-        ))}
-      </nav>
-      <nav className="secondary-nav" aria-label="Navigation du compte">
-        {secondaryNavigation.map((item) => <a className={active === item.label ? "active" : ""} href={item.href} key={item.label} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}><i>{item.icon}</i><span>{item.label}</span></a>)}
-      </nav>
-      <section className="sidebar-ai-card">
-        <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
-        <p>{aiDescription}</p>
-        <button type="button">{context === "create-campaign" ? "essayer maintenant" : active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
-      </section>
       <button className="sidebar-profile" type="button">
         <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
         <span><strong>sara benali</strong><small>marketeuse</small></span>

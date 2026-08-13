@@ -22,7 +22,10 @@
   padding:25px 20px 18px;
   border-right:1px solid #f0f1f5;
   background:#fff;
+  overflow:hidden;
 }
+.sidebar-scroll-area { flex:1 1 auto; min-height:0; overflow-y:auto; overflow-x:hidden; scrollbar-width:none; }
+.sidebar-scroll-area::-webkit-scrollbar { display:none; }
 .dashboard-brand { height:60px; display:flex; align-items:flex-start; gap:11px; padding:7px 10px 0; }
 .dashboard-brand > span { font-size:28px; line-height:1; font-weight:800; letter-spacing:-1.2px; }
 .dashboard-brand img { width:44px; height:27px; object-fit:contain; }
@@ -68,13 +71,15 @@
 .sidebar-ai-card button { padding:0; border:0; background:transparent; color:#ff3a69; font-size:12px; font-weight:700; cursor:pointer; }
 .sidebar-ai-card button span { color:#ffab1e; }
 .sidebar-profile {
+  flex:0 0 58px;
   width:100%;
   display:flex;
   align-items:center;
   gap:11px;
-  margin-top:auto;
-  padding:9px 4px 0;
+  margin-top:8px;
+  padding:8px 4px 0;
   border:0;
+  border-top:1px solid #f0f1f5;
   background:transparent;
   color:#111522;
   text-align:left;
@@ -215,6 +220,21 @@
   .popular-suggestions { gap:7px; }.popular-suggestions button { padding:0 10px; }
   .creator-card { padding-left:12px; padding-right:12px; }
   .sidebar-ai-card { padding-left:13px; padding-right:13px; }
+}
+@media (max-height:820px) and (min-width:761px) {
+  .dashboard-sidebar { padding-top:14px; padding-bottom:8px; }
+  .dashboard-brand { height:50px; }
+  .primary-nav,.secondary-nav { gap:1px; }
+  .primary-nav button,.primary-nav a,.secondary-nav button,.secondary-nav a { min-height:36px; }
+  .primary-nav button:last-child,.primary-nav a:last-child { min-height:54px; padding-top:8px; }
+  .secondary-nav { margin-top:6px; padding-top:9px; }
+  .sidebar-ai-card { margin-top:8px; padding:12px 14px; }
+  .sidebar-ai-card p { margin:9px 0; font-size:10px; line-height:1.5; }
+  .sidebar-profile { flex-basis:54px; margin-top:5px; padding-top:5px; }
+  .sidebar-profile img { width:41px; height:41px; }
+}
+@media (max-height:650px) and (min-width:761px) {
+  .sidebar-ai-card { display:none; }
 }
 @media (max-width:1050px) {
   .dashboard-sidebar { width:82px; flex-basis:82px; padding:20px 10px; }
