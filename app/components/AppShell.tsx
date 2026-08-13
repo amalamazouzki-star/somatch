@@ -61,11 +61,11 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
           <button type="button">{context === "create-campaign" ? "essayer maintenant" : active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
         </section>
       </div>
-      <button className="sidebar-profile" type="button">
+      <a className="sidebar-profile" href="/profil" aria-label="Ouvrir le profil de Sara Benali" style={{ textDecoration: "none" }}>
         <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
         <span><strong>sara benali</strong><small>marketeuse</small></span>
         <b>⌄</b>
-      </button>
+      </a>
     </aside>
   );
 }
@@ -76,7 +76,7 @@ export function AppHeader({ title, subtitle }: { title: ReactNode; subtitle: str
       <div><h1>{title}</h1><p>{subtitle}</p></div>
       <div className="header-actions">
         <NotificationTrigger />
-        <button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
+        <a className="profile-menu" href="/profil" aria-label="Ouvrir mon profil" style={{ textDecoration: "none" }}><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></a>
       </div>
     </header>
   );
