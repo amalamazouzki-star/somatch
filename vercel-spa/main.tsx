@@ -11,6 +11,7 @@ import Favorites from "../app/favoris/page";
 import Campaigns from "../app/campagnes/page";
 import ProfilePage from "../app/profil/page";
 import SettingsPage from "../app/parametres/page";
+import SupportPage from "../app/support/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -22,6 +23,7 @@ import "../app/favoris/favoris.css";
 import "../app/campagnes/campagnes.css";
 import "../app/profil/profil.css";
 import "../app/parametres/parametres.css";
+import "../app/support/support.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -35,6 +37,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/campagnes": { component: Campaigns, title: "Mes campagnes | SoMatch" },
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
+  "/support": { component: SupportPage, title: "Support | SoMatch" },
 };
 
 const normalizedPath = window.location.pathname.replace(/\/$/, "") || "/";

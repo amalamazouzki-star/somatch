@@ -14,10 +14,10 @@ const navigation = [
 const secondaryNavigation = [
   { icon: "♙", label: "profil", href: "/profil" },
   { icon: "⚙", label: "paramètres", href: "/parametres" },
-  { icon: "?", label: "Support", href: "#" },
+  { icon: "?", label: "support", href: "/support" },
 ] as const;
 
-export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" | "paramètres" }) {
+export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" | "paramètres" | "support" }) {
   const aiDescription = active === "tendances"
     ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
@@ -32,6 +32,8 @@ export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "exp
               ? "votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
               : active === "paramètres"
                 ? "votre copilote IA pour créer vos castings parfaits en quelques secondes."
+                : active === "support"
+                  ? "Posez vos questions à notre IA et obtenez des réponses instantanées."
             : "votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
@@ -52,7 +54,7 @@ export function AppSidebar({ active }: { active: "accueil" | "somatch AI" | "exp
       <section className="sidebar-ai-card">
         <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
         <p>{aiDescription}</p>
-        <button type="button">découvrir somatch AI <span>→</span></button>
+        <button type="button">{active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
       </section>
       <button className="sidebar-profile" type="button">
         <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
