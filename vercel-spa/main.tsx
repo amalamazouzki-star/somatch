@@ -39,6 +39,7 @@ import "../app/comparer/comparer.css";
 import "../app/somatch-ai/recommandation/recommandation.css";
 import "../app/campagnes/creer/succes/succes.css";
 import "../app/campagnes/back-to-school-2026/detail.css";
+import "../app/components/notifications.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },

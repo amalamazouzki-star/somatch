@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 import "./support.css";
 
 const quickAccess = [
@@ -44,7 +45,7 @@ export default function SupportPage() {
     <main className="dashboard-page support-page">
       <AppSidebar active="support" />
       <section className="dashboard-main support-main">
-        <header className="support-header"><div><h1>support</h1><p>nous sommes là pour vous accompagner.</p></div><div className="support-user-actions"><button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
+        <header className="support-header"><div><h1>support</h1><p>nous sommes là pour vous accompagner.</p></div><div className="support-user-actions"><NotificationTrigger /><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
 
         <label className="support-search support-motion-card"><i>⌕</i><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher dans le centre d’aide..." aria-label="Rechercher dans le centre d’aide" /></label>
 

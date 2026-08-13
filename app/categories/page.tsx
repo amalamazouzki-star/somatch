@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const popularCategories = [
   { name: "beauty", icon: "♙", creators: "3 256", engagement: "4,7%", growth: "+18,6%", image: "/influencer-collage.png", position: "8% center" },
@@ -56,7 +57,7 @@ export default function Categories() {
           <div className="categories-title"><h1>catégories</h1><p>explorez les créateurs par univers et trouvez votre audience idéale.</p></div>
           <label className="category-search"><i>⌕</i><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher une catégorie..." aria-label="Rechercher une catégorie" /></label>
           <div className="category-user-actions">
-            <button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button>
+            <NotificationTrigger />
             <button type="button" className="profile-menu" aria-label="Menu utilisateur"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
           </div>
           <aside className="category-ai-help category-hover-card">

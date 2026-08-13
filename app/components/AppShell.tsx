@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { NotificationTrigger } from "./NotificationCenter";
 
 const navigation = [
   { icon: "⌂", label: "accueil", href: "/dashboard" },
@@ -72,7 +73,7 @@ export function AppHeader({ title, subtitle }: { title: ReactNode; subtitle: str
     <header className="dashboard-header">
       <div><h1>{title}</h1><p>{subtitle}</p></div>
       <div className="header-actions">
-        <button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button>
+        <NotificationTrigger />
         <button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
       </div>
     </header>

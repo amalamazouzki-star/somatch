@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const filters = [
   ["▣", "30 derniers jours"],
@@ -99,7 +100,7 @@ export default function Trends() {
           <div><h1>tendances</h1><p>analysez ce qui performe en ce moment dans l’influence.</p></div>
           <div className="trends-header-actions">
             <label><i>⌕</i><input aria-label="Rechercher" placeholder="rechercher un créateur, une catégorie..." /></label>
-            <button type="button" className="trends-notification" aria-label="Notifications">♧<span>3</span></button>
+            <NotificationTrigger className="trends-notification" />
             <button type="button" className="trends-profile" aria-label="Menu utilisateur"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
           </div>
         </header>

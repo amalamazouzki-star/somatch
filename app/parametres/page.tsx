@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const settingsSections = [
   ["⚙", "Général"], ["♧", "Notifications"], ["✧", "Préférences somatch AI"],
@@ -43,7 +44,7 @@ export default function SettingsPage() {
     <main className="dashboard-page settings-page">
       <AppSidebar active="paramètres" />
       <form className="dashboard-main settings-main" onSubmit={saveSettings}>
-        <header className="settings-header"><div><h1>paramètres</h1><p>personnalisez votre expérience sur somatch.</p></div><div className="settings-user-actions"><button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
+        <header className="settings-header"><div><h1>paramètres</h1><p>personnalisez votre expérience sur somatch.</p></div><div className="settings-user-actions"><NotificationTrigger /><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
 
         <section className="settings-workspace">
           <nav className="settings-menu settings-motion-card" aria-label="Sections des paramètres">{settingsSections.map(([icon, label]) => <button type="button" className={activeSection === label ? "active" : ""} onClick={() => setActiveSection(label)} key={label}><i>{icon}</i><span>{label}</span>{label === "Intégrations" ? <em>BETA</em> : null}</button>)}</nav>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const campaigns = [
   { id:"CMP-2026-007", name:"Kinder – Back to School 2026", brand:"Kinder", objective:"Notoriété & Engagement", budget:"150 000 MAD", date:"10 août 2026", status:"En préparation", image:"/dashboard/campaign-glow.png", avatars:["/explorer/salma.png","/explorer/amine.png","/explorer/youssef.png"], more:2 },
@@ -35,7 +36,7 @@ export default function Campaigns() {
     <main className="dashboard-page campaigns-page">
       <AppSidebar active="mes campagnes" />
       <section className="dashboard-main campaigns-main">
-        <header className="campaigns-header"><div><h1>mes campagnes</h1><p>gérez toutes vos campagnes d’influence au même endroit.</p></div><div className="campaign-user-actions"><button type="button" className="notification-button">♧<span>3</span></button><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
+        <header className="campaigns-header"><div><h1>mes campagnes</h1><p>gérez toutes vos campagnes d’influence au même endroit.</p></div><div className="campaign-user-actions"><NotificationTrigger /><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
         <section className="campaign-toolbar"><label><i>⌕</i><input value={query} onChange={(event)=>setQuery(event.target.value)} placeholder="rechercher une campagne..." /></label><button type="button">tous les statuts <span>⌄</span></button><button type="button">▣&nbsp; période : tout <span>⌄</span></button><a href="/campagnes/creer" className="campaign-create">＋&nbsp; créer une campagne</a></section>
 
         <section className="campaign-table campaign-motion-card">

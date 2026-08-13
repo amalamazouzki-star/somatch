@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const collections = [
   ["♥", "Tous mes favoris", 32], ["▣", "Kinder BTS 2026", 14], ["♙", "Beauty Campaign", 8], ["♨", "Ramadan 2026", 6], ["▤", "À présenter au client", 12], ["♧", "Ambassadeurs potentiels", 5],
@@ -47,7 +48,7 @@ export default function Favorites() {
           <label><i>⌕</i><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="rechercher un créateur dans vos favoris..." aria-label="Rechercher dans les favoris" /></label>
           <button type="button" className="favorites-analysis">✧&nbsp; analyser ma sélection</button>
           <button type="button" className="favorites-campaign">＋&nbsp; ajouter à une campagne</button>
-          <button type="button" className="favorites-notification" aria-label="Notifications">♧<span>2</span></button>
+          <NotificationTrigger className="favorites-notification" />
           <button type="button" className="favorites-profile"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
         </header>
 

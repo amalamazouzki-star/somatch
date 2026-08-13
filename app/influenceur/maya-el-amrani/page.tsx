@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../../components/AppShell";
+import { NotificationTrigger } from "../../components/NotificationCenter";
 
 const metrics = [
   { icon: "♟", label: "abonnés", value: "256K", growth: "+12,4%", note: "vs mois dernier", tone: "pink" },
@@ -87,7 +88,7 @@ export default function InfluencerProfile() {
           <a href="/explorer" className="back-to-explorer"><span>←</span> retour à l’explorer</a>
           <div className="influencer-top-actions">
             <label className="profile-global-search"><i>⌕</i><input aria-label="Rechercher" placeholder="rechercher un créateur, une catégorie..." /></label>
-            <button type="button" className="profile-notification" aria-label="Notifications">♧<span>3</span></button>
+            <NotificationTrigger className="profile-notification" />
             <button type="button" className="profile-user" aria-label="Menu utilisateur"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button>
           </div>
         </header>

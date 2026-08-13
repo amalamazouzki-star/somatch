@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { NotificationTrigger } from "../components/NotificationCenter";
 
 const profileTabs = [
   ["♙", "mon profil"],
@@ -41,7 +42,7 @@ export default function ProfilePage() {
       <form className="dashboard-main profile-main" onSubmit={saveProfile}>
         <header className="profile-header">
           <div><h1>mon profil</h1><p>gérez vos informations personnelles et celles de votre organisation.</p></div>
-          <div className="profile-user-actions"><button type="button" className="notification-button" aria-label="Notifications">♧<span>3</span></button><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div>
+          <div className="profile-user-actions"><NotificationTrigger /><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div>
         </header>
 
         <nav className="profile-tabs" aria-label="Sections du profil">
