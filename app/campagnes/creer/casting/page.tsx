@@ -91,7 +91,7 @@ export default function CampaignCastingPage() {
               <button type="button" className="load-creators" onClick={() => setVisibleCount(5)}>Charger plus de créateurs&nbsp;&nbsp;&nbsp;⌄</button>
             </div>
 
-            <footer className="casting-actions"><a href="/campagnes/creer/brief">←&nbsp;&nbsp; Retour</a><button type="button">Continuer vers le récapitulatif&nbsp;&nbsp;&nbsp; →</button></footer>
+            <footer className="casting-actions"><a href="/campagnes/creer/brief">←&nbsp;&nbsp; Retour</a><a className="casting-recap-link" href="/campagnes/creer/recapitulatif">Continuer vers le récapitulatif&nbsp;&nbsp;&nbsp; →</a></footer>
           </section>
 
           <aside className="casting-aside">
