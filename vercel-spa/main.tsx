@@ -23,7 +23,6 @@ import "../app/favoris/favoris.css";
 import "../app/campagnes/campagnes.css";
 import "../app/profil/profil.css";
 import "../app/parametres/parametres.css";
-import "../app/support/support.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },

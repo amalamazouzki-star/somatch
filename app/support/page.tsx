@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AppSidebar } from "../components/AppShell";
+import "./support.css";
 
 const quickAccess = [
   { icon: "♨", title: "Premiers pas avec somatch", description: "Découvrez les bases et prenez en main la plateforme.", tone: "pink" },

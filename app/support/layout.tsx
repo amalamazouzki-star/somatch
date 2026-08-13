@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "../dashboard/dashboard.css";
-import "./support.css";
 
 export const metadata: Metadata = {
   title: "Support | SoMatch",
