@@ -36,7 +36,7 @@ export default function Campaigns() {
       <AppSidebar active="mes campagnes" />
       <section className="dashboard-main campaigns-main">
         <header className="campaigns-header"><div><h1>mes campagnes</h1><p>gérez toutes vos campagnes d’influence au même endroit.</p></div><div className="campaign-user-actions"><button type="button" className="notification-button">♧<span>3</span></button><button type="button" className="profile-menu"><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></button></div></header>
-        <section className="campaign-toolbar"><label><i>⌕</i><input value={query} onChange={(event)=>setQuery(event.target.value)} placeholder="rechercher une campagne..." /></label><button type="button">tous les statuts <span>⌄</span></button><button type="button">▣&nbsp; période : tout <span>⌄</span></button><button type="button" className="campaign-create">＋&nbsp; créer une campagne</button></section>
+        <section className="campaign-toolbar"><label><i>⌕</i><input value={query} onChange={(event)=>setQuery(event.target.value)} placeholder="rechercher une campagne..." /></label><button type="button">tous les statuts <span>⌄</span></button><button type="button">▣&nbsp; période : tout <span>⌄</span></button><a href="/campagnes/creer" className="campaign-create">＋&nbsp; créer une campagne</a></section>
 
         <section className="campaign-table campaign-motion-card">
           <div className="campaign-table-head"><span>campagne</span><span>marque</span><span>objectif</span><span>budget estimé</span><span>influenceurs</span><span>créée le</span><span>statut</span><span>actions</span></div>

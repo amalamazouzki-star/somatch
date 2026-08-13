@@ -12,6 +12,7 @@ import Campaigns from "../app/campagnes/page";
 import ProfilePage from "../app/profil/page";
 import SettingsPage from "../app/parametres/page";
 import SupportPage from "../app/support/page";
+import CreateCampaignPage from "../app/campagnes/creer/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -23,6 +24,7 @@ import "../app/favoris/favoris.css";
 import "../app/campagnes/campagnes.css";
 import "../app/profil/profil.css";
 import "../app/parametres/parametres.css";
+import "../app/campagnes/creer/creer-campagne.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -34,6 +36,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/somatch-ai": { component: SomatchAi, title: "SoMatch AI | SoMatch" },
   "/favoris": { component: Favorites, title: "Favoris | SoMatch" },
   "/campagnes": { component: Campaigns, title: "Mes campagnes | SoMatch" },
+  "/campagnes/creer": { component: CreateCampaignPage, title: "Créer une campagne | SoMatch" },
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
   "/support": { component: SupportPage, title: "Support | SoMatch" },
