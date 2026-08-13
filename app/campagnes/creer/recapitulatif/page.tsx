@@ -25,7 +25,6 @@ function SocialIcon({ platform }: { platform: "instagram" | "tiktok" | "youtube"
 
 export default function CampaignSummaryPage() {
   const [draftSaved, setDraftSaved] = useState(false);
-  const [created, setCreated] = useState(false);
 
   return (
     <main className="dashboard-page create-campaign-page campaign-summary-page">
@@ -54,7 +53,7 @@ export default function CampaignSummaryPage() {
               <section className="summary-budget"><h3>Répartition du budget</h3><div><span>Créateurs<strong>108 000 MAD (72%)</strong></span><span>Production<strong>24 000 MAD (16%)</strong></span><span>Gestion & coordination<strong>18 000 MAD (12%)</strong></span></div><p>ⓘ&nbsp; Budget total : 150 000 MAD</p></section>
             </div>
 
-            <footer className="summary-actions"><a href="/campagnes/creer/casting">←&nbsp;&nbsp; Retour au casting</a><button type="button" onClick={() => setDraftSaved(true)}>{draftSaved ? "Brouillon enregistré ✓" : "Enregistrer comme brouillon"}</button><button type="button" className={created ? "created" : ""} onClick={() => setCreated(true)}>{created ? "Campagne créée ✓" : "Créer la campagne　◎"}</button></footer>
+            <footer className="summary-actions"><a href="/campagnes/creer/casting">←&nbsp;&nbsp; Retour au casting</a><button type="button" onClick={() => setDraftSaved(true)}>{draftSaved ? "Brouillon enregistré ✓" : "Enregistrer comme brouillon"}</button><a className="summary-create-link" href="/campagnes/creer/succes">Créer la campagne　◎</a></footer>
           </section>
 
           <aside className="summary-aside">

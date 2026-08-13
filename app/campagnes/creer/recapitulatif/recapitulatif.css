@@ -7,3 +7,6 @@
 @media(max-width:1120px){.summary-page-grid{grid-template-columns:1fr}.summary-aside{display:grid;grid-template-columns:1fr 1fr}.summary-analysis,.summary-performance{height:auto;min-height:320px}.summary-workspace{min-width:850px}.summary-main{overflow-x:auto}}
 @media(max-width:760px){.summary-main{padding-right:14px}.summary-header{height:auto}.summary-stepper{width:620px}.summary-page-grid,.summary-workspace{min-width:760px}.summary-aside{grid-template-columns:1fr}.summary-actions{grid-template-columns:160px 1fr 210px}}
 @media(prefers-reduced-motion:reduce){.campaign-summary-page *{animation:none!important;transition-duration:.01ms!important}}
+
+.summary-actions .summary-create-link{height:38px;display:flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:linear-gradient(100deg,#ed0969,#ff7d17);color:#fff;font-size:9px;font-weight:700;text-decoration:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
+@media(hover:hover) and (pointer:fine){.summary-actions .summary-create-link:hover{transform:translateY(-3px);box-shadow:0 11px 23px rgba(237,10,104,.22)}}
