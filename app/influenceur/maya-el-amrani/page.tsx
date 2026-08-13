@@ -115,7 +115,7 @@ export default function InfluencerProfile() {
           <div className="profile-actions">
             <button type="button" className={favorite ? "is-active" : ""} onClick={() => setFavorite((value) => !value)}>♡ &nbsp;{favorite ? "ajouté aux favoris" : "ajouter aux favoris"}</button>
             <button type="button" className={`campaign-action ${added ? "is-added" : ""}`} onClick={() => setAdded((value) => !value)}>＋ &nbsp;{added ? "ajoutée à la campagne" : "ajouter à une campagne"}</button>
-            <button type="button">⇄ &nbsp; comparer</button>
+            <button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄ &nbsp; comparer</button>
           </div>
         </section>
 

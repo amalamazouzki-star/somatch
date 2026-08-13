@@ -73,7 +73,7 @@ export default function Favorites() {
           </aside>
 
           <div className="favorites-content">
-            <section className="favorites-bulkbar favorite-motion-card"><label><input type="checkbox" checked={selected.length === visibleCreators.length && visibleCreators.length > 0} onChange={() => setSelected(selected.length === visibleCreators.length ? [] : visibleCreators.map((creator,index) => creatorKey(creator,index)))} /><span>{selected.length} sélectionné{selected.length > 1 ? "s" : ""}</span></label><div><button type="button">⇄&nbsp; comparer</button><button type="button">▣&nbsp; déplacer</button><button type="button" className="delete" onClick={removeSelected}>♙&nbsp; supprimer</button></div></section>
+            <section className="favorites-bulkbar favorite-motion-card"><label><input type="checkbox" checked={selected.length === visibleCreators.length && visibleCreators.length > 0} onChange={() => setSelected(selected.length === visibleCreators.length ? [] : visibleCreators.map((creator,index) => creatorKey(creator,index)))} /><span>{selected.length} sélectionné{selected.length > 1 ? "s" : ""}</span></label><div><a href="/comparer">⇄&nbsp; comparer</a><button type="button">▣&nbsp; déplacer</button><button type="button" className="delete" onClick={removeSelected}>♙&nbsp; supprimer</button></div></section>
             <div className={`favorite-creator-grid ${gridView ? "" : "list-view"}`}>
               {visibleCreators.map((creator,index) => { const key=creatorKey(creator,index); return (
                 <article className="favorite-creator-card favorite-motion-card" key={key}>

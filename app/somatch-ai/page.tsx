@@ -135,7 +135,7 @@ export default function SomatchAi() {
             <div className="ai-shortlist-heading"><h2>votre shortlist de créateurs&nbsp; ⓘ</h2><span>5 créateurs sélectionnés</span></div>
             <section className="ai-shortlist-card ai-motion-card">
               <div className="ai-creator-list">{creators.map((creator) => <CreatorRow creator={creator} favorite={favorites.includes(creator.name)} onToggle={() => toggleFavorite(creator.name)} key={creator.name} />)}</div>
-              <footer><button type="button">▣&nbsp; ajouter à une campagne</button><button type="button">⇄&nbsp; comparer</button><button type="button">créer une campagne&nbsp; →</button></footer>
+              <footer><button type="button">▣&nbsp; ajouter à une campagne</button><button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄&nbsp; comparer</button><button type="button">créer une campagne&nbsp; →</button></footer>
             </section>
           </div>
         </div>

@@ -16,6 +16,7 @@ import CreateCampaignPage from "../app/campagnes/creer/page";
 import CampaignBriefPage from "../app/campagnes/creer/brief/page";
 import CampaignCastingPage from "../app/campagnes/creer/casting/page";
 import CampaignSummaryPage from "../app/campagnes/creer/recapitulatif/page";
+import CompareInfluencersPage from "../app/comparer/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -31,6 +32,7 @@ import "../app/campagnes/creer/creer-campagne.css";
 import "../app/campagnes/creer/brief/brief.css";
 import "../app/campagnes/creer/casting/casting.css";
 import "../app/campagnes/creer/recapitulatif/recapitulatif.css";
+import "../app/comparer/comparer.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -46,6 +48,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/campagnes/creer/brief": { component: CampaignBriefPage, title: "Brief de la campagne | SoMatch" },
   "/campagnes/creer/casting": { component: CampaignCastingPage, title: "Casting de la campagne | SoMatch" },
   "/campagnes/creer/recapitulatif": { component: CampaignSummaryPage, title: "Récapitulatif de la campagne | SoMatch" },
+  "/comparer": { component: CompareInfluencersPage, title: "Comparer les influenceurs | SoMatch" },
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
   "/support": { component: SupportPage, title: "Support | SoMatch" },
