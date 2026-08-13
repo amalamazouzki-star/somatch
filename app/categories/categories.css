@@ -2,7 +2,7 @@
   --category-spring:cubic-bezier(.2,.8,.2,1);
   --category-shadow:0 17px 42px rgba(36,31,47,.1),0 5px 15px rgba(246,39,103,.06);
 }
-.categories-main { padding:0 26px 18px; overflow:hidden; background:linear-gradient(130deg,#fff 0,#fff 70%,#fffdfb 100%); }
+.categories-main { padding:0 26px 18px; overflow-x:hidden; overflow-y:auto; overscroll-behavior-y:contain; -webkit-overflow-scrolling:touch; background:linear-gradient(130deg,#fff 0,#fff 70%,#fffdfb 100%); }
 .categories-topbar { position:relative; height:188px; border-bottom:1px solid #edf0f3; }
 .categories-title { position:absolute; left:0; top:26px; }
 .categories-title h1 { margin:0 0 8px; color:#0e1118; font-size:25px; line-height:1; letter-spacing:-.65px; text-transform:lowercase; }
