@@ -91,8 +91,10 @@
 .dashboard-header h1 { margin:0 0 8px; font-size:25px; line-height:1; letter-spacing:-.65px; font-weight:800; text-transform:lowercase; }
 .dashboard-header p { margin:0; color:#606b80; font-size:12px; }
 .header-actions { display:flex; align-items:center; gap:18px; }
-.notification-button { position:relative; width:35px; height:42px; padding:0; border:0; background:transparent; color:#111; font-size:30px; transform:rotate(180deg); cursor:pointer; }
-.notification-button span { position:absolute; right:0; top:1px; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:#f42463; color:#fff; font-size:10px; transform:rotate(180deg); }
+.notification-button { position:relative; width:35px; height:42px; padding:0; border:0; background:transparent; color:#111; font-size:0; cursor:pointer; }
+.notification-button::before { content:""; position:absolute; left:8px; top:12px; width:15px; height:14px; border:2px solid currentColor; border-radius:9px 9px 5px 5px; }
+.notification-button::after { content:""; position:absolute; left:14px; top:29px; width:6px; height:2px; border-radius:3px; background:currentColor; }
+.notification-button span { position:absolute; z-index:2; right:0; top:1px; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:#f42463; color:#fff; font-size:10px; }
 .profile-menu { display:flex; align-items:center; gap:10px; padding:0; border:0; background:transparent; cursor:pointer; }
 .profile-menu img { width:46px; height:46px; border-radius:50%; object-fit:cover; }
 .profile-menu span { color:#172038; font-size:17px; }
