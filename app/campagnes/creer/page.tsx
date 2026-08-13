@@ -13,7 +13,6 @@ function SelectField({ label, required, children, defaultValue = "" }: { label: 
 
 export default function CreateCampaignPage() {
   const [draftSaved, setDraftSaved] = useState(false);
-  const [continued, setContinued] = useState(false);
   const [objectives, setObjectives] = useState(0);
 
   return (
@@ -30,7 +29,7 @@ export default function CreateCampaignPage() {
         </nav>
 
         <div className="create-campaign-grid">
-          <form className="campaign-information-card" onSubmit={(event) => { event.preventDefault(); setContinued(true); }}>
+          <form className="campaign-information-card" onSubmit={(event) => { event.preventDefault(); window.location.href = "/campagnes/creer/brief"; }}>
             <div className="form-card-title"><small>Étape 1 sur 4</small><h2>Informations générales</h2><p>Commençons par les informations clés de votre campagne.</p></div>
             <div className="campaign-form-grid">
               <label className="create-field"><span>Nom de la campagne <b>*</b></span><input required placeholder="Ex : Back to School 2026" /></label>
@@ -43,7 +42,7 @@ export default function CreateCampaignPage() {
               <SelectField label="Fuseau horaire" defaultValue="casa"><option value="casa">(GMT+1) Casablanca</option><option value="paris">(GMT+2) Paris</option><option value="utc">UTC</option></SelectField>
               <label className="campaign-objectives"><span>Objectifs détaillés <small>(optionnel)</small></span><textarea maxLength={500} onChange={(event) => setObjectives(event.target.value.length)} placeholder="Décrivez vos objectifs en quelques lignes..." /><b>{objectives} / 500</b></label>
             </div>
-            <div className="campaign-form-actions"><button type="submit">{continued ? "Étape enregistrée ✓" : "Continuer"}<span>→</span></button></div>
+            <div className="campaign-form-actions"><button type="submit">Continuer<span>→</span></button></div>
           </form>
 
           <aside className="create-campaign-aside">
