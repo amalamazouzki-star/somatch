@@ -18,9 +18,11 @@ const secondaryNavigation = [
   { icon: "?", label: "support", href: "/support" },
 ] as const;
 
-export function AppSidebar({ active, context }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" | "paramètres" | "support"; context?: "create-campaign" }) {
+export function AppSidebar({ active, context }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" | "paramètres" | "support" | "aucun"; context?: "create-campaign" | "empty-states" }) {
   const aiDescription = context === "create-campaign"
     ? "Besoin d’inspiration ? Laissez notre IA vous aider à trouver les meilleurs créateurs."
+    : context === "empty-states"
+      ? "Besoin d’aide pour trouver les meilleurs créateurs ou lancer votre campagne ? somatch AI est là pour vous."
     : active === "tendances"
     ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
@@ -57,7 +59,7 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
         <section className="sidebar-ai-card">
           <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
           <p>{aiDescription}</p>
-          <button type="button">{context === "create-campaign" ? "essayer maintenant" : active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
+          <button type="button">{context === "create-campaign" ? "essayer maintenant" : context === "empty-states" || active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
         </section>
       </div>
       <a className="sidebar-profile" href="/profil" aria-label="Ouvrir le profil de Sara Benali" style={{ textDecoration: "none" }}>

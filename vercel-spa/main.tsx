@@ -20,6 +20,7 @@ import CompareInfluencersPage from "../app/comparer/page";
 import SomatchRecommendationPage from "../app/somatch-ai/recommandation/page";
 import CampaignSuccessPage from "../app/campagnes/creer/succes/page";
 import CampaignDetailPage from "../app/campagnes/back-to-school-2026/page";
+import EmptyStatesPage from "../app/etats-vides/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -40,6 +41,7 @@ import "../app/somatch-ai/recommandation/recommandation.css";
 import "../app/campagnes/creer/succes/succes.css";
 import "../app/campagnes/back-to-school-2026/detail.css";
 import "../app/components/notifications.css";
+import "../app/etats-vides/empty-states.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -62,6 +64,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
   "/support": { component: SupportPage, title: "Support | SoMatch" },
+  "/etats-vides": { component: EmptyStatesPage, title: "États vides | SoMatch" },
 };
 
 const normalizedPath = window.location.pathname.replace(/\/$/, "") || "/";
