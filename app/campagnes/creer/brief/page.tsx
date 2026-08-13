@@ -27,7 +27,6 @@ export default function CampaignBriefPage() {
   const [selectedKpis, setSelectedKpis] = useState(new Set<string>(["Notoriété / Reach", "Engagement", "Trafic"]));
   const [briefLength, setBriefLength] = useState(0);
   const [analyzed, setAnalyzed] = useState(false);
-  const [continued, setContinued] = useState(false);
 
   return (
     <main className="dashboard-page create-campaign-page campaign-brief-page">
@@ -40,7 +39,7 @@ export default function CampaignBriefPage() {
         </nav>
 
         <div className="create-campaign-grid brief-campaign-grid">
-          <form className="campaign-information-card brief-information-card" onSubmit={(event) => { event.preventDefault(); setContinued(true); }}>
+          <form className="campaign-information-card brief-information-card" onSubmit={(event) => event.preventDefault()}>
             <div className="form-card-title brief-card-title"><small>Étape 2 sur 4</small><h2>Brief de la campagne</h2><p>Définissez votre cible, vos objectifs et le type de contenu attendu.</p></div>
 
             <div className="brief-sections-grid">
@@ -55,7 +54,7 @@ export default function CampaignBriefPage() {
               <section className="brief-block brief-copy-block"><div className="brief-copy"><h3>Décrivez votre brief</h3><p>Plus vous êtes précis, plus somatch AI pourra vous proposer le casting idéal.</p><textarea maxLength={2000} onChange={(event) => setBriefLength(event.target.value.length)} placeholder="Décrivez votre campagne, le message clé, vos attentes en termes de ton, d’univers visuel, de contraintes, de do’s & don’ts..." /><b>{briefLength} / 2000</b></div><aside><h3>Analyser mon brief avec somatch AI&nbsp; ✣</h3><p>Notre IA analysera votre brief et vous aidera à définir les critères et le casting idéal.</p><button type="button" onClick={() => setAnalyzed(true)}>{analyzed ? "Brief analysé ✓" : "Analyser mon brief"}</button></aside></section>
             </div>
 
-            <footer className="brief-form-actions"><a href="/campagnes/creer">←&nbsp;&nbsp; Retour</a><button type="submit">{continued ? "Étape enregistrée ✓" : "Continuer"}<span>→</span></button></footer>
+            <footer className="brief-form-actions"><a href="/campagnes/creer">←&nbsp;&nbsp; Retour</a><a className="brief-continue-link" href="/campagnes/creer/casting">Continuer<span>→</span></a></footer>
           </form>
 
           <aside className="create-campaign-aside brief-aside">

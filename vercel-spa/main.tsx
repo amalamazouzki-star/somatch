@@ -14,6 +14,7 @@ import SettingsPage from "../app/parametres/page";
 import SupportPage from "../app/support/page";
 import CreateCampaignPage from "../app/campagnes/creer/page";
 import CampaignBriefPage from "../app/campagnes/creer/brief/page";
+import CampaignCastingPage from "../app/campagnes/creer/casting/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -27,6 +28,7 @@ import "../app/profil/profil.css";
 import "../app/parametres/parametres.css";
 import "../app/campagnes/creer/creer-campagne.css";
 import "../app/campagnes/creer/brief/brief.css";
+import "../app/campagnes/creer/casting/casting.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -40,6 +42,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/campagnes": { component: Campaigns, title: "Mes campagnes | SoMatch" },
   "/campagnes/creer": { component: CreateCampaignPage, title: "Créer une campagne | SoMatch" },
   "/campagnes/creer/brief": { component: CampaignBriefPage, title: "Brief de la campagne | SoMatch" },
+  "/campagnes/creer/casting": { component: CampaignCastingPage, title: "Casting de la campagne | SoMatch" },
   "/profil": { component: ProfilePage, title: "Mon profil | SoMatch" },
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
   "/support": { component: SupportPage, title: "Support | SoMatch" },
