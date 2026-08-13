@@ -21,6 +21,7 @@ import SomatchRecommendationPage from "../app/somatch-ai/recommandation/page";
 import CampaignSuccessPage from "../app/campagnes/creer/succes/page";
 import CampaignDetailPage from "../app/campagnes/back-to-school-2026/page";
 import EmptyStatesPage from "../app/etats-vides/page";
+import ModalsConfirmationsPage from "../app/modales-confirmations/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
@@ -42,6 +43,7 @@ import "../app/campagnes/creer/succes/succes.css";
 import "../app/campagnes/back-to-school-2026/detail.css";
 import "../app/components/notifications.css";
 import "../app/etats-vides/empty-states.css";
+import "../app/modales-confirmations/modales-confirmations.css";
 
 const routes: Record<string, { component: typeof Login; title: string }> = {
   "/": { component: Login, title: "Connexion | SoMatch" },
@@ -65,6 +67,7 @@ const routes: Record<string, { component: typeof Login; title: string }> = {
   "/parametres": { component: SettingsPage, title: "Paramètres | SoMatch" },
   "/support": { component: SupportPage, title: "Support | SoMatch" },
   "/etats-vides": { component: EmptyStatesPage, title: "États vides | SoMatch" },
+  "/modales-confirmations": { component: ModalsConfirmationsPage, title: "Modales & Confirmations | SoMatch" },
 };
 
 const normalizedPath = window.location.pathname.replace(/\/$/, "") || "/";
