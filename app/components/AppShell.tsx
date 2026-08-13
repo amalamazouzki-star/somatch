@@ -42,8 +42,7 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
     <aside className="dashboard-sidebar">
       <div className="sidebar-scroll-area">
         <div className="dashboard-brand" aria-label="SoMatch">
-          <span>somatch</span>
-          <img src="/somatch-logo-mark.png" alt="" />
+          <img src="/somatch-logo-vb.png" alt="SoMatch" />
         </div>
         <nav className="primary-nav" aria-label="Navigation principale">
           {navigation.map((item) => (
