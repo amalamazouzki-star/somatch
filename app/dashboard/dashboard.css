@@ -228,6 +228,7 @@
   .popular-suggestions { gap:7px; }.popular-suggestions button { padding:0 10px; }
   .creator-card { padding-left:12px; padding-right:12px; }
   .primary-nav button,.primary-nav a,.secondary-nav button,.secondary-nav a { gap:12px; font-size:12px; }
+  .primary-nav a:last-child > span { white-space:nowrap; font-size:11px; }
   .campaign-item { gap:4px; }
   .campaign-item img { width:37px; height:37px; }
   .campaign-item > b { min-width:50px; padding-left:4px; padding-right:4px; font-size:8px; }
