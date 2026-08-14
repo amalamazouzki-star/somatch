@@ -1,26 +1,27 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, type CSSProperties } from "react";
 import { AppHeader, AppSidebar } from "../components/AppShell";
+import { SocialLogo, type SocialNetwork } from "../components/SocialLogo";
 
 const initialBrief = "Campagne Back to School. Mettre en avant Kinder comme le compagnon idéal des petits au quotidien et soutenir les parents dans la rentrée scolaire.\nTon bienveillant, familial et positif.";
 
 const formats = ["Reel", "Stories", "Unboxing", "UGC", "Live"] as const;
-const quickSuggestions = ["Lancement produit", "Back to School", "Ramadan", "UGC Challenge", "Awareness", "Conversion"] as const;
+const quickSuggestions = ["Lancement de produit", "Back to School", "Ramadan", "Défi UGC", "Notoriété", "Conversion"] as const;
 
 const recentBriefs = [
-  { brand: "Kinder", title: "Kinder - Back to School", date: "12 août 2026", status: "complété", tone: "red" },
-  { brand: "LC WAIKIKI", title: "LC Waikiki - BTS", date: "6 août 2026", status: "brouillon", tone: "blue" },
-  { brand: "FILORGA", title: "Filorga - Sérum 5XP", date: "30 juil. 2026", status: "complété", tone: "gray" },
-  { brand: "URIAGE", title: "Uriage - Hyseac UGC", date: "22 juil. 2026", status: "brouillon", tone: "navy" },
+  { brand: "Kinder", title: "Kinder – Back to School", date: "12 août 2026", status: "Complété", tone: "red" },
+  { brand: "LC WAIKIKI", title: "LC Waikiki – BTS", date: "6 août 2026", status: "Brouillon", tone: "blue" },
+  { brand: "FILORGA", title: "Filorga – Sérum 5XP", date: "30 juil. 2026", status: "Complété", tone: "gray" },
+  { brand: "URIAGE", title: "Uriage – Hyséac UGC", date: "22 juil. 2026", status: "Brouillon", tone: "navy" },
 ] as const;
 
 const creators = [
-  { name: "souhaila abbad", handle: "@souhailaabbad", niches: "Mom Life  ·  Lifestyle", image: "/explorer/salma.png", platforms: ["instagram", "tiktok"], followers: "176K", engagement: "5,2%", score: 92, fit: "Parfait fit : maman créative, contenu authentique et très proche de sa communauté." },
-  { name: "amine hls", handle: "@amine.hls", niches: "Family  ·  Lifestyle", image: "/explorer/amine.png", platforms: ["instagram", "tiktok", "youtube"], followers: "718K", engagement: "6,1%", score: 91, fit: "Père de famille inspirant, fort taux d’engagement et storytelling naturel." },
-  { name: "lina yahyaoui", handle: "@linayahyaoui", niches: "Mom Life  ·  Lifestyle", image: "/explorer/lina.png", platforms: ["instagram", "tiktok"], followers: "284K", engagement: "4,8%", score: 90, fit: "Contenu doux et positif, idéale pour adresser les parents avec bienveillance." },
-  { name: "fatiyass", handle: "@fatiyass.off", niches: "Family  ·  Lifestyle", image: "/explorer/sarah.png", platforms: ["instagram", "tiktok"], followers: "198K", engagement: "5,0%", score: 90, fit: "Créatrice proche de sa communauté, parfaite pour un ton familial et fun." },
-  { name: "lamiae skalli", handle: "@lamiae.skalli", niches: "Lifestyle  ·  Mom Life", image: "/explorer/nour.png", platforms: ["instagram", "tiktok"], followers: "312K", engagement: "4,6%", score: 88, fit: "Esthétique soignée et contenu inspirant adapté aux jeunes mamans modernes." },
+  { name: "Souhaila Abbad", handle: "@souhailaabbad", niches: "Vie de maman · Lifestyle", image: "/explorer/salma.png", platforms: ["instagram", "tiktok"], followers: "176 K", engagement: "5,2 %", score: 92, fit: "Adéquation parfaite : maman créative, contenu authentique et très proche de sa communauté." },
+  { name: "Amine HLS", handle: "@amine.hls", niches: "Famille · Lifestyle", image: "/explorer/amine.png", platforms: ["instagram", "tiktok", "youtube"], followers: "718 K", engagement: "6,1 %", score: 91, fit: "Père de famille inspirant, fort taux d’engagement et storytelling naturel." },
+  { name: "Lina Yahyaoui", handle: "@linayahyaoui", niches: "Vie de maman · Lifestyle", image: "/explorer/lina.png", platforms: ["instagram", "tiktok"], followers: "284 K", engagement: "4,8 %", score: 90, fit: "Contenu doux et positif, idéal pour s’adresser aux parents avec bienveillance." },
+  { name: "Fatiyass", handle: "@fatiyass.off", niches: "Famille · Lifestyle", image: "/explorer/sarah.png", platforms: ["instagram", "tiktok"], followers: "198 K", engagement: "5,0 %", score: 90, fit: "Créatrice proche de sa communauté, parfaite pour un ton familial et convivial." },
+  { name: "Lamiae Skalli", handle: "@lamiae.skalli", niches: "Lifestyle · Vie de maman", image: "/explorer/nour.png", platforms: ["instagram", "tiktok"], followers: "312 K", engagement: "4,6 %", score: 88, fit: "Esthétique soignée et contenu inspirant, adapté aux jeunes mamans modernes." },
 ] as const;
 
 const summaryItems = [
@@ -28,14 +29,14 @@ const summaryItems = [
   ["⌾", "Cible", "Parents 25–40 ans"],
   ["⌖", "Marché", "Maroc"],
   ["▣", "Plateformes", "Instagram, TikTok, YouTube"],
-  ["♙", "Catégories", "Family, Lifestyle, Mom Life"],
+  ["♙", "Catégories", "Famille, Lifestyle, Vie de maman"],
   ["▢", "Formats", "Reels, Stories, Unboxing"],
   ["◉", "Budget estimé", "150 000 MAD"],
   ["⌑", "Nombre de créateurs", "5 à 8"],
 ] as const;
 
-function SocialBadge({ platform }: { platform: string }) {
-  return <i className={`ai-social ${platform}`} aria-label={platform}>{platform === "tiktok" ? "♪" : platform === "youtube" ? "▶" : ""}</i>;
+function SocialBadge({ platform }: { platform: SocialNetwork }) {
+  return <i className="ai-social" role="img" aria-label={platform}><SocialLogo network={platform} /></i>;
 }
 
 function CreatorRow({ creator, favorite, onToggle }: { creator: typeof creators[number]; favorite: boolean; onToggle: () => void }) {
@@ -46,8 +47,8 @@ function CreatorRow({ creator, favorite, onToggle }: { creator: typeof creators[
       <div className="ai-creator-platforms">{creator.platforms.map((platform) => <SocialBadge platform={platform} key={platform} />)}</div>
       <b className="ai-creator-stat">{creator.followers}<small>abonnés</small></b>
       <b className="ai-creator-stat">{creator.engagement}<small>engagement</small></b>
-      <div className="ai-score-ring" style={{ "--score": `${creator.score * 3.6}deg` } as React.CSSProperties}><strong>{creator.score}</strong><small>/100</small></div>
-      <button type="button" className={`ai-favorite ${favorite ? "selected" : ""}`} onClick={onToggle} aria-label={`Ajouter ${creator.name} aux favoris`}>{favorite ? "♥" : "♡"}</button>
+      <div className="ai-score-ring" style={{ "--score": `${creator.score * 3.6}deg` } as CSSProperties} aria-label={`SoMatch Score : ${creator.score} sur 100`}><strong>{creator.score}</strong><small>/100</small></div>
+      <button type="button" className={`ai-favorite ${favorite ? "selected" : ""}`} onClick={onToggle} aria-pressed={favorite} aria-label={`${favorite ? "Retirer" : "Ajouter"} ${creator.name} ${favorite ? "des" : "aux"} favoris`}>{favorite ? "♥" : "♡"}</button>
     </article>
   );
 }
@@ -83,63 +84,63 @@ export default function SomatchAi() {
     <main className="dashboard-page somatch-ai-page">
       <AppSidebar active="somatch AI" />
       <section className="dashboard-main somatch-ai-main">
-        <AppHeader title={<><i>✣</i> somatch AI</>} subtitle="décrivez votre campagne, notre IA trouve les créateurs parfaits pour vous." />
+        <AppHeader title={<><i>✣</i> SoMatch AI</>} subtitle="Décrivez votre campagne, notre IA trouve les créateurs parfaits pour vous." />
 
         <div className="somatch-ai-workspace">
           <div className="somatch-ai-left">
             <form className="ai-brief-card ai-motion-card" onSubmit={generateCasting}>
-              <div className="ai-card-heading"><div><h2>1. décrivez votre campagne</h2><p>plus vous partagez de détails, plus la recommandation sera précise.</p></div><button type="button" onClick={() => { setBrand("Kinder"); setBrief(initialBrief); }}>▣&nbsp; coller mon brief</button></div>
+              <div className="ai-card-heading"><div><h2>1. Décrivez votre campagne</h2><p>Plus vous partagez de détails, plus la recommandation sera précise.</p></div><button type="button" onClick={() => { setBrand("Kinder"); setBrief(initialBrief); }}>▣&nbsp; Coller mon brief</button></div>
 
               <div className="ai-form-grid ai-form-grid-three">
-                <label>nom de la marque<input value={brand} onChange={(event) => setBrand(event.target.value)} /></label>
-                <label>objectif de la campagne<select defaultValue="Notoriété & Engagement"><option>Notoriété & Engagement</option><option>Conversion</option><option>Lancement produit</option></select></label>
-                <label>pays / marché<input defaultValue="Maroc" /></label>
-                <label>cible principale<input defaultValue="Parents 25–40 ans" /></label>
-                <label>langue<input defaultValue="Français, Arabe" /></label>
-                <label>plateformes<span className="ai-platform-field"><SocialBadge platform="instagram" /><SocialBadge platform="tiktok" /><SocialBadge platform="youtube" /><b>⌄</b></span></label>
+                <label>Nom de la marque<input value={brand} onChange={(event) => setBrand(event.target.value)} /></label>
+                <label>Objectif de la campagne<select defaultValue="Notoriété & Engagement"><option>Notoriété & Engagement</option><option>Conversion</option><option>Lancement de produit</option></select></label>
+                <label>Pays / marché<input defaultValue="Maroc" /></label>
+                <label>Cible principale<input defaultValue="Parents 25–40 ans" /></label>
+                <label>Langue<input defaultValue="Français, Arabe" /></label>
+                <label>Plateformes<span className="ai-platform-field"><SocialBadge platform="instagram" /><SocialBadge platform="tiktok" /><SocialBadge platform="youtube" /><b>⌄</b></span></label>
               </div>
 
               <div className="ai-form-grid ai-form-grid-bottom">
-                <label>catégories<span className="ai-category-field"><b>Family</b><b>Lifestyle</b><b>Mom Life&nbsp; ×</b><i>⌄</i></span></label>
-                <label>nombre de créateurs<select defaultValue="5 - 8 créateurs"><option>5 - 8 créateurs</option><option>8 - 12 créateurs</option></select></label>
-                <label>budget estimé<select defaultValue="150 000 MAD"><option>150 000 MAD</option><option>200 000 MAD</option></select></label>
+                <label>Catégories<span className="ai-category-field"><b>Famille</b><b>Lifestyle</b><b>Vie de maman&nbsp; ×</b><i>⌄</i></span></label>
+                <label>Nombre de créateurs<select defaultValue="5 à 8 créateurs"><option>5 à 8 créateurs</option><option>8 à 12 créateurs</option></select></label>
+                <label>Budget estimé<select defaultValue="150 000 MAD"><option>150 000 MAD</option><option>200 000 MAD</option></select></label>
               </div>
 
-              <fieldset className="ai-format-field"><legend>formats souhaités</legend><div>{formats.map((format) => <button type="button" className={selectedFormats.includes(format) ? "selected" : ""} onClick={() => toggleFormat(format)} key={format}>{selectedFormats.includes(format) ? "●" : "◌"}&nbsp; {format}{format === "Reel" ? " ⌄" : ""}</button>)}</div></fieldset>
-              <label className="ai-brief-text">décrivez votre campagne (brief libre)<textarea value={brief} maxLength={1000} onChange={(event) => setBrief(event.target.value)} /><small>{brief.length} / 1000</small></label>
-              <div className="ai-quick-suggestions"><strong>suggestions rapides</strong><div>{quickSuggestions.map((suggestion) => <button type="button" className={activeSuggestion === suggestion ? "selected" : ""} onClick={() => applySuggestion(suggestion)} key={suggestion}>{suggestion}</button>)}</div></div>
-              <button type="submit" className="ai-generate-button">✦&nbsp; {generating ? "génération du casting…" : "générer mon casting avec somatch AI"}</button>
-              <small className="ai-security">♙&nbsp; vos informations sont sécurisées et confidentielles.</small>
+              <fieldset className="ai-format-field"><legend>Formats souhaités</legend><div>{formats.map((format) => <button type="button" aria-pressed={selectedFormats.includes(format)} className={selectedFormats.includes(format) ? "selected" : ""} onClick={() => toggleFormat(format)} key={format}>{selectedFormats.includes(format) ? "●" : "◌"}&nbsp; {format}{format === "Reel" ? " ⌄" : ""}</button>)}</div></fieldset>
+              <label className="ai-brief-text">Décrivez votre campagne (brief libre)<textarea id="somatch-ai-brief" value={brief} maxLength={1000} onChange={(event) => setBrief(event.target.value)} /><small>{brief.length} / 1 000</small></label>
+              <div className="ai-quick-suggestions"><strong>Suggestions rapides</strong><div>{quickSuggestions.map((suggestion) => <button type="button" aria-pressed={activeSuggestion === suggestion} className={activeSuggestion === suggestion ? "selected" : ""} onClick={() => applySuggestion(suggestion)} key={suggestion}>{suggestion}</button>)}</div></div>
+              <button type="submit" className="ai-generate-button" disabled={generating}>✦&nbsp; {generating ? "Génération du casting…" : "Générer mon casting avec SoMatch AI"}</button>
+              <small className="ai-security">♙&nbsp; Vos informations sont sécurisées et confidentielles.</small>
             </form>
 
             <section className="ai-recent-card ai-motion-card">
-              <div className="ai-section-heading"><h2>briefs récents</h2><button type="button">voir tout&nbsp; →</button></div>
-              <div className="ai-recent-grid">{recentBriefs.map((item) => <button type="button" key={item.title}><i className={item.tone}>{item.brand}</i><span><strong>{item.title}</strong><small>{item.date}</small><b className={item.status === "complété" ? "done" : "draft"}>{item.status}</b></span></button>)}</div>
+              <div className="ai-section-heading"><h2>Briefs récents</h2><a href="/campagnes">Voir tout&nbsp; →</a></div>
+              <div className="ai-recent-grid">{recentBriefs.map((item) => <button type="button" key={item.title}><i className={item.tone}>{item.brand}</i><span><strong>{item.title}</strong><small>{item.date}</small><b className={item.status === "Complété" ? "done" : "draft"}>{item.status}</b></span></button>)}</div>
             </section>
           </div>
 
           <div className="somatch-ai-right">
             <section className="ai-summary-card ai-motion-card">
-              <div className="ai-section-heading"><h2>résumé intelligent de votre besoin</h2><i>IA</i></div>
+              <div className="ai-section-heading"><h2>Résumé intelligent de votre besoin</h2><i>IA</i></div>
               <div className="ai-summary-list">{summaryItems.map(([icon,label,value]) => <p key={label}><i>{icon}</i><span><strong>{label} :</strong> {value}</span></p>)}</div>
             </section>
 
-            <div className="ai-recommendation-heading"><h2>2. recommandation somatch AI <span>✦</span></h2><button type="button">modifier le brief</button></div>
+            <div className="ai-recommendation-heading"><h2>2. Recommandation SoMatch AI <span>✦</span></h2><button type="button" onClick={() => { document.getElementById("somatch-ai-brief")?.scrollIntoView({ behavior: "smooth", block: "center" }); window.setTimeout(() => document.getElementById("somatch-ai-brief")?.focus(), 350); }}>Modifier le brief</button></div>
             <section className="ai-metric-grid">
-              <article className="ai-motion-card"><i className="orange">◉</i><span>somatch score moyen</span><strong>91/100</strong><small>Excellent</small><b><i /></b></article>
-              <article className="ai-motion-card"><i className="blue">♙</i><span>couverture estimée</span><strong>2.8M</strong><small>comptes uniques</small></article>
-              <article className="ai-motion-card"><i className="pink">♙</i><span>engagement estimé</span><strong>6.4%</strong><small>moyen</small></article>
-              <article className="ai-motion-card"><i className="yellow">▣</i><span>budget estimé</span><strong>148 500 MAD</strong><small>dans votre enveloppe</small></article>
+              <article className="ai-motion-card"><i className="orange">◉</i><span>SoMatch Score moyen</span><strong>91/100</strong><small>Excellent</small><b><i /></b></article>
+              <article className="ai-motion-card"><i className="blue">♙</i><span>Couverture estimée</span><strong>2,8 M</strong><small>Comptes uniques</small></article>
+              <article className="ai-motion-card"><i className="pink">♙</i><span>Engagement estimé</span><strong>6,4 %</strong><small>Moyenne</small></article>
+              <article className="ai-motion-card"><i className="yellow">▣</i><span>Budget estimé</span><strong>148 500 MAD</strong><small>Dans votre enveloppe</small></article>
             </section>
 
-            <div className="ai-shortlist-heading"><h2>votre shortlist de créateurs&nbsp; ⓘ</h2><span>5 créateurs sélectionnés</span></div>
+            <div className="ai-shortlist-heading"><h2>Votre sélection de créateurs&nbsp; ⓘ</h2><span>5 créateurs sélectionnés</span></div>
             <section className="ai-shortlist-card ai-motion-card">
               <div className="ai-creator-list">{creators.map((creator) => <CreatorRow creator={creator} favorite={favorites.includes(creator.name)} onToggle={() => toggleFavorite(creator.name)} key={creator.name} />)}</div>
-              <footer><button type="button" onClick={() => { window.location.href = "/somatch-ai/recommandation"; }}>▣&nbsp; voir la recommandation</button><button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄&nbsp; comparer</button><button type="button" onClick={() => { window.location.href = "/campagnes/creer"; }}>créer une campagne&nbsp; →</button></footer>
+              <footer><button type="button" onClick={() => { window.location.href = "/somatch-ai/recommandation"; }}>▣&nbsp; Voir la recommandation</button><button type="button" onClick={() => { window.location.href = "/comparer"; }}>⇄&nbsp; Comparer</button><button type="button" onClick={() => { window.location.href = "/campagnes/creer"; }}>Créer une campagne&nbsp; →</button></footer>
             </section>
           </div>
         </div>
-        <p className="somatch-ai-disclaimer">somatch AI peut faire des erreurs. Vérifiez toujours les informations clés.</p>
+        <p className="somatch-ai-disclaimer">SoMatch AI peut faire des erreurs. Vérifiez toujours les informations clés.</p>
       </section>
     </main>
   );
