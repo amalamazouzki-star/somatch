@@ -1,6 +1,10 @@
+import { useId } from "react";
+
 export type SocialNetwork = "google" | "instagram" | "tiktok" | "youtube";
 
 export function SocialLogo({ network }: { network: SocialNetwork }) {
+  const gradientId = `instagram-logo-${useId().replace(/:/g, "")}`;
+
   if (network === "google") {
     return (
       <svg className="social-logo" viewBox="0 0 18 18" aria-hidden="true">
@@ -16,14 +20,14 @@ export function SocialLogo({ network }: { network: SocialNetwork }) {
     return (
       <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
         <defs>
-          <linearGradient id="instagram-login-gradient" x1="3" y1="21" x2="21" y2="3" gradientUnits="userSpaceOnUse">
+          <linearGradient id={gradientId} x1="3" y1="21" x2="21" y2="3" gradientUnits="userSpaceOnUse">
             <stop stopColor="#ffcc55" />
             <stop offset=".34" stopColor="#ff543e" />
             <stop offset=".67" stopColor="#c837ab" />
             <stop offset="1" stopColor="#6b4bdb" />
           </linearGradient>
         </defs>
-        <rect x="1" y="1" width="22" height="22" rx="6.5" fill="url(#instagram-login-gradient)" />
+        <rect x="1" y="1" width="22" height="22" rx="6.5" fill={`url(#${gradientId})`} />
         <rect x="5.5" y="5.5" width="13" height="13" rx="4" fill="none" stroke="#fff" strokeWidth="1.8" />
         <circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" strokeWidth="1.8" />
         <circle cx="16.7" cy="7.4" r="1.1" fill="#fff" />
