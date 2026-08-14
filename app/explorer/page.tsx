@@ -32,9 +32,13 @@ function SocialMetric({ platform, value }: { platform:"instagram"|"tiktok"|"yout
   return <span className="advanced-social-metric"><i className={`advanced-social ${platform}`} aria-label={label}><SocialLogo network={platform} /></i><strong>{value}</strong></span>;
 }
 
+function RankBadgeIcon() {
+  return <svg className="advanced-rank-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8.3 1.7c.5 2.1-.6 3.1-1.5 4.1-.8.9-1.4 1.7-.9 3 .4-1 1.2-1.5 2-2 .9-.6 1.9-1.3 2.1-2.8 1.6 1.5 2.5 3.3 2.2 5.2-.3 2.9-2.2 4.8-5 4.8-2.8 0-4.8-1.9-4.8-4.6 0-2.2 1.3-4.4 3.6-6.4-.2 1.5.1 2.3.7 2.8.2-1.4.7-2.8 1.6-4.1Z" fill="currentColor"/></svg>;
+}
+
 function CreatorResultCard({ creator, saved, onSave }: { creator:typeof creators[number]; saved:boolean; onSave:()=>void }) {
   return <article className="advanced-creator-card">
-    <header><span className="advanced-creator-rank">♨　{creator.score}</span><button type="button" aria-label={`Options pour ${creator.name}`}>⋮</button></header>
+    <header><span className="advanced-creator-rank"><RankBadgeIcon />{creator.score}</span><button type="button" aria-label={`Options pour ${creator.name}`}>⋮</button></header>
     <div className="advanced-creator-avatar"><img src={creator.image} alt={creator.name}/><i className={creator.verified}>✓</i></div>
     <h2>{creator.name}</h2><p>{creator.niche}</p><small>⌾　{creator.city}</small>
     <div className="advanced-social-row"><SocialMetric platform="instagram" value={creator.instagram}/><SocialMetric platform="tiktok" value={creator.tiktok}/><SocialMetric platform="youtube" value={creator.youtube}/></div>

@@ -146,3 +146,34 @@ button { color: inherit; }
 @media (prefers-reduced-motion:reduce) {
   .login-page * { animation:none!important; transition-duration:.01ms!important; transition-delay:0s!important; }
 }
+
+/* Explorer QA: règles bornées à cette interface pour éviter les collisions
+   entre les composants sociaux partagés et les autres écrans. */
+.advanced-explorer-page .sidebar-ai-card strong {
+  min-width:0;
+  font-size:15px;
+  white-space:nowrap;
+}
+
+.advanced-explorer-page .advanced-social {
+  width:16px!important;
+  height:16px!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+
+.advanced-explorer-page .advanced-social .social-logo {
+  display:block;
+  width:16px!important;
+  height:16px!important;
+  flex:0 0 16px!important;
+}
+
+.advanced-explorer-page .advanced-creator-rank { gap:5px; }
+.advanced-explorer-page .advanced-rank-icon {
+  width:13px;
+  height:13px;
+  flex:0 0 13px;
+}
