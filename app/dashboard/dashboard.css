@@ -229,8 +229,11 @@
   .creator-card { padding-left:12px; padding-right:12px; }
   .primary-nav button,.primary-nav a,.secondary-nav button,.secondary-nav a { gap:12px; font-size:12px; }
   .primary-nav a:last-child > span { white-space:nowrap; font-size:11px; }
+  .sidebar-ai-card strong { white-space:nowrap; font-size:15px; }
+  .inspiration-card h2 { white-space:nowrap; font-size:13px; }
   .campaign-item { gap:4px; }
   .campaign-item img { width:37px; height:37px; }
+  .campaign-item strong { font-size:9.5px; }
   .campaign-item > b { min-width:50px; padding-left:4px; padding-right:4px; font-size:8px; }
   .sidebar-ai-card { padding-left:13px; padding-right:13px; }
 }
