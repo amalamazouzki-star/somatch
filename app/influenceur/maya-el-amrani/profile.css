@@ -168,6 +168,8 @@
   .score-card { padding-left:20px; padding-right:20px; }
   .profile-content-grid { grid-template-columns:minmax(500px,1.55fr) minmax(240px,.76fr) 280px; }
   .influencer-tabs button { min-width:78px; }.metric-card { gap:11px; padding-left:13px; padding-right:13px; }.metric-card > i { width:45px; height:45px; }
+  .metric-card > div span { min-height:24px; margin-bottom:6px; overflow:visible; white-space:normal; line-height:1.2; }
+  .gender-block { gap:12px; margin-left:0; margin-right:0; }
 }
 @media (max-width:1120px) {
   .influencer-hero { height:auto; min-height:196px; grid-template-columns:minmax(0,1fr) 230px; }.profile-actions { grid-column:1/-1; flex-direction:row; }.profile-actions button { flex:1; }
