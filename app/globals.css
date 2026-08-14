@@ -194,3 +194,7 @@ button { color: inherit; }
   height:13px;
   flex:0 0 13px;
 }
+
+.advanced-explorer-page .advanced-creator-card > header > button {
+  line-height:24px;
+}
