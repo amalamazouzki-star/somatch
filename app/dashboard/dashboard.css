@@ -47,7 +47,8 @@
   cursor:pointer;
   text-decoration:none;
 }
-.primary-nav button i,.primary-nav a i,.secondary-nav button i,.secondary-nav a i { width:24px; color:#172038; text-align:center; font-size:25px; line-height:1; font-style:normal; font-weight:400; }
+.primary-nav button i,.primary-nav a i,.secondary-nav button i,.secondary-nav a i { width:24px; height:24px; flex:0 0 24px; display:grid; place-items:center; color:#172038; text-align:center; line-height:1; font-style:normal; font-weight:400; }
+.primary-nav i svg,.secondary-nav i svg { width:21px; height:21px; display:block; overflow:visible; }
 .primary-nav button.active,.primary-nav a.active,.secondary-nav a.active { background:linear-gradient(100deg,#fff0f0,#fff5ef); color:#f1285b; }
 .primary-nav button.active i,.primary-nav a.active i,.secondary-nav a.active i { color:#f12872; }
 .primary-nav button em,.primary-nav a em { position:absolute; left:49px; top:33px; padding:4px 10px; border-radius:14px; background:#f2f3f6; color:#657087; font-size:10px; font-style:normal; font-weight:500; white-space:nowrap; }
@@ -148,18 +149,26 @@
 .creator-card h3 { margin:9px 0 4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:14px; text-transform:lowercase; }
 .creator-handle,.creator-niche { margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; color:#677187; font-size:10px; line-height:1.65; }
 .creator-platforms { height:27px; display:flex; align-items:center; gap:8px; }
-.platform-badge { position:relative; width:17px; height:17px; display:inline-grid; place-items:center; border-radius:5px; color:#fff; font-size:11px; font-weight:700; font-style:normal; flex:0 0 auto; }
-.platform-badge.instagram { border:2px solid #ef2f77; background:linear-gradient(135deg,#8b35d6,#e93386,#ff8b2e); box-shadow:inset 0 0 0 2px #fff; }
-.platform-badge.instagram::after { content:""; width:4px; height:4px; border:1px solid #fff; border-radius:50%; }
-.platform-badge.tiktok { background:#090a0e; text-shadow:-1px 0 #27f2ed,1px 0 #ff2f62; }
-.platform-badge.youtube { background:#fa1738; font-size:8px; }
+.platform-badge { position:relative; width:18px; height:18px; display:inline-grid; place-items:center; overflow:hidden; border-radius:5px; color:#fff; font-style:normal; flex:0 0 auto; }
+.platform-badge svg { width:100%; height:100%; display:block; overflow:visible; }
+.platform-badge.instagram { background:linear-gradient(145deg,#7048d8 2%,#d72d93 42%,#ff4a55 68%,#ffb13c); }
+.platform-badge.instagram svg { fill:none; stroke:#fff; stroke-width:1.8; }
+.platform-badge.instagram .instagram-dot { fill:#fff; stroke:none; }
+.platform-badge.tiktok { background:#090a0e; }
+.platform-badge.tiktok path { stroke:none; }
+.platform-badge.tiktok .tiktok-cyan { fill:#24f4ee; transform:translate(-.65px,.25px); }
+.platform-badge.tiktok .tiktok-red { fill:#fe2c55; transform:translate(.65px,-.2px); }
+.platform-badge.tiktok .tiktok-white { fill:#fff; }
+.platform-badge.youtube { background:#f71930; border-radius:5px; }
+.platform-badge.youtube path:first-child { fill:#f71930; }
+.platform-badge.youtube .youtube-play { fill:#fff; }
 .creator-metrics { display:grid; grid-template-columns:1fr 1fr; margin-top:2px; }
 .creator-metrics strong { font-size:13px; }
 .creator-metrics strong:last-child { text-align:right; }
 .creator-metrics small { display:block; margin-top:6px; color:#6c7588; font-size:8px; font-weight:400; }
-.creator-score { display:flex; align-items:center; gap:11px; margin-top:9px; white-space:nowrap; }
+.creator-score { min-width:0; display:flex; align-items:center; gap:8px; margin-top:9px; white-space:nowrap; }
 .creator-score b { padding:4px 8px; border-radius:10px; background:#e9f8e7; color:#24972d; font-size:10px; }
-.creator-score span { color:#606b80; font-size:9px; }
+.creator-score span { min-width:0; overflow:hidden; text-overflow:ellipsis; color:#606b80; font-size:9px; }
 .creator-next { position:absolute; z-index:3; right:-20px; top:103px; width:46px; height:46px; border:1px solid #ececee; border-radius:50%; background:#fff; color:#141b2a; box-shadow:0 4px 10px rgba(20,24,34,.08); font-size:23px; cursor:pointer; }
 
 .dashboard-lower-row { display:grid; grid-template-columns:.95fr 1.05fr; gap:18px; margin-top:18px; }
@@ -196,12 +205,12 @@
 .inspiration-card p { margin:13px 0 16px; font-size:11px; line-height:1.55; }
 .inspiration-card button,.bottom-inspiration button { width:100%; height:38px; border:0; border-radius:8px; background:linear-gradient(95deg,#f5276c,#ff9c18); color:#fff; font-size:11px; font-weight:700; cursor:pointer; }
 .campaigns-panel { height:242px; padding:17px 16px 13px; }
-.campaign-item { height:45px; display:flex; align-items:center; gap:10px; }
+.campaign-item { height:45px; display:flex; align-items:center; gap:8px; }
 .campaign-item img { width:40px; height:40px; border-radius:5px; object-fit:cover; }
 .campaign-item > span { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
 .campaign-item strong { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:11px; }
 .campaign-item small { color:#657087; font-size:9px; }
-.campaign-item > b { min-width:66px; padding:5px 8px; border-radius:12px; text-align:center; font-size:9px; }
+.campaign-item > b { min-width:62px; padding:5px 7px; border-radius:12px; text-align:center; font-size:9px; }
 .campaign-item > b.running { background:#fff0e6; color:#ff7917; }.campaign-item > b.done { background:#e8f8e6; color:#24942b; }
 
 .bottom-inspiration { height:76px; display:flex; align-items:center; gap:17px; margin-top:16px; padding:0 19px; border:1px solid #f2e5df; border-radius:12px; background:linear-gradient(100deg,#fff7f5,#fffdf5); }
@@ -218,6 +227,10 @@
   .ai-search-card { padding-left:25px; padding-right:25px; }
   .popular-suggestions { gap:7px; }.popular-suggestions button { padding:0 10px; }
   .creator-card { padding-left:12px; padding-right:12px; }
+  .primary-nav button,.primary-nav a,.secondary-nav button,.secondary-nav a { gap:12px; font-size:12px; }
+  .campaign-item { gap:6px; }
+  .campaign-item img { width:37px; height:37px; }
+  .campaign-item > b { min-width:58px; padding-left:5px; padding-right:5px; font-size:8px; }
   .sidebar-ai-card { padding-left:13px; padding-right:13px; }
 }
 @media (max-height:820px) and (min-width:761px) {
@@ -316,6 +329,7 @@
   isolation:isolate;
   transition:transform .3s var(--motion-spring),box-shadow .35s ease,filter .35s ease,background-position .45s ease;
 }
+.creator-next { position:absolute; }
 .ai-search-card form button,.inspiration-card button,.bottom-inspiration button { background-size:180% 100%; background-position:0 0; }
 .ai-search-card form button::after,.inspiration-card button::after,.bottom-inspiration button::after {
   content:"";

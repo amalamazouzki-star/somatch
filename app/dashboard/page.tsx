@@ -32,7 +32,13 @@ const campaigns = [
 ];
 
 function PlatformBadge({ name }: { name: string }) {
-  return <span className={`platform-badge ${name}`} aria-label={name}>{name === "tiktok" ? "♪" : name === "youtube" ? "▶" : ""}</span>;
+  return (
+    <span className={`platform-badge ${name}`} aria-label={name} role="img">
+      {name === "instagram" && <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4" /><circle cx="12" cy="12" r="3.2" /><circle className="instagram-dot" cx="16.8" cy="7.4" r="1" /></svg>}
+      {name === "tiktok" && <svg viewBox="0 0 24 24" aria-hidden="true"><path className="tiktok-cyan" d="M14.3 4.2v10.1a4 4 0 1 1-3.2-3.9v2.5a1.7 1.7 0 1 0 .8 1.4V3.5h2.4c.4 2.1 1.7 3.3 3.8 3.8v2.4a7.3 7.3 0 0 1-3.8-1.5Z" /><path className="tiktok-red" d="M15.2 3.6v10.1a4 4 0 1 1-3.2-3.9v2.5a1.7 1.7 0 1 0 .8 1.4V2.9h2.4c.4 2.1 1.7 3.3 3.8 3.8v2.4a7.3 7.3 0 0 1-3.8-1.5Z" /><path className="tiktok-white" d="M14.7 3.9V14a4 4 0 1 1-3.2-3.9v2.5a1.7 1.7 0 1 0 .8 1.4V3.2h2.4c.4 2.1 1.7 3.3 3.8 3.8v2.4a7.3 7.3 0 0 1-3.8-1.5Z" /></svg>}
+      {name === "youtube" && <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12c0 1.3.1 2.6.4 3.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8Z" /><path className="youtube-play" d="m10 15.2 5.2-3.2L10 8.8v6.4Z" /></svg>}
+    </span>
+  );
 }
 
 function CreatorCard({ creator, favorite, toggle }: { creator: typeof creators[number]; favorite: boolean; toggle: () => void }) {
