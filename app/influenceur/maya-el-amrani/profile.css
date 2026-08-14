@@ -75,7 +75,7 @@
 .profile-insight-row { display:grid; grid-template-columns:1.25fr .95fr; gap:12px; }
 .chart-card,.networks-card { height:303px; padding:17px 17px 14px; }
 .data-card-heading { min-height:30px; display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
-.data-card-heading h2,.why-card h2 { margin:0; color:#111722; font-size:12px; line-height:1.2; text-transform:lowercase; }
+.data-card-heading h2,.why-card h2 { margin:0; color:#111722; font-size:12px; line-height:1.2; }
 .data-card-heading h2 i { color:#6f7a8e; font-size:10px; font-style:normal; }
 .data-card-heading > button { min-height:25px; padding:0 10px; border:1px solid #e5e8ec; border-radius:7px; background:#fff; color:#58647a; font-size:9px; cursor:pointer; }
 .data-card-heading .link-button { padding:0; border:0; color:#f42665; background:transparent; }
@@ -123,7 +123,7 @@
 .country-bars { gap:12px; }.country-bars > div > i { height:6px; }
 
 .profile-right-rail { display:flex; flex-direction:column; gap:12px; margin-top:-41px; }
-.analysis-card { height:199px; padding:17px 18px; }
+.analysis-card { height:201px; padding:16px 18px; }
 .analysis-list { display:flex; flex-direction:column; gap:8px; margin-top:7px; }
 .analysis-list > div { display:grid; grid-template-columns:18px 1fr 72px 39px; align-items:center; gap:7px; color:#536077; font-size:9px; }
 .analysis-list > div > i { color:#35ae50; font-size:15px; font-style:normal; }
