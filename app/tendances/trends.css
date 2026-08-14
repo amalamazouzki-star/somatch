@@ -128,7 +128,7 @@
 @media (max-width:720px) {
   .trends-main { height:auto; min-height:100vh; overflow:visible; padding:0 12px 20px; }.trends-header { height:82px; }.trends-header-actions > label,.trends-notification { display:none; }
   .trends-filterbar { flex-direction:column; }.trends-filterbar > div { display:grid; grid-template-columns:1fr 1fr; width:100%; }.trends-filterbar > div button,.trends-filterbar .trends-advanced { width:100%; min-width:0; }
-  .trends-ai-insight { height:auto; min-height:170px; align-items:flex-start; flex-wrap:wrap; padding:17px 45px 17px 17px; }.trends-ai-insight > div { flex-basis:calc(100% - 74px); }.trends-gradient-cta { width:100%; margin-left:73px; }
+  .trends-ai-insight { height:auto; min-height:170px; align-items:flex-start; flex-wrap:wrap; padding:17px 45px 17px 17px; }.trends-ai-insight > div { flex-basis:calc(100% - 74px); }.trends-gradient-cta { width:calc(100% - 73px); margin-left:73px; }
   .trends-top-grid { margin-top:12px; }.trends-top-grid > .trend-card { height:auto; min-height:315px; }.platform-performance-list { grid-template-columns:1fr; }.platform-performance-list > div { height:110px; flex-direction:row; }.trending-content-list { grid-template-columns:repeat(2,1fr); }.trend-content-visual { height:180px; }
   .trends-middle-grid > .trending-content-card { min-height:510px; }.topics-list { grid-template-columns:1fr; }.growing-list > div { grid-template-columns:18px 32px 1fr 39px 65px; }
 }
