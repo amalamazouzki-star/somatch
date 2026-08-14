@@ -11,8 +11,10 @@
 .profile-global-search i { font-size:22px; font-style:normal; }
 .profile-global-search input { flex:1; min-width:0; border:0; outline:0; color:#273044; background:transparent; font-size:12px; }
 .profile-global-search input::placeholder { color:#7b8497; opacity:1; }
-.profile-notification { position:relative; width:36px; height:38px; border:0; background:transparent; color:#111722; font-size:27px; transform:rotate(180deg); cursor:pointer; }
-.profile-notification span { position:absolute; top:0; right:-2px; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:#f72766; color:#fff; font-size:10px; transform:rotate(180deg); }
+.profile-notification { position:relative; width:36px; height:38px; padding:0; border:0; background:transparent; color:#111722; font-size:0; cursor:pointer; }
+.profile-notification::before { content:""; position:absolute; left:8px; top:10px; width:15px; height:14px; border:2px solid currentColor; border-radius:9px 9px 5px 5px; }
+.profile-notification::after { content:""; position:absolute; left:14px; top:27px; width:6px; height:2px; border-radius:3px; background:currentColor; }
+.profile-notification span { position:absolute; z-index:2; top:0; right:-2px; width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:#f72766; color:#fff; font-size:10px; }
 .profile-user { display:flex; align-items:center; gap:12px; padding:0; border:0; background:transparent; cursor:pointer; }
 .profile-user img { width:45px; height:45px; border-radius:50%; object-fit:cover; }
 .profile-user span { color:#0f1727; font-size:18px; }
@@ -23,7 +25,7 @@
 .influencer-avatar { width:139px; height:139px; flex:0 0 auto; border-radius:50%; object-fit:cover; image-rendering:auto; box-shadow:0 0 0 1px #eef0f3; transition:transform .45s var(--profile-spring),box-shadow .4s ease,filter .4s ease; }
 .identity-copy { min-width:250px; }
 .identity-title { display:flex; align-items:center; gap:8px; }
-.identity-title h1 { margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:23px; line-height:1.1; letter-spacing:-.65px; text-transform:lowercase; }
+.identity-title h1 { margin:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:23px; line-height:1.1; letter-spacing:-.65px; }
 .identity-title i { width:18px; height:18px; display:grid; place-items:center; border-radius:50%; background:#f52d6c; color:#fff; font-size:10px; font-style:normal; transform:rotate(-8deg); }
 .identity-handle { margin:7px 0 14px; color:#647087; font-size:12px; }
 .identity-niche { display:flex; gap:8px; margin:0 0 14px; color:#536076; font-size:12px; }
@@ -32,12 +34,9 @@
 .identity-reach { display:flex; align-items:center; gap:12px; margin-top:14px; color:#4d5970; font-size:12px; }
 .identity-reach b { padding:5px 13px; border-radius:7px; background:#fff0f4; color:#f72967; font-size:11px; }
 .identity-platforms { align-self:flex-start; display:flex; gap:10px; margin:31px 0 0 2px; padding:7px; border:1px solid #e7e9ed; border-radius:8px; background:#fff; }
-.profile-platform { position:relative; width:23px; height:23px; display:inline-grid; place-items:center; border-radius:6px; color:#fff; font-size:13px; font-style:normal; font-weight:800; flex:0 0 auto; transition:transform .35s var(--profile-spring),box-shadow .35s ease,filter .35s ease; }
-.profile-platform.instagram { border:2px solid #f02c77; background:linear-gradient(135deg,#7938d8,#e12a88 56%,#ff9729); box-shadow:inset 0 0 0 2px #fff; }
-.profile-platform.instagram::before { content:""; width:6px; height:6px; border:1.5px solid #fff; border-radius:50%; }
-.profile-platform.instagram::after { content:""; position:absolute; right:4px; top:3px; width:2px; height:2px; border-radius:50%; background:#fff; }
-.profile-platform.tiktok { background:#07090c; text-shadow:-1px 0 #25f2ed,1px 0 #ff315f; }
-.profile-platform.youtube { background:#f9142f; font-size:9px; }
+.profile-platform { position:relative; width:23px; height:23px; display:inline-grid; place-items:center; border-radius:6px; color:#fff; flex:0 0 auto; transition:transform .35s var(--profile-spring),box-shadow .35s ease,filter .35s ease; }
+.profile-platform.tiktok { padding:2px; background:#07090c; }
+.profile-platform .social-logo { width:100%!important; height:100%!important; flex:0 0 100%!important; }
 
 .score-card { height:154px; padding:22px 30px; border:1px solid #e5e8ed; border-radius:14px; background:#fff; }
 .score-card > span { font-size:12px; font-weight:700; }
@@ -65,10 +64,10 @@
 .metric-card > p b { display:block; margin-bottom:6px; color:#2d9d3a; font-size:11px; }
 .metric-card > p small { display:block; color:#7a8496; font-size:8px; }
 
-.profile-tabs { height:44px; display:flex; align-items:end; gap:4px; border-bottom:1px solid #e8eaee; }
-.profile-tabs button { position:relative; min-width:92px; height:44px; padding:0 13px; border:0; background:transparent; color:#48556c; font-size:11px; cursor:pointer; transition:color .25s ease,transform .25s var(--profile-spring); }
-.profile-tabs button::after { content:""; position:absolute; left:50%; right:50%; bottom:-1px; height:2px; background:#f72868; transition:left .3s var(--profile-spring),right .3s var(--profile-spring); }
-.profile-tabs button.active { color:#111722; font-weight:700; }.profile-tabs button.active::after { left:0; right:0; }
+.influencer-tabs { height:44px; display:flex; align-items:end; gap:4px; border-bottom:1px solid #e8eaee; }
+.influencer-tabs button { position:relative; min-width:92px; height:44px; padding:0 13px; border:0; background:transparent; color:#48556c; font-size:11px; cursor:pointer; transition:color .25s ease,transform .25s var(--profile-spring); }
+.influencer-tabs button::after { content:""; position:absolute; left:50%; right:50%; bottom:-1px; height:2px; background:#f72868; transition:left .3s var(--profile-spring),right .3s var(--profile-spring); }
+.influencer-tabs button.active { color:#111722; font-weight:700; }.influencer-tabs button.active::after { left:0; right:0; }
 
 .profile-content-grid { display:grid; grid-template-columns:minmax(540px,1.65fr) minmax(268px,.78fr) 322px; gap:12px; margin-top:10px; }
 .data-card { border:1px solid #e7e9ed; border-radius:11px; background:#fff; }
@@ -125,7 +124,7 @@
 
 .profile-right-rail { display:flex; flex-direction:column; gap:12px; margin-top:-41px; }
 .analysis-card { height:199px; padding:17px 18px; }
-.analysis-list { display:flex; flex-direction:column; gap:13px; margin-top:7px; }
+.analysis-list { display:flex; flex-direction:column; gap:8px; margin-top:7px; }
 .analysis-list > div { display:grid; grid-template-columns:18px 1fr 72px 39px; align-items:center; gap:7px; color:#536077; font-size:9px; }
 .analysis-list > div > i { color:#35ae50; font-size:15px; font-style:normal; }
 .analysis-list > div > b { height:6px; overflow:hidden; border-radius:8px; background:#edf1ef; }.analysis-list > div > b i { display:block; height:100%; border-radius:inherit; background:#7ecb98; transition:width .65s var(--profile-spring),filter .3s ease; }
@@ -151,7 +150,7 @@
   .profile-actions button:hover::after,.outline-cta:hover::after,.gradient-cta:hover::after { left:125%; }
   .profile-actions button:not(.campaign-action):hover { border-color:#f62a68; color:#f62a68; }
   .metric-card:hover > i { transform:scale(1.1) rotate(-5deg); }.metric-card:hover > p b { color:#168d29; }
-  .profile-tabs button:hover { color:#f62766; transform:translateY(-2px); }
+  .influencer-tabs button:hover { color:#f62766; transform:translateY(-2px); }
   .identity-platforms:hover .profile-platform,.network-row:hover .profile-platform { transform:translateY(-3px) scale(1.08); box-shadow:0 7px 14px rgba(28,25,36,.16); }
   .chart-card:hover .chart-segment { height:3px; filter:drop-shadow(0 2px 3px rgba(246,40,103,.4)); }.chart-card:hover .chart-segment.forecast { filter:drop-shadow(0 2px 3px rgba(255,148,21,.4)); }
   .chart-card:hover .chart-plot b { transform:translate(-50%,50%) scale(1.45); box-shadow:0 0 0 4px rgba(247,43,105,.12); }
@@ -168,13 +167,13 @@
   .influencer-avatar { width:120px; height:120px; }.identity-block { gap:16px; }.identity-details { gap:12px; }
   .score-card { padding-left:20px; padding-right:20px; }
   .profile-content-grid { grid-template-columns:minmax(500px,1.55fr) minmax(240px,.76fr) 280px; }
-  .profile-tabs button { min-width:78px; }.metric-card { gap:11px; padding-left:13px; padding-right:13px; }.metric-card > i { width:45px; height:45px; }
+  .influencer-tabs button { min-width:78px; }.metric-card { gap:11px; padding-left:13px; padding-right:13px; }.metric-card > i { width:45px; height:45px; }
 }
 @media (max-width:1120px) {
   .influencer-hero { height:auto; min-height:196px; grid-template-columns:minmax(0,1fr) 230px; }.profile-actions { grid-column:1/-1; flex-direction:row; }.profile-actions button { flex:1; }
   .profile-metrics { height:auto; grid-template-columns:1fr 1fr; }.metric-card { min-height:90px; }
   .profile-content-grid { grid-template-columns:minmax(0,1fr) 270px; }.profile-right-rail { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr 1fr; margin-top:0; }.analysis-card,.why-card,.collaborations-card { height:220px; }
-  .profile-tabs { margin-top:10px; overflow-x:auto; }.profile-tabs button { flex:0 0 auto; }
+  .influencer-tabs { margin-top:10px; overflow-x:auto; }.influencer-tabs button { flex:0 0 auto; }
 }
 @media (max-width:820px) {
   .influencer-main { height:auto; min-height:100vh; overflow:visible; }.influencer-topbar { height:78px; }.profile-global-search { display:none; }

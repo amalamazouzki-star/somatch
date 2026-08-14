@@ -16,11 +16,11 @@ type NotificationItem = {
 };
 
 const initialNotifications: NotificationItem[] = [
-  { id: 1, group: "Aujourd’hui", icon: "✣", tone: "purple", title: "Recommandation somatch AI", copy: "somatch AI vous recommande d’ajouter 1 profil Micro spécialisé Lifestyle/Parenting pour la campagne Back to School 2026.", time: "11:32", action: "Voir la recommandation", href: "/somatch-ai/recommandation", unread: true },
+  { id: 1, group: "Aujourd’hui", icon: "✣", tone: "purple", title: "Recommandation SoMatch AI", copy: "SoMatch AI vous recommande d’ajouter un profil micro spécialisé Lifestyle/Parenting pour la campagne Back to School 2026.", time: "11:32", action: "Voir la recommandation", href: "/somatch-ai/recommandation", unread: true },
   { id: 2, group: "Aujourd’hui", icon: "▣", tone: "green", title: "Campagne créée", copy: "Votre campagne Back to School 2026 a été créée avec succès.", time: "11:28", action: "Voir la campagne", href: "/campagnes/back-to-school-2026", unread: true },
   { id: 3, group: "Aujourd’hui", icon: "♧", tone: "orange", title: "Influenceur ajouté au casting", copy: "Souhaila Abbad a été ajoutée à votre casting Back to School 2026.", time: "10:15", action: "Voir le profil", href: "/influenceur/maya-el-amrani", unread: true },
   { id: 4, group: "Cette semaine", icon: "♧", tone: "blue", title: "Membre de l’équipe", copy: "Yassmine a modifié le brief de la campagne Summer Glow.", time: "Hier", action: "Voir le brief", href: "/campagnes/creer/brief", unread: false },
-  { id: 5, group: "Cette semaine", icon: "⌁", tone: "pink", title: "Nouvelle tendance détectée", copy: "Les contenus “rentrée des classes” sont en forte hausse au Maroc cette semaine (+38%).", time: "Hier", action: "Consulter l’insight", href: "/tendances", unread: false },
+  { id: 5, group: "Cette semaine", icon: "⌁", tone: "pink", title: "Nouvelle tendance détectée", copy: "Les contenus “rentrée des classes” sont en forte hausse au Maroc cette semaine (+38 %).", time: "Hier", action: "Consulter l’insight", href: "/tendances", unread: false },
   { id: 6, group: "Plus tôt", icon: "▤", tone: "lavender", title: "Message du support", copy: "Nous avons répondu à votre demande concernant l’export de votre recommandation.", time: "12/05/2026", action: "Voir le message", href: "/support", unread: false },
 ];
 
