@@ -171,7 +171,24 @@ button { color: inherit; }
   flex:0 0 16px!important;
 }
 
-.advanced-explorer-page .advanced-creator-rank { gap:5px; }
+.advanced-explorer-page .advanced-creator-rank {
+  height:24px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 10px;
+  border-radius:12px;
+  background:#fff0f5;
+  color:#ef1762;
+  font-size:10px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.advanced-explorer-page .advanced-creator-card:nth-child(n + 2) .advanced-creator-rank {
+  background:#f5efff;
+  color:#6543d0;
+}
 .advanced-explorer-page .advanced-rank-icon {
   width:13px;
   height:13px;
