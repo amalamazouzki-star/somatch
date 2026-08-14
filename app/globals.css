@@ -67,12 +67,7 @@ button { color: inherit; }
 .divider::before,.divider::after { content:""; height:1px; flex:1; background:#45454c; }
 .social-row { display:grid; grid-template-columns:repeat(3,1fr); gap:.85vw; }
 .social-button { height:6.45vh; min-height:58px; max-height:68px; display:flex; align-items:center; justify-content:center; gap:.9vw; border:0; border-radius:9px; background:linear-gradient(115deg,#202027,#1b1b22); font-size:clamp(12px,1.02vw,16px); font-weight:600; cursor:pointer; }
-.social-button i { font-style:normal; font-size:25px; line-height:1; }
-.google-icon { color:#fff; font-weight:900; text-shadow:-2px 0 #4285f4,2px 0 #ea4335,0 2px #fbbc05; }
-.instagram-icon { position:relative; display:block; width:25px; height:25px; border:3px solid transparent; border-radius:7px; background:linear-gradient(#25252b,#25252b) padding-box,linear-gradient(135deg,#8c35d6,#e63f83,#ff8b36) border-box; }
-.instagram-icon::before { content:""; position:absolute; width:8px; height:8px; left:5px; top:5px; border:2px solid #ef668e; border-radius:50%; }
-.instagram-icon::after { content:""; position:absolute; width:3px; height:3px; right:3px; top:3px; border-radius:50%; background:#ff8c3f; }
-.tiktok-icon { color:#fff; text-shadow:-2px 0 #26f4ee,2px 0 #fe2c55; }
+.social-logo { width:25px; height:25px; display:block; flex:0 0 25px; overflow:visible; }
 .signup { margin:auto 0 0; text-align:center; color:#aaaab2; font-size:clamp(12px,1vw,15px); }
 .signup button { padding-left:.5vw; border:0; background:linear-gradient(90deg,#e72d87,#ff7131,#ffc941); background-clip:text; color:transparent; font-weight:700; cursor:pointer; }
 
@@ -138,7 +133,7 @@ button { color: inherit; }
   .primary-button:hover::after { left:125%; }
   .primary-button:active { transform:translateY(0) scale(.975); }
   .social-button:hover { transform:translateY(-4px); background:#282831; box-shadow:0 13px 26px rgba(0,0,0,.28); }
-  .social-button:hover i { animation:login-icon-pop .55s cubic-bezier(.2,.8,.2,1); }
+  .social-button:hover .social-logo { animation:login-icon-pop .55s cubic-bezier(.2,.8,.2,1); }
   .forgot:hover,.signup button:hover { filter:brightness(1.2); transform:translateY(-1px); }
 }
 
