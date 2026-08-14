@@ -4,31 +4,31 @@ import { FormEvent, useState } from "react";
 import { AppHeader, AppSidebar } from "../components/AppShell";
 
 const creators = [
-  { name: "maya el amrani", handle: "@mayaelamrani", niche: "beauty · lifestyle", image: "/dashboard/maya.png", platforms: ["instagram", "tiktok"], followers: "256K", engagement: "4,8%", score: 92 },
-  { name: "salma zahra", handle: "@salmazahra", niche: "lifestyle · mode", image: "/dashboard/salma.png", platforms: ["instagram", "tiktok", "youtube"], followers: "198K", engagement: "5,6%", score: 82 },
-  { name: "nour beauty", handle: "@nour.beauty", niche: "beauty · skincare", image: "/dashboard/nour.png", platforms: ["instagram", "tiktok"], followers: "142K", engagement: "6,2%", score: 88 },
-  { name: "youssef fit", handle: "@youssef.fit", niche: "sport · fitness", image: "/dashboard/youssef.png", platforms: ["instagram", "tiktok", "youtube"], followers: "310K", engagement: "3,9%", score: 87 },
-  { name: "lina eats", handle: "@linaeats", niche: "food · lifestyle", image: "/dashboard/lina.png", platforms: ["instagram", "tiktok"], followers: "178K", engagement: "5,1%", score: 86 },
+  { name: "Maya El Amrani", handle: "@mayaelamrani", niche: "Beauty · Lifestyle", image: "/dashboard/maya.png", platforms: ["instagram", "tiktok"], followers: "256K", engagement: "4,8%", score: 92 },
+  { name: "Salma Zahra", handle: "@salmazahra", niche: "Lifestyle · Mode", image: "/dashboard/salma.png", platforms: ["instagram", "tiktok", "youtube"], followers: "198K", engagement: "5,6%", score: 82 },
+  { name: "Nour Beauty", handle: "@nour.beauty", niche: "Beauty · Skincare", image: "/dashboard/nour.png", platforms: ["instagram", "tiktok"], followers: "142K", engagement: "6,2%", score: 88 },
+  { name: "Youssef Fit", handle: "@youssef.fit", niche: "Sport · Fitness", image: "/dashboard/youssef.png", platforms: ["instagram", "tiktok", "youtube"], followers: "310K", engagement: "3,9%", score: 87 },
+  { name: "Lina Eats", handle: "@linaeats", niche: "Food · Lifestyle", image: "/dashboard/lina.png", platforms: ["instagram", "tiktok"], followers: "178K", engagement: "5,1%", score: 86 },
 ];
 
 const upcoming = [
-  { name: "salma zahra", type: "story Instagram", date: "12 mai, 18:00", image: "/dashboard/salma.png", platform: "instagram" },
-  { name: "youssef fit", type: "reel TikTok", date: "13 mai, 12:00", image: "/dashboard/youssef.png", platform: "tiktok" },
-  { name: "nour beauty", type: "story Instagram", date: "14 mai, 20:00", image: "/dashboard/nour.png", platform: "instagram" },
-  { name: "lina eats", type: "reel Instagram", date: "15 mai, 18:30", image: "/dashboard/lina.png", platform: "instagram" },
+  { name: "Salma Zahra", type: "Story Instagram", date: "12 mai, 18:00", image: "/dashboard/salma.png", platform: "instagram" },
+  { name: "Youssef Fit", type: "Reel TikTok", date: "13 mai, 12:00", image: "/dashboard/youssef.png", platform: "tiktok" },
+  { name: "Nour Beauty", type: "Story Instagram", date: "14 mai, 20:00", image: "/dashboard/nour.png", platform: "instagram" },
+  { name: "Lina Eats", type: "Reel Instagram", date: "15 mai, 18:30", image: "/dashboard/lina.png", platform: "instagram" },
 ];
 
 const trends = [
-  { icon: "♙", title: "skincare", detail: "catégorie en forte croissance", growth: "28%", tone: "pink" },
-  { icon: "♪", title: "TikTok", detail: "réseau tendance", growth: "34%", tone: "black" },
-  { icon: "●", title: "Maroc", detail: "localisation populaire", growth: "22%", tone: "green" },
+  { icon: "♙", title: "Skincare", detail: "Catégorie en forte croissance", growth: "28%", tone: "pink" },
+  { icon: "♪", title: "TikTok", detail: "Réseau tendance", growth: "34%", tone: "black" },
+  { icon: "●", title: "Maroc", detail: "Localisation populaire", growth: "22%", tone: "green" },
 ];
 
 const campaigns = [
-  { title: "Glow Skin Care", detail: "beauty · skincare", people: "5 influenceurs", image: "/dashboard/campaign-glow.png", status: "en cours" },
-  { title: "Run Your Way", detail: "sport · running", people: "8 influenceurs", image: "/dashboard/campaign-run.png", status: "en cours" },
-  { title: "Café du Matin", detail: "food · boissons", people: "6 influenceurs", image: "/dashboard/campaign-cafe.png", status: "terminée" },
-  { title: "Summer Collection", detail: "mode · lifestyle", people: "7 influenceurs", image: "/dashboard/campaign-summer.png", status: "terminée" },
+  { title: "Glow Skin Care", detail: "Beauty · Skincare", people: "5 influenceurs", image: "/dashboard/campaign-glow.png", status: "En cours" },
+  { title: "Run Your Way", detail: "Sport · Running", people: "8 influenceurs", image: "/dashboard/campaign-run.png", status: "En cours" },
+  { title: "Café du Matin", detail: "Food · Boissons", people: "6 influenceurs", image: "/dashboard/campaign-cafe.png", status: "Terminée" },
+  { title: "Summer Collection", detail: "Mode · Lifestyle", people: "7 influenceurs", image: "/dashboard/campaign-summer.png", status: "Terminée" },
 ];
 
 function PlatformBadge({ name }: { name: string }) {
@@ -53,10 +53,10 @@ function CreatorCard({ creator, favorite, toggle }: { creator: typeof creators[n
       <p className="creator-niche">{creator.niche}</p>
       <div className="creator-platforms">{creator.platforms.map((platform) => <PlatformBadge key={platform} name={platform} />)}</div>
       <div className="creator-metrics">
-        <strong>{creator.followers}<small>abonnés</small></strong>
-        <strong>{creator.engagement}<small>engagement</small></strong>
+        <strong>{creator.followers}<small>Abonnés</small></strong>
+        <strong>{creator.engagement}<small>Engagement</small></strong>
       </div>
-      <div className="creator-score"><b>{creator.score}/100</b><span>Somatch Score</span></div>
+      <div className="creator-score"><b>{creator.score}/100</b><span>SoMatch Score</span></div>
     </article>
   );
 }
@@ -81,27 +81,27 @@ export default function Dashboard() {
       <AppSidebar active="accueil" />
 
       <section className="dashboard-main">
-        <AppHeader title="bonjour, sara 👋" subtitle="découvrez, analysez et collaborez avec les meilleurs créateurs." />
+        <AppHeader title="Bonjour, Sara 👋" subtitle="Découvrez, analysez et collaborez avec les meilleurs créateurs." />
 
         <div className="dashboard-columns">
           <div className="dashboard-center">
             <section className="ai-search-card">
               <i className="sparkle sparkle-one">✦</i><i className="sparkle sparkle-two">✦</i>
-              <h2>que recherchez-vous <span>aujourd’hui ?</span></h2>
-              <p>somatch AI est là pour vous aider à trouver le match parfait.</p>
+              <h2>Que recherchez-vous <span>aujourd’hui ?</span></h2>
+              <p>SoMatch AI est là pour vous aider à trouver le match parfait.</p>
               <form onSubmit={launchAi}>
                 <b>✧</b>
-                <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="ex : je lance une campagne skincare au Maroc pour toucher les femmes de 18-34 ans..." aria-label="Votre recherche SoMatch AI" />
-                <button type="submit">{searching ? "recherche…" : "lancer somatch AI"} <span>✦</span></button>
+                <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Ex. : Je lance une campagne skincare au Maroc pour toucher les femmes de 18-34 ans…" aria-label="Votre recherche SoMatch AI" />
+                <button type="submit">{searching ? "Recherche…" : "Lancer SoMatch AI"} <span>✦</span></button>
               </form>
-              <div className="popular-suggestions"><strong>suggestions populaires :</strong>
-                {["skincare au Maroc", "8 créatrices lifestyle", "campagne ramadan", "food TikTok", "sport & fitness"].map((suggestion) => <button type="button" key={suggestion} onClick={() => setQuery(suggestion)}>{suggestion}</button>)}
+              <div className="popular-suggestions"><strong>Suggestions populaires :</strong>
+                {["Skincare au Maroc", "8 créatrices lifestyle", "Campagne Ramadan", "Food TikTok", "Sport & fitness"].map((suggestion) => <button type="button" key={suggestion} onClick={() => setQuery(suggestion)}>{suggestion}</button>)}
                 <button type="button" className="next-suggestion">›</button>
               </div>
             </section>
 
             <section className="recommendations-section">
-              <div className="section-heading"><div><h2>recommandations pour vous</h2><p>des profils sélectionnés par somatch AI selon vos intérêts.</p></div><button type="button">voir tout →</button></div>
+              <div className="section-heading"><div><h2>Recommandations pour vous</h2><p>Des profils sélectionnés par SoMatch AI selon vos intérêts.</p></div><button type="button">Voir tout →</button></div>
               <div className="creator-grid">
                 {creators.map((creator) => <CreatorCard key={creator.name} creator={creator} favorite={favorites.includes(creator.name)} toggle={() => toggleFavorite(creator.name)} />)}
                 <button type="button" className="creator-next" aria-label="Profils suivants">→</button>
@@ -110,16 +110,16 @@ export default function Dashboard() {
 
             <div className="dashboard-lower-row">
               <section className="dashboard-panel trends-panel">
-                <div className="panel-heading"><h2>tendances actuelles</h2><button type="button">voir tout →</button></div>
+                <div className="panel-heading"><h2>Tendances actuelles</h2><button type="button">Voir tout →</button></div>
                 {trends.map((trend) => <div className="trend-item" key={trend.title}><i className={trend.tone}>{trend.icon}</i><span><strong>{trend.title}</strong><small>{trend.detail}</small></span><b>↑ {trend.growth}<small>vs mois dernier</small></b></div>)}
               </section>
               <section className="dashboard-panel overview-panel">
-                <div className="panel-heading"><h2>aperçu en un coup d’œil</h2></div>
+                <div className="panel-heading"><h2>Aperçu en un coup d’œil</h2></div>
                 <div className="stat-grid">
-                  <div><i className="stat-pink">♟</i><strong>152K<small>influenceurs dans<br />notre base</small></strong></div>
-                  <div><i className="stat-orange">⌁</i><strong>24,6%<small>engagement moyen<br />global</small></strong></div>
-                  <div><i className="stat-green">◎</i><strong>48<small>pays couverts</small></strong></div>
-                  <div><i className="stat-yellow">☆</i><strong>87/100<small>somatch score moyen</small></strong></div>
+                  <div><i className="stat-pink">♟</i><strong>152K<small>Influenceurs dans<br />notre base</small></strong></div>
+                  <div><i className="stat-orange">⌁</i><strong>24,6%<small>Engagement moyen<br />global</small></strong></div>
+                  <div><i className="stat-green">◎</i><strong>48<small>Pays couverts</small></strong></div>
+                  <div><i className="stat-yellow">☆</i><strong>87/100<small>SoMatch Score moyen</small></strong></div>
                 </div>
               </section>
             </div>
@@ -127,23 +127,23 @@ export default function Dashboard() {
 
           <aside className="dashboard-right">
             <section className="dashboard-panel upcoming-panel">
-              <div className="panel-heading"><h2>à venir</h2><button type="button">voir tout →</button></div>
+              <div className="panel-heading"><h2>À venir</h2><button type="button">Voir tout →</button></div>
               {upcoming.map((item) => <div className="upcoming-item" key={item.name}><img src={item.image} alt={item.name} /><span className="upcoming-copy"><strong>{item.name}</strong><small>{item.type}</small><small>{item.date}</small></span><PlatformBadge name={item.platform} /></div>)}
             </section>
             <section className="inspiration-card">
-              <div><i>✦</i><h2>besoin d’inspiration ?</h2></div>
-              <p>laissez somatch AI analyser votre marché et vous proposer des insights personnalisés.</p>
-              <button type="button">demander à somatch AI →</button>
+              <div><i>✦</i><h2>Besoin d’inspiration ?</h2></div>
+              <p>Laissez SoMatch AI analyser votre marché et vous proposer des insights personnalisés.</p>
+              <button type="button">Demander à SoMatch AI →</button>
             </section>
             <section className="dashboard-panel campaigns-panel">
-              <div className="panel-heading"><h2>Campagnes récentes</h2><button type="button">voir tout →</button></div>
-              {campaigns.map((campaign) => <div className="campaign-item" key={campaign.title}><img src={campaign.image} alt="" /><span><strong>{campaign.title}</strong><small>{campaign.detail}</small><small>{campaign.people}</small></span><b className={campaign.status === "terminée" ? "done" : "running"}>{campaign.status}</b></div>)}
+              <div className="panel-heading"><h2>Campagnes récentes</h2><button type="button">Voir tout →</button></div>
+              {campaigns.map((campaign) => <div className="campaign-item" key={campaign.title}><img src={campaign.image} alt="" /><span><strong>{campaign.title}</strong><small>{campaign.detail}</small><small>{campaign.people}</small></span><b className={campaign.status === "Terminée" ? "done" : "running"}>{campaign.status}</b></div>)}
             </section>
           </aside>
         </div>
 
         <section className="bottom-inspiration">
-          <i>✦</i><div><h2>besoin d’inspiration ?</h2><p>laissez somatch AI analyser votre marché et vous proposer des insights personnalisés.</p></div><button type="button">demander à somatch AI →</button>
+          <i>✦</i><div><h2>Besoin d’inspiration ?</h2><p>Laissez SoMatch AI analyser votre marché et vous proposer des insights personnalisés.</p></div><button type="button">Demander à SoMatch AI →</button>
         </section>
       </section>
     </main>

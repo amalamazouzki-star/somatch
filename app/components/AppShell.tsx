@@ -22,44 +22,44 @@ function SidebarIcon({ name }: { name: SidebarIconName }) {
 }
 
 const navigation = [
-  { icon: "home", label: "accueil", href: "/dashboard" },
-  { icon: "sparkles", label: "somatch AI", href: "/somatch-ai" },
-  { icon: "search", label: "explorer", href: "/explorer" },
-  { icon: "trending", label: "tendances", href: "/tendances" },
-  { icon: "grid", label: "catégories", href: "/categories" },
-  { icon: "heart", label: "favoris", href: "/favoris" },
-  { icon: "campaign", label: "mes campagnes", href: "/campagnes" },
-  { icon: "verified", label: "influenceurs certifiés", href: "#", soon: true },
+  { icon: "home", active: "accueil", label: "Accueil", href: "/dashboard" },
+  { icon: "sparkles", active: "somatch AI", label: "SoMatch AI", href: "/somatch-ai" },
+  { icon: "search", active: "explorer", label: "Explorer", href: "/explorer" },
+  { icon: "trending", active: "tendances", label: "Tendances", href: "/tendances" },
+  { icon: "grid", active: "catégories", label: "Catégories", href: "/categories" },
+  { icon: "heart", active: "favoris", label: "Favoris", href: "/favoris" },
+  { icon: "campaign", active: "mes campagnes", label: "Mes campagnes", href: "/campagnes" },
+  { icon: "verified", active: "influenceurs certifiés", label: "Influenceurs certifiés", href: "#", soon: true },
 ] as const;
 
 const secondaryNavigation = [
-  { icon: "user", label: "profil", href: "/profil" },
-  { icon: "settings", label: "paramètres", href: "/parametres" },
-  { icon: "help", label: "support", href: "/support" },
+  { icon: "user", active: "profil", label: "Profil", href: "/profil" },
+  { icon: "settings", active: "paramètres", label: "Paramètres", href: "/parametres" },
+  { icon: "help", active: "support", label: "Support", href: "/support" },
 ] as const;
 
 export function AppSidebar({ active, context }: { active: "accueil" | "somatch AI" | "explorer" | "tendances" | "catégories" | "favoris" | "mes campagnes" | "profil" | "paramètres" | "support" | "aucun"; context?: "create-campaign" | "empty-states" }) {
   const aiDescription = context === "create-campaign"
     ? "Besoin d’inspiration ? Laissez notre IA vous aider à trouver les meilleurs créateurs."
     : context === "empty-states"
-      ? "Besoin d’aide pour trouver les meilleurs créateurs ou lancer votre campagne ? somatch AI est là pour vous."
+      ? "Besoin d’aide pour trouver les meilleurs créateurs ou lancer votre campagne ? SoMatch AI est là pour vous."
     : active === "tendances"
-    ? "votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
+    ? "Votre copilote IA pour analyser le marché et détecter les tendances qui comptent."
     : active === "catégories"
-      ? "votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
+      ? "Votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
       : active === "somatch AI"
-        ? "votre copilote IA pour créer vos castings parfaits en quelques secondes."
+        ? "Votre copilote IA pour créer vos castings parfaits en quelques secondes."
         : active === "favoris"
-          ? "votre copilote IA pour analyser vos sélections et créer des castings gagnants."
+          ? "Votre copilote IA pour analyser vos sélections et créer des castings gagnants."
           : active === "mes campagnes"
-            ? "votre copilote IA pour créer, optimiser et piloter vos campagnes d’influence."
+            ? "Votre copilote IA pour créer, optimiser et piloter vos campagnes d’influence."
             : active === "profil"
-              ? "votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
+              ? "Votre copilote IA pour analyser le marché et détecter les meilleures opportunités."
               : active === "paramètres"
-                ? "votre copilote IA pour créer vos castings parfaits en quelques secondes."
+                ? "Votre copilote IA pour créer vos castings parfaits en quelques secondes."
                 : active === "support"
                   ? "Posez vos questions à notre IA et obtenez des réponses instantanées."
-            : "votre copilote IA pour des campagnes d’influence plus performantes.";
+            : "Votre copilote IA pour des campagnes d’influence plus performantes.";
   return (
     <aside className="dashboard-sidebar">
       <div className="sidebar-scroll-area">
@@ -68,23 +68,23 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
         </div>
         <nav className="primary-nav" aria-label="Navigation principale">
           {navigation.map((item) => (
-            <a className={active === item.label ? "active" : ""} href={item.href} key={item.label} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}>
-              <i><SidebarIcon name={item.icon} /></i><span>{item.label}</span>{item.soon && <em>bientôt disponible</em>}
+            <a className={active === item.active ? "active" : ""} href={item.href} key={item.active} onClick={item.href === "#" ? (event) => event.preventDefault() : undefined}>
+              <i><SidebarIcon name={item.icon} /></i><span>{item.label}</span>{item.soon && <em>Bientôt disponible</em>}
             </a>
           ))}
         </nav>
         <nav className="secondary-nav" aria-label="Navigation du compte">
-          {secondaryNavigation.map((item) => <a className={active === item.label ? "active" : ""} href={item.href} key={item.label}><i><SidebarIcon name={item.icon} /></i><span>{item.label}</span></a>)}
+          {secondaryNavigation.map((item) => <a className={active === item.active ? "active" : ""} href={item.href} key={item.active}><i><SidebarIcon name={item.icon} /></i><span>{item.label}</span></a>)}
         </nav>
         <section className="sidebar-ai-card">
-          <div><img src="/somatch-logo-mark.png" alt="" /><strong>somatch AI</strong></div>
+          <div><img src="/somatch-logo-mark.png" alt="" /><strong>SoMatch AI</strong></div>
           <p>{aiDescription}</p>
-          <button type="button">{context === "create-campaign" ? "essayer maintenant" : context === "empty-states" || active === "support" ? "poser une question" : "découvrir somatch AI"} <span>→</span></button>
+          <button type="button">{context === "create-campaign" ? "Essayer maintenant" : context === "empty-states" || active === "support" ? "Poser une question" : "Découvrir SoMatch AI"} <span>→</span></button>
         </section>
       </div>
       <a className="sidebar-profile" href="/profil" aria-label="Ouvrir le profil de Sara Benali" style={{ textDecoration: "none" }}>
         <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
-        <span><strong>sara benali</strong><small>marketeuse</small></span>
+        <span><strong>Sara Benali</strong><small>Marketeuse</small></span>
         <b>⌄</b>
       </a>
     </aside>
