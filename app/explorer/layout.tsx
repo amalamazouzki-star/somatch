@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../dashboard/dashboard.css";
 import "./explorer.css";
+import "./explorer-qa.css";
 
 export const metadata: Metadata = {
   title: "Explorer | SoMatch",

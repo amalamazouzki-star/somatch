@@ -1,4 +1,4 @@
-export type SocialNetwork = "google" | "instagram" | "tiktok";
+export type SocialNetwork = "google" | "instagram" | "tiktok" | "youtube";
 
 export function SocialLogo({ network }: { network: SocialNetwork }) {
   if (network === "google") {
@@ -27,6 +27,15 @@ export function SocialLogo({ network }: { network: SocialNetwork }) {
         <rect x="5.5" y="5.5" width="13" height="13" rx="4" fill="none" stroke="#fff" strokeWidth="1.8" />
         <circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" strokeWidth="1.8" />
         <circle cx="16.7" cy="7.4" r="1.1" fill="#fff" />
+      </svg>
+    );
+  }
+
+  if (network === "youtube") {
+    return (
+      <svg className="social-logo" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="#ff0033" d="M21.6 7.1a3 3 0 0 0-2.1-2.1C17.6 4.5 12 4.5 12 4.5S6.4 4.5 4.5 5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .4 4.9A3 3 0 0 0 4.5 19c1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.9Z" />
+        <path fill="#fff" d="m10 15.6 5.8-3.6L10 8.4v7.2Z" />
       </svg>
     );
   }
