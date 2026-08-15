@@ -18,7 +18,8 @@
 .notification-list article>i .settings-icon{width:17px;height:17px}
 .theme-options button>i .settings-icon{width:22px;height:22px}
 .privacy-card>button>i .settings-icon,.account-card>button>i .settings-icon,.integrations-card>button>i:last-child .settings-icon{width:15px;height:15px;transform:rotate(-90deg)}
-.settings-social{width:19px;height:19px;display:inline-grid;place-items:center;flex:0 0 auto;border:0;border-radius:0;background:transparent!important;box-shadow:none!important;text-shadow:none!important}
+.settings-social{width:19px;height:19px;display:inline-grid;place-items:center;flex:0 0 auto;overflow:hidden;border:0;border-radius:0;background:transparent!important;box-shadow:none!important;text-shadow:none!important;line-height:0}
+.settings-social.instagram{border:0;box-shadow:none}
 .settings-social .social-logo{width:19px;height:19px;display:block}
 .settings-social.tiktok{border-radius:5px;background:#08090d!important}
 .preference-tag{height:25px;display:flex;align-items:center;gap:7px;padding:0 10px;border:0;border-radius:9px;background:#f6f5f9;color:#4f5b72;font-size:8px;white-space:nowrap;cursor:pointer;transition:transform .25s var(--settings-spring),background .25s ease,color .25s ease}
