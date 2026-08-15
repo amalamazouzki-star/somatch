@@ -26,6 +26,7 @@ import ModalsConfirmationsPage from "../app/modales-confirmations/page";
 import "../app/globals.css";
 import "../app/dashboard/dashboard.css";
 import "../app/explorer/explorer.css";
+import "../app/explorer/explorer-qa.css";
 import "../app/influenceur/maya-el-amrani/profile.css";
 import "../app/tendances/trends.css";
 import "../app/categories/categories.css";
