@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../../../components/AppShell";
+import { InfluencerProfileLink } from "../../../components/InfluencerProfileLink";
 import { SocialLogo } from "../../../components/SocialLogo";
 import "../creer-campagne.css";
 import "./recapitulatif.css";
@@ -89,7 +90,7 @@ export default function CampaignSummaryPage() {
                 <article className="summary-detail-card"><h3><i className="green"><SummaryIcon name="content" /></i> Formats et contenu</h3><dl><div><dt>Types de contenu</dt><dd>Éducatif et divertissant<small>Inspirant et authentique</small></dd></div><div><dt>Messages clés</dt><dd>Chaque premier pas<small>mérite d’être célébré.</small></dd></div><div><dt>Contraintes</dt><dd>Sécurité de marque obligatoire<small>Visibilité obligatoire du produit</small></dd></div><div><dt>Action attendue</dt><dd>Participation au concours<small>Visite du site kinderjoy.ma</small></dd></div></dl></article>
               </div>
 
-              <section className="summary-creators"><h3>Créateurs sélectionnés (5/8)</h3><div>{creators.map((creator) => <article key={creator.name}><b>{creator.rank}</b><img src={creator.image} alt={creator.name} /><span><strong>{creator.name}</strong><small>{creator.niche}</small><em><SocialIcon platform="instagram" /><SocialIcon platform="tiktok" /></em></span><i><strong>{creator.score}</strong><small>SoMatch Score</small></i><strong>{formatBudget(creator.budget)}<small>Estimation</small></strong></article>)}</div><a href="/campagnes/creer/casting"><SummaryIcon name="plus" /> Ajouter d’autres créateurs (3 places restantes)</a></section>
+              <section className="summary-creators"><h3>Créateurs sélectionnés (5/8)</h3><div>{creators.map((creator) => <article className="influencer-card-target" key={creator.name}><InfluencerProfileLink name={creator.name} /><b>{creator.rank}</b><img src={creator.image} alt={creator.name} /><span><strong>{creator.name}</strong><small>{creator.niche}</small><em><SocialIcon platform="instagram" /><SocialIcon platform="tiktok" /></em></span><i><strong>{creator.score}</strong><small>SoMatch Score</small></i><strong>{formatBudget(creator.budget)}<small>Estimation</small></strong></article>)}</div><a href="/campagnes/creer/casting"><SummaryIcon name="plus" /> Ajouter d’autres créateurs (3 places restantes)</a></section>
               <section className="summary-budget"><h3>Répartition du budget</h3><div><span>Créateurs<strong>91 000 MAD (61 %)</strong></span><span>Production<strong>32 000 MAD (21 %)</strong></span><span>Gestion et coordination<strong>27 000 MAD (18 %)</strong></span></div><p><SummaryIcon name="info" /> Budget total : 150 000 MAD</p></section>
             </div>
 

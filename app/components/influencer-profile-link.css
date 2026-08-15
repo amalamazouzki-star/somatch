@@ -1,0 +1,28 @@
+.influencer-card-target {
+  position: relative;
+  cursor: pointer;
+}
+
+.influencer-card-target > .influencer-profile-link {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.influencer-card-target > .influencer-profile-link:focus-visible {
+  outline: 3px solid rgba(244, 28, 103, 0.72);
+  outline-offset: -3px;
+}
+
+.influencer-card-target .influencer-card-controls,
+.influencer-card-target > button,
+.influencer-card-target > input,
+.influencer-card-target > label,
+.influencer-card-target > select,
+.influencer-card-target > a:not(.influencer-profile-link) {
+  position: relative;
+  z-index: 11;
+}

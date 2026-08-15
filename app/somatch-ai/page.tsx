@@ -2,6 +2,7 @@
 
 import { FormEvent, useState, type CSSProperties } from "react";
 import { AppHeader, AppSidebar } from "../components/AppShell";
+import { InfluencerProfileLink } from "../components/InfluencerProfileLink";
 import { SocialLogo, type SocialNetwork } from "../components/SocialLogo";
 
 const initialBrief = "Campagne Back to School. Mettre en avant Kinder comme le compagnon idéal des petits au quotidien et soutenir les parents dans la rentrée scolaire.\nTon bienveillant, familial et positif.";
@@ -41,7 +42,8 @@ function SocialBadge({ platform }: { platform: SocialNetwork }) {
 
 function CreatorRow({ creator, favorite, onToggle }: { creator: typeof creators[number]; favorite: boolean; onToggle: () => void }) {
   return (
-    <article className="ai-creator-row">
+    <article className="ai-creator-row influencer-card-target">
+      <InfluencerProfileLink name={creator.name} />
       <img src={creator.image} alt={creator.name} />
       <div className="ai-creator-identity"><strong>{creator.name} <i>◆</i></strong><small>{creator.handle}</small><span>{creator.niches}</span><p>{creator.fit}</p></div>
       <div className="ai-creator-platforms">{creator.platforms.map((platform) => <SocialBadge platform={platform} key={platform} />)}</div>

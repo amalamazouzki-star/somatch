@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AppSidebar } from "../../components/AppShell";
+import { InfluencerProfileLink } from "../../components/InfluencerProfileLink";
 import { SocialLogo, type SocialNetwork } from "../../components/SocialLogo";
 
 const creators = [
@@ -38,7 +39,8 @@ function Social({ type, value }: { type:Extract<SocialNetwork,"instagram"|"tikto
 }
 
 function CreatorCard({ creator }: { creator:typeof creators[number] }) {
-  return <article className="recommend-creator-card">
+  return <article className="recommend-creator-card influencer-card-target">
+    <InfluencerProfileLink name={creator.name} />
     <header><b className={`recommend-rank ${creator.tone}`}>{creator.rank}</b><img src={creator.image} alt={creator.name}/><span><strong>{creator.name}</strong><small>{creator.niche}</small></span></header>
     <div className="recommend-socials"><Social type="instagram" value={creator.instagram}/><Social type="tiktok" value={creator.tiktok}/><Social type="youtube" value={creator.youtube}/></div>
     <div className="recommend-match"><b aria-label={`SoMatch Score : ${creator.score} sur 100`}>{creator.score}</b><strong>{creator.match}</strong></div>

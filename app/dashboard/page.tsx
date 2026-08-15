@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { AppHeader, AppSidebar } from "../components/AppShell";
+import { InfluencerProfileLink } from "../components/InfluencerProfileLink";
 
 const creators = [
   { name: "Maya El Amrani", handle: "@mayaelamrani", niche: "Beauty · Lifestyle", image: "/dashboard/maya.png", platforms: ["instagram", "tiktok"], followers: "256K", engagement: "4,8%", score: 92 },
@@ -43,8 +44,9 @@ function PlatformBadge({ name }: { name: string }) {
 
 function CreatorCard({ creator, favorite, toggle }: { creator: typeof creators[number]; favorite: boolean; toggle: () => void }) {
   return (
-    <article className="creator-card">
-      <div className="creator-card-top">
+    <article className="creator-card influencer-card-target">
+      <InfluencerProfileLink name={creator.name} />
+      <div className="creator-card-top influencer-card-controls">
         <img src={creator.image} alt={creator.name} />
         <button type="button" className={`heart-button ${favorite ? "is-favorite" : ""}`} onClick={toggle} aria-label={`Ajouter ${creator.name} aux favoris`}>♡</button>
       </div>

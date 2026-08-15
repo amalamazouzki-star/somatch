@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AppSidebar } from "../../../components/AppShell";
+import { InfluencerProfileLink } from "../../../components/InfluencerProfileLink";
 import { SocialLogo } from "../../../components/SocialLogo";
 import "../creer-campagne.css";
 import "./casting.css";
@@ -128,7 +129,8 @@ export default function CampaignCastingPage() {
                 {filteredCreators.map((creator, index) => {
                   const isSelected = selected.includes(creator.id);
                   return (
-                    <article className={isSelected ? "selected" : ""} key={creator.id}>
+                    <article className={`${isSelected ? "selected " : ""}influencer-card-target`} key={creator.id}>
+                      <InfluencerProfileLink name={creator.name} />
                       <b className="creator-rank">{index + 1}</b>
                       <div className="casting-avatar"><img src={creator.image} alt={creator.name} />{creator.badge ? <i className={creator.badge} aria-hidden="true" /> : null}</div>
                       <div className="casting-identity"><strong>{creator.name} <i title="Profil vérifié"><CastingIcon name="verified" /></i></strong><small>{creator.niche}</small><em><CastingIcon name="location" /> {creator.country} · {creator.city}</em></div>
@@ -153,7 +155,7 @@ export default function CampaignCastingPage() {
             <section className="casting-overview create-motion-card"><header><i><CastingIcon name="document" /></i><span><h2>Aperçu de votre campagne</h2><p>Back to School 2026</p></span></header><div><article><i><CastingIcon name="check-circle" /></i><strong>Informations</strong><span>Terminé</span></article><article><i><CastingIcon name="check-circle" /></i><strong>Brief</strong><span>Terminé</span></article><article className="active"><i><CastingIcon name="check-circle" /></i><strong>Casting</strong><span>En cours</span></article><article><i><CastingIcon name="circle" /></i><strong>Récapitulatif</strong><span>À compléter</span></article></div></section>
             <section className="selected-casting create-motion-card">
               <header><h2>Créateurs sélectionnés ({selectedCreators.length})</h2><b>{formatBudget(selectedBudget)}</b></header>
-              <div>{selectedCreators.map((creator) => <article key={creator.id}><img src={creator.image} alt={creator.name} /><span><strong>{creator.name}</strong><small>{creator.niche.split(" · ")[0]}</small></span><span className="selected-platforms"><SocialIcon platform="instagram" /><SocialIcon platform="tiktok" /></span><b>{formatBudget(creator.budget)}</b><button type="button" onClick={() => toggleCreator(creator.id)} aria-label={`Retirer ${creator.name}`}><CastingIcon name="close" /></button></article>)}</div>
+              <div>{selectedCreators.map((creator) => <article className="influencer-card-target" key={creator.id}><InfluencerProfileLink name={creator.name} /><img src={creator.image} alt={creator.name} /><span><strong>{creator.name}</strong><small>{creator.niche.split(" · ")[0]}</small></span><span className="selected-platforms"><SocialIcon platform="instagram" /><SocialIcon platform="tiktok" /></span><b>{formatBudget(creator.budget)}</b><button type="button" onClick={() => toggleCreator(creator.id)} aria-label={`Retirer ${creator.name}`}><CastingIcon name="close" /></button></article>)}</div>
               {selectedCreators.length === 0 ? <p className="selected-empty">Aucun créateur sélectionné.</p> : null}
               <button type="button" className="clear-casting" disabled={selectedCreators.length === 0} onClick={clearSelection}><CastingIcon name="trash" /> Vider la sélection</button>
             </section>

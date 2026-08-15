@@ -2,6 +2,7 @@
 
 import { useState, type CSSProperties } from "react";
 import { AppSidebar } from "../components/AppShell";
+import { InfluencerProfileLink } from "../components/InfluencerProfileLink";
 import { NotificationTrigger } from "../components/NotificationCenter";
 import { SocialLogo, type SocialNetwork } from "../components/SocialLogo";
 
@@ -83,8 +84,9 @@ export default function Favorites() {
             <section className="favorites-bulkbar favorite-motion-card"><label><input type="checkbox" checked={selected.length === visibleCreators.length && visibleCreators.length > 0} onChange={() => setSelected(selected.length === visibleCreators.length ? [] : visibleCreators.map((creator) => creator.id))} /><span>{selected.length} sélectionné{selected.length > 1 ? "s" : ""}</span></label><div><a href="/comparer">⇄&nbsp; Comparer</a><button className={moved?"active":""} type="button" onClick={()=>setMoved(true)}>▣&nbsp; {moved?"Déplacé ✓":"Déplacer"}</button><button type="button" className="delete" disabled={selected.length===0} onClick={removeSelected}>♙&nbsp; Supprimer</button></div></section>
             <div className={`favorite-creator-grid ${gridView ? "" : "list-view"}`}>
               {visibleCreators.map((creator) => { const key=creator.id; return (
-                <article className="favorite-creator-card favorite-motion-card" key={key}>
-                  <div className="favorite-visual"><img src={creator.image} alt={creator.name} style={{ objectPosition:creator.position }} /><input type="checkbox" checked={selected.includes(key)} onChange={() => toggleSelection(key)} aria-label={`Sélectionner ${creator.name}`} /><button type="button" aria-pressed={favorites.includes(key)} aria-label={`Retirer ${creator.name} des favoris`} className={favorites.includes(key) ? "saved" : ""} onClick={() => toggleFavorite(key)}>{favorites.includes(key) ? "♥" : "♡"}</button></div>
+                <article className="favorite-creator-card favorite-motion-card influencer-card-target" key={key}>
+                  <InfluencerProfileLink name={creator.name} />
+                  <div className="favorite-visual influencer-card-controls"><img src={creator.image} alt={creator.name} style={{ objectPosition:creator.position }} /><input type="checkbox" checked={selected.includes(key)} onChange={() => toggleSelection(key)} aria-label={`Sélectionner ${creator.name}`} /><button type="button" aria-pressed={favorites.includes(key)} aria-label={`Retirer ${creator.name} des favoris`} className={favorites.includes(key) ? "saved" : ""} onClick={() => toggleFavorite(key)}>{favorites.includes(key) ? "♥" : "♡"}</button></div>
                   <div className="favorite-card-copy"><h2>{creator.name} <i aria-label="Profil vérifié">◆</i></h2><small>{creator.handle}</small><p>{creator.niches}</p><div className="favorite-platforms">{creator.platforms.map((platform) => <PlatformBadge platform={platform} key={platform} />)}</div><div className="favorite-card-stats"><b>{creator.followers}<small>Abonnés</small></b><b>{creator.engagement}<small>Engagement</small></b><span className="favorite-score" role="img" aria-label={`SoMatch Score : ${creator.score} sur 100`} style={{ "--score":`${creator.score * 3.6}deg` } as CSSProperties}><strong>{creator.score}</strong><small>/100</small></span></div><footer>⌾&nbsp; {creator.city}</footer></div>
                 </article>
               ); })}
