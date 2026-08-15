@@ -1,5 +1,5 @@
 .somatch-ai-page { --ai-spring:cubic-bezier(.2,.8,.2,1); --ai-shadow:0 17px 42px rgba(36,31,47,.1),0 5px 15px rgba(246,39,103,.06); }
-.somatch-ai-main { position:relative; padding:0 26px; overflow:hidden; background:linear-gradient(135deg,#fff 0,#fff 72%,#fffdfb 100%); }
+.somatch-ai-main { position:relative; padding:0 26px; overflow-y:auto; overflow-x:hidden; background:linear-gradient(135deg,#fff 0,#fff 72%,#fffdfb 100%); scrollbar-width:thin; }
 .somatch-ai-main .dashboard-header { height:93px; padding:0; }.somatch-ai-main .dashboard-header h1 { display:flex; align-items:center; gap:7px; margin-bottom:9px; font-size:25px; text-transform:none; }.somatch-ai-main .dashboard-header h1 i { font-size:25px; font-style:normal; }.somatch-ai-main .dashboard-header p { font-size:12px; }
 .somatch-ai-workspace { display:grid; grid-template-columns:minmax(0,2fr) minmax(330px,1fr); gap:18px; }
 .somatch-ai-left,.somatch-ai-right { min-width:0; }.ai-motion-card { border:1px solid #e7e9ed; border-radius:12px; background:#fff; transition:transform .4s var(--ai-spring),box-shadow .4s var(--ai-spring),border-color .35s ease; }
