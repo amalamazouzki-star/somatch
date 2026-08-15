@@ -12,24 +12,10 @@ const creators = [
   { name: "Lina Eats", handle: "@linaeats", niche: "Food · Lifestyle", image: "/dashboard/lina.png", platforms: ["instagram", "tiktok"], followers: "178K", engagement: "5,1%", score: 86 },
 ];
 
-const upcoming = [
-  { name: "Salma Zahra", type: "Story Instagram", date: "12 mai, 18:00", image: "/dashboard/salma.png", platform: "instagram" },
-  { name: "Youssef Fit", type: "Reel TikTok", date: "13 mai, 12:00", image: "/dashboard/youssef.png", platform: "tiktok" },
-  { name: "Nour Beauty", type: "Story Instagram", date: "14 mai, 20:00", image: "/dashboard/nour.png", platform: "instagram" },
-  { name: "Lina Eats", type: "Reel Instagram", date: "15 mai, 18:30", image: "/dashboard/lina.png", platform: "instagram" },
-];
-
 const trends = [
   { icon: "♙", title: "Skincare", detail: "Catégorie en forte croissance", growth: "28%", tone: "pink" },
   { icon: "♪", title: "TikTok", detail: "Réseau tendance", growth: "34%", tone: "black" },
   { icon: "●", title: "Maroc", detail: "Localisation populaire", growth: "22%", tone: "green" },
-];
-
-const campaigns = [
-  { title: "Glow Skin Care", detail: "Beauty · Skincare", people: "5 influenceurs", image: "/dashboard/campaign-glow.png", status: "En cours" },
-  { title: "Run Your Way", detail: "Sport · Running", people: "8 influenceurs", image: "/dashboard/campaign-run.png", status: "En cours" },
-  { title: "Café du Matin", detail: "Food · Boissons", people: "6 influenceurs", image: "/dashboard/campaign-cafe.png", status: "Terminée" },
-  { title: "Summer Collection", detail: "Mode · Lifestyle", people: "7 influenceurs", image: "/dashboard/campaign-summer.png", status: "Terminée" },
 ];
 
 function PlatformBadge({ name }: { name: string }) {
@@ -127,21 +113,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <aside className="dashboard-right">
-            <section className="dashboard-panel upcoming-panel">
-              <div className="panel-heading"><h2>À venir</h2><button type="button">Voir tout →</button></div>
-              {upcoming.map((item) => <div className="upcoming-item" key={item.name}><img src={item.image} alt={item.name} /><span className="upcoming-copy"><strong>{item.name}</strong><small>{item.type}</small><small>{item.date}</small></span><PlatformBadge name={item.platform} /></div>)}
-            </section>
-            <section className="inspiration-card">
-              <div><i>✦</i><h2>Besoin d’inspiration ?</h2></div>
-              <p>Laissez SoMatch AI analyser votre marché et vous proposer des insights personnalisés.</p>
-              <button type="button">Demander à SoMatch AI →</button>
-            </section>
-            <section className="dashboard-panel campaigns-panel">
-              <div className="panel-heading"><h2>Campagnes récentes</h2><button type="button">Voir tout →</button></div>
-              {campaigns.map((campaign) => <div className="campaign-item" key={campaign.title}><img src={campaign.image} alt="" /><span><strong>{campaign.title}</strong><small>{campaign.detail}</small><small>{campaign.people}</small></span><b className={campaign.status === "Terminée" ? "done" : "running"}>{campaign.status}</b></div>)}
-            </section>
-          </aside>
         </div>
 
         <section className="bottom-inspiration">
