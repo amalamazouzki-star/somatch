@@ -32,10 +32,10 @@
 .campaign-casting-page .casting-engagement strong{display:flex;align-items:center;gap:5px}
 .campaign-casting-page .casting-engagement strong .campaign-icon{width:14px;height:14px;color:#12a34b}
 .campaign-casting-page .casting-score small{max-width:78px;overflow:hidden;text-align:center;text-overflow:ellipsis}
-.campaign-casting-page .casting-budget{min-width:0}
+.campaign-casting-page .casting-budget{min-width:0;transform:translateY(-4px)}
 .campaign-casting-page .casting-budget strong,.campaign-casting-page .casting-budget em{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .campaign-casting-page .casting-check .campaign-icon{width:13px;height:13px}
-.campaign-casting-page .casting-why{bottom:2px;display:flex;align-items:center;justify-content:center;gap:4px}
+.campaign-casting-page .casting-why{bottom:0;display:flex;align-items:center;justify-content:center;gap:4px}
 .campaign-casting-page .casting-why .campaign-icon{width:11px;height:11px}
 .campaign-casting-page .load-creators{display:flex;align-items:center;justify-content:center;gap:9px}
 .campaign-casting-page .load-creators .campaign-icon{width:14px;height:14px}
@@ -100,6 +100,7 @@
   .campaign-casting-page .casting-engagement{grid-area:engagement}
   .campaign-casting-page .casting-score{grid-area:score;align-items:flex-start}
   .campaign-casting-page .casting-budget{grid-area:budget}
+  .campaign-casting-page .casting-budget{transform:none}
   .campaign-casting-page .casting-check{grid-area:check}
   .campaign-casting-page .casting-why{position:static;grid-area:why;width:100%;height:30px}
   .campaign-casting-page .casting-list article.selected::before{left:-10px;top:10px;bottom:10px}
