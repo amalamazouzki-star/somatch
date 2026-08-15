@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AppSidebar } from "../components/AppShell";
 
 type EmptyIconName = "arrow" | "bell" | "campaign" | "chart" | "check" | "close" | "folder" | "heart" | "info" | "layout" | "plus" | "search" | "sparkles" | "star" | "users";
@@ -87,6 +87,10 @@ function EmptyStateCard({ card, searchTerm, onSearch, onReset }: { card: EmptyCa
 export default function EmptyStatesPage() {
   const [searchTerm, setSearchTerm] = useState("Back to School");
   const [feedback, setFeedback] = useState("");
+
+  useEffect(() => {
+    document.title = "États vides et résultats introuvables | SoMatch";
+  }, []);
 
   function chooseSuggestion(term: string) {
     setSearchTerm(term);
