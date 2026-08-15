@@ -249,3 +249,68 @@
 @media (prefers-reduced-motion:reduce) {
   .support-page * { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; animation-iteration-count:1!important; }
 }
+
+/* Support quality pass: real icons, polished French copy and resilient layouts. */
+.support-icon { width:1em; height:1em; display:block; }
+.support-header h1,.quick-access-section>h2,.support-panel h2 { text-transform:none; }
+.support-header .profile-menu { text-decoration:none; }
+.support-header .profile-menu span { display:grid; place-items:center; }
+.support-header .profile-menu .support-icon { width:12px; height:12px; }
+.support-search i { display:grid; place-items:center; font-size:0; transform:none; }
+.support-search i .support-icon { width:21px; height:21px; }
+.quick-access-card>i { font-size:0; }
+.quick-access-card>i .support-icon { width:26px; height:26px; }
+.quick-access-card strong { overflow:visible; white-space:normal; line-height:1.25; }
+.quick-access-card>b { display:grid; place-items:center; font-size:0; }
+.quick-access-card>b .support-icon { width:17px; height:17px; }
+.support-empty { align-content:center; gap:10px; }
+.support-empty p { margin:0; }
+.support-empty button { justify-self:center; border:0; background:transparent; color:#f42467; font-size:10px; font-weight:700; cursor:pointer; }
+.support-ai-card>div>i { display:grid; place-items:center; color:#f12772; background:none; font-size:0; }
+.support-ai-card>div>i .support-icon { width:33px; height:33px; }
+.support-ai-card>a { width:100%; height:46px; display:flex; align-items:center; justify-content:center; gap:8px; border:0; border-radius:8px; background:linear-gradient(95deg,#ee1266,#ff9200); background-size:180% 100%; color:#fff; font-size:12px; font-weight:700; text-decoration:none; transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,background-position .45s ease; }
+.support-ai-card>a .support-icon { width:17px; height:17px; }
+.faq-panel section>button { height:auto; padding-top:10px; padding-bottom:10px; }
+.faq-panel section>button span { overflow:visible; white-space:normal; line-height:1.35; }
+.faq-panel section>button i { display:grid; place-items:center; font-size:0; }
+.faq-panel section>button i .support-icon { width:14px; height:14px; }
+.faq-all { display:flex; align-items:center; justify-content:center; gap:7px; }
+.faq-all .support-icon { width:14px; height:14px; transform:rotate(90deg); }
+.attachment-button i { display:grid; place-items:center; font-size:0; transform:none; }
+.attachment-button i .support-icon { width:22px; height:22px; }
+.support-submit { display:flex; align-items:center; justify-content:center; gap:8px; }
+.support-submit .support-icon { width:17px; height:17px; }
+.request-card>i { display:grid; place-items:center; font-size:0; }
+.request-card>i .support-icon { width:16px; height:16px; transform:rotate(-90deg); }
+.support-footer>div>i { font-size:0; }
+.support-footer>div>i .support-icon { width:27px; height:27px; }
+.support-contact-action { width:160px; height:39px; display:flex; align-items:center; justify-content:center; gap:8px; border:1px solid #ff5f86; border-radius:7px; background:#fff; color:#f52462; font-size:11px; font-weight:700; text-decoration:none; transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease,border-color .3s ease; }
+.support-contact-action .support-icon { width:17px; height:17px; }
+.support-feedback { position:fixed; z-index:110; left:50%; bottom:18px; max-width:min(460px,calc(100vw - 32px)); margin:0; padding:12px 18px; border:1px solid #ffd0dc; border-radius:10px; background:#fff; color:#172034; box-shadow:0 15px 35px rgba(28,22,40,.16); font-size:11px; font-weight:600; opacity:0; pointer-events:none; transform:translate(-50%,12px); transition:opacity .25s ease,transform .25s cubic-bezier(.2,.8,.2,1); }
+.support-feedback.visible { opacity:1; transform:translate(-50%,0); }
+@media (hover:hover) and (pointer:fine) {
+  .support-ai-card>a:hover { transform:translateY(-2px); background-position:100% 0; box-shadow:0 10px 22px rgba(244,36,103,.22); }
+  .support-contact-action:hover { transform:translateY(-2px); border-color:#f52b68; box-shadow:0 8px 18px rgba(244,36,103,.09); }
+}
+@media (max-width:1280px) {
+  .quick-access-card { gap:9px; }
+  .quick-access-card strong { font-size:11px; }
+  .quick-access-card small { font-size:10px; }
+  .faq-panel section>button { font-size:10px; }
+}
+@media (max-width:760px) {
+  .quick-access-card { height:auto; min-height:100px; }
+  .support-panel { overflow:visible; }
+  .faq-panel>div { overflow:visible; }
+  .support-footer>div { align-items:flex-start; }
+  .support-footer>div>i { flex:0 0 auto; }
+  .support-footer small { line-height:1.5; }
+  .support-contact-action { width:100%; }
+}
+@media (max-width:430px) {
+  .support-header p { max-width:230px; line-height:1.35; }
+  .quick-access-card { padding-right:32px; }
+  .support-ai-card { padding-left:18px; padding-right:18px; }
+  .contact-panel { padding-left:12px; padding-right:12px; }
+  .request-card { height:auto; min-height:102px; }
+}
