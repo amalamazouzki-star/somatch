@@ -34,3 +34,16 @@
   height: 16px;
   flex-basis: 16px;
 }
+
+/* Cinq profils par rangée sur les grands écrans, puis réduction progressive. */
+@media (min-width: 1281px) {
+  .advanced-results-grid:not(.list) {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1280px) {
+  .advanced-results-grid:not(.list) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
