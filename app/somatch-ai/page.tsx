@@ -8,7 +8,14 @@ import { SocialLogo, type SocialNetwork } from "../components/SocialLogo";
 const initialBrief = "Campagne Back to School. Mettre en avant Kinder comme le compagnon idéal des petits au quotidien et soutenir les parents dans la rentrée scolaire.\nTon bienveillant, familial et positif.";
 
 const formats = ["Reel", "Stories", "Unboxing", "UGC", "Live"] as const;
-const quickSuggestions = ["Lancement de produit", "Back to School", "Ramadan", "Défi UGC", "Notoriété", "Conversion"] as const;
+const moroccanCities = ["Casablanca", "Rabat", "Marrakech", "Tanger", "Agadir", "Fès", "Meknès", "Oujda", "Tétouan", "Kénitra"] as const;
+const languages = ["Français", "Arabe", "Anglais"] as const;
+const creatorCategories = ["Beauté", "Lifestyle", "Mode", "Food", "Famille", "Sport & Fitness", "Voyage", "Gaming", "Technologie", "Business", "Éducation", "Photographie", "Musique", "Maison & Déco", "Parentalité", "Divertissement"] as const;
+const platformOptions: ReadonlyArray<{ value: SocialNetwork; label: string }> = [
+  { value: "instagram", label: "Instagram" },
+  { value: "tiktok", label: "TikTok" },
+  { value: "youtube", label: "YouTube" },
+];
 
 const recentBriefs = [
   { brand: "Kinder", title: "Kinder – Back to School", date: "12 août 2026", status: "Complété", tone: "red" },
@@ -59,7 +66,7 @@ export default function SomatchAi() {
   const [brand, setBrand] = useState("Kinder");
   const [brief, setBrief] = useState(initialBrief);
   const [selectedFormats, setSelectedFormats] = useState<string[]>(["Reel", "Stories"]);
-  const [activeSuggestion, setActiveSuggestion] = useState("Back to School");
+  const [selectedPlatforms, setSelectedPlatforms] = useState<SocialNetwork[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [generating, setGenerating] = useState(false);
 
@@ -67,9 +74,8 @@ export default function SomatchAi() {
     setSelectedFormats((current) => current.includes(format) ? current.filter((item) => item !== format) : [...current, format]);
   }
 
-  function applySuggestion(suggestion: string) {
-    setActiveSuggestion(suggestion);
-    setBrief(`${suggestion} — ${initialBrief}`);
+  function togglePlatform(platform: SocialNetwork) {
+    setSelectedPlatforms((current) => current.includes(platform) ? current.filter((item) => item !== platform) : [...current, platform]);
   }
 
   function generateCasting(event: FormEvent<HTMLFormElement>) {
@@ -96,21 +102,20 @@ export default function SomatchAi() {
               <div className="ai-form-grid ai-form-grid-three">
                 <label>Nom de la marque<input value={brand} onChange={(event) => setBrand(event.target.value)} /></label>
                 <label>Objectif de la campagne<select defaultValue="Notoriété & Engagement"><option>Notoriété & Engagement</option><option>Conversion</option><option>Lancement de produit</option></select></label>
-                <label>Pays / marché<input defaultValue="Maroc" /></label>
+                <label>Pays / marché<select defaultValue=""><option value="" disabled>Sélectionner une ville au Maroc</option>{moroccanCities.map((city) => <option key={city}>{city}</option>)}</select></label>
                 <label>Cible principale<input defaultValue="Parents 25–40 ans" /></label>
-                <label>Langue<input defaultValue="Français, Arabe" /></label>
-                <label>Plateformes<span className="ai-platform-field"><SocialBadge platform="instagram" /><SocialBadge platform="tiktok" /><SocialBadge platform="youtube" /><b>⌄</b></span></label>
+                <label>Langue<select defaultValue=""><option value="" disabled>Sélectionner une langue</option>{languages.map((language) => <option key={language}>{language}</option>)}</select></label>
+                <div className="ai-form-control"><span className="ai-form-label">Plateformes</span><details className="ai-multi-select"><summary><span className={selectedPlatforms.length ? "ai-selected-platforms" : "ai-select-placeholder"}>{selectedPlatforms.length ? <><span className="ai-selected-platform-icons">{selectedPlatforms.map((platform) => <SocialBadge platform={platform} key={platform} />)}</span>{selectedPlatforms.length === 1 ? platformOptions.find((item) => item.value === selectedPlatforms[0])?.label : `${selectedPlatforms.length} plateformes`}</> : "Sélectionner les plateformes"}</span><b aria-hidden="true">⌄</b></summary><div className="ai-platform-menu">{platformOptions.map((option) => { const selected = selectedPlatforms.includes(option.value); return <button type="button" aria-pressed={selected} className={selected ? "selected" : ""} onClick={() => togglePlatform(option.value)} key={option.value}><SocialBadge platform={option.value} /><span>{option.label}</span><b aria-hidden="true">{selected ? "✓" : ""}</b></button>; })}</div></details></div>
               </div>
 
               <div className="ai-form-grid ai-form-grid-bottom">
-                <label>Catégories<span className="ai-category-field"><b>Famille</b><b>Lifestyle</b><b>Vie de maman&nbsp; ×</b><i>⌄</i></span></label>
-                <label>Nombre de créateurs<select defaultValue="5 à 8 créateurs"><option>5 à 8 créateurs</option><option>8 à 12 créateurs</option></select></label>
-                <label>Budget estimé<select defaultValue="150 000 MAD"><option>150 000 MAD</option><option>200 000 MAD</option></select></label>
+                <label>Catégorie<select defaultValue=""><option value="" disabled>Sélectionner une catégorie</option>{creatorCategories.map((category) => <option key={category}>{category}</option>)}</select></label>
+                <label>Nombre de créateurs<input type="number" min="1" max="50" inputMode="numeric" placeholder="Saisir un nombre" /></label>
+                <label>Budget estimé<input type="number" min="0" step="1000" inputMode="decimal" placeholder="Montant en MAD" /></label>
               </div>
 
               <fieldset className="ai-format-field"><legend>Formats souhaités</legend><div>{formats.map((format) => <button type="button" aria-pressed={selectedFormats.includes(format)} className={selectedFormats.includes(format) ? "selected" : ""} onClick={() => toggleFormat(format)} key={format}>{selectedFormats.includes(format) ? "●" : "◌"}&nbsp; {format}{format === "Reel" ? " ⌄" : ""}</button>)}</div></fieldset>
               <label className="ai-brief-text">Décrivez votre campagne (brief libre)<textarea id="somatch-ai-brief" value={brief} maxLength={1000} onChange={(event) => setBrief(event.target.value)} /><small>{brief.length} / 1 000</small></label>
-              <div className="ai-quick-suggestions"><strong>Suggestions rapides</strong><div>{quickSuggestions.map((suggestion) => <button type="button" aria-pressed={activeSuggestion === suggestion} className={activeSuggestion === suggestion ? "selected" : ""} onClick={() => applySuggestion(suggestion)} key={suggestion}>{suggestion}</button>)}</div></div>
               <button type="submit" className="ai-generate-button" disabled={generating}>✦&nbsp; {generating ? "Génération du casting…" : "Générer mon casting avec SoMatch AI"}</button>
               <small className="ai-security">♙&nbsp; Vos informations sont sécurisées et confidentielles.</small>
             </form>
