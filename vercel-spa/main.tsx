@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "@fontsource-variable/dm-sans";
 import Login from "../app/page";
 import Dashboard from "../app/dashboard/page";
 import Explorer from "../app/explorer/page";
