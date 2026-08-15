@@ -10,3 +10,105 @@
 
 .summary-actions .summary-create-link{height:38px;display:flex;align-items:center;justify-content:center;border:0;border-radius:6px;background:linear-gradient(100deg,#ed0969,#ff7d17);color:#fff;font-size:9px;font-weight:700;text-decoration:none;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
 @media(hover:hover) and (pointer:fine){.summary-actions .summary-create-link:hover{transform:translateY(-3px);box-shadow:0 11px 23px rgba(237,10,104,.22)}}
+
+/* QA étape 4 : textes français, budgets cohérents, vraies icônes et responsive sans largeur forcée. */
+.campaign-summary-page .campaign-icon{width:1em;height:1em;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.campaign-summary-page .create-campaign-header button{display:flex;align-items:center;justify-content:center;gap:7px}
+.campaign-summary-page .create-campaign-header button .campaign-icon{width:15px;height:15px}
+.campaign-summary-page .summary-stepper i .campaign-icon{width:18px;height:18px}
+.campaign-summary-page .summary-detail-card h3>i{font-size:0}
+.campaign-summary-page .summary-detail-card h3>i .campaign-icon{width:16px;height:16px}
+.campaign-summary-page .summary-detail-card dd{overflow-wrap:anywhere}
+.campaign-summary-page .summary-social{overflow:visible;border-radius:0;background:none!important;font-size:0}
+.campaign-summary-page .summary-social svg.social-logo{width:14px!important;height:14px!important;min-width:14px!important;max-width:14px!important;display:block;flex:0 0 14px!important}
+.campaign-summary-page .summary-creators article>span .summary-social svg.social-logo{width:11px!important;height:11px!important;min-width:11px!important;max-width:11px!important;flex-basis:11px!important}
+.campaign-summary-page .summary-creators article>span strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.campaign-summary-page .summary-creators article>i small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.campaign-summary-page .summary-creators>a{width:100%;height:27px;display:flex;align-items:center;justify-content:center;gap:7px;margin-top:9px;border:1px dashed #d8dde6;border-radius:5px;background:#fff;color:#59657c;font-size:8px;text-decoration:none;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .25s ease}
+.campaign-summary-page .summary-creators>a .campaign-icon{width:15px;height:15px;color:#f31568}
+.campaign-summary-page .summary-budget>div{grid-template-columns:61fr 21fr 18fr}
+.campaign-summary-page .summary-budget>div span{min-width:0;text-align:center}
+.campaign-summary-page .summary-budget>div strong{white-space:nowrap}
+.campaign-summary-page .summary-budget>p{gap:6px}
+.campaign-summary-page .summary-budget>p .campaign-icon{width:14px;height:14px;color:#f31568}
+.campaign-summary-page .summary-actions>a,.campaign-summary-page .summary-actions>button{gap:8px}
+.campaign-summary-page .summary-actions .campaign-icon{width:17px;height:17px}
+.campaign-summary-page .summary-actions button.saved{border-color:#a8d9b0;background:#f2fbf3;color:#168735}
+.campaign-summary-page .summary-actions .summary-create-link{height:44px;justify-content:space-between;padding:0 17px 0 34px;border-radius:7px;font-size:10px}
+.campaign-summary-page .summary-analysis h2 i{width:26px;height:26px;display:grid;flex:0 0 26px;place-items:center;font-size:0}
+.campaign-summary-page .summary-analysis h2 i .campaign-icon{width:25px;height:25px}
+.campaign-summary-page .summary-analysis h3{display:flex;align-items:center;gap:6px}
+.campaign-summary-page .summary-analysis h3 i{width:16px;height:16px;display:grid;place-items:center;font-size:0}
+.campaign-summary-page .summary-analysis h3 i .campaign-icon{width:16px;height:16px}
+.campaign-summary-page .strength-list li{display:flex;align-items:flex-start;gap:9px}
+.campaign-summary-page .strength-list li::before{display:none}
+.campaign-summary-page .strength-list li>.campaign-icon{width:14px;height:14px;flex:0 0 14px;padding:2px;border:1px solid #13a648;border-radius:50%;color:#13a648}
+.campaign-summary-page .recommend-list li{display:flex;gap:10px;padding-left:7px}
+.campaign-summary-page .recommend-list li::before{display:none}
+.campaign-summary-page .recommend-list li>span{width:5px;height:5px;flex:0 0 5px;margin-top:4px;transform:rotate(45deg);background:#1ca04c}
+.campaign-summary-page .summary-analysis button{display:flex;align-items:center;justify-content:center;gap:8px}
+.campaign-summary-page .summary-analysis button .campaign-icon{width:15px;height:15px}
+.campaign-summary-page .summary-analysis.expanded{height:500px}
+.campaign-summary-page .analysis-detail{margin:10px 0 -7px;padding:8px;border-radius:6px;background:#fff;color:#59657c;font-size:8px;line-height:1.45}
+.campaign-summary-page .summary-performance h2{display:flex;align-items:center;gap:6px}
+.campaign-summary-page .summary-performance h2>.campaign-icon{width:14px;height:14px;color:#59657d}
+.campaign-summary-page .summary-performance article>i{font-size:0}
+.campaign-summary-page .summary-performance article>i .campaign-icon{width:20px;height:20px}
+.campaign-summary-page .summary-performance article>span{min-width:0}
+.campaign-summary-page .summary-performance strong{font-size:13px}
+
+@media(hover:hover) and (pointer:fine){
+  .campaign-summary-page .summary-creators>a:hover{transform:translateY(-2px);border-color:#f31568;box-shadow:0 8px 18px rgba(43,31,47,.08)}
+}
+
+@media(max-width:1400px){
+  .campaign-summary-page .summary-budget>div span{font-size:6.5px}
+  .campaign-summary-page .summary-budget>div strong{font-size:7px}
+  .campaign-summary-page .summary-performance strong{font-size:12px}
+}
+
+@media(max-width:1120px){
+  .campaign-summary-page .summary-main{overflow-x:hidden}
+  .campaign-summary-page .summary-workspace{min-width:0}
+  .campaign-summary-page .summary-content-card{height:auto}
+  .campaign-summary-page .summary-details-grid{height:auto;grid-template-columns:1fr 1fr}
+  .campaign-summary-page .summary-detail-card{min-height:270px}
+  .campaign-summary-page .summary-detail-card:last-child{grid-column:1/-1;min-height:210px}
+  .campaign-summary-page .summary-creators{height:auto;min-height:480px}
+  .campaign-summary-page .summary-creators>div{grid-template-columns:repeat(3,1fr)}
+  .campaign-summary-page .summary-budget{height:150px}
+  .campaign-summary-page .summary-aside{grid-template-columns:1fr 1fr}
+  .campaign-summary-page .summary-analysis,.campaign-summary-page .summary-performance{height:auto;min-height:330px}
+  .campaign-summary-page .summary-analysis.expanded{height:auto;min-height:500px}
+}
+
+@media(max-width:760px){
+  .campaign-summary-page .summary-main{overflow-x:hidden;padding-right:14px}
+  .campaign-summary-page .summary-stepper{width:min(100%,620px)}
+  .campaign-summary-page .summary-page-grid,.campaign-summary-page .summary-workspace{min-width:0}
+  .campaign-summary-page .summary-content-card{height:auto;padding:14px 12px}
+  .campaign-summary-page .summary-content-card>header{height:auto;min-height:76px}
+  .campaign-summary-page .summary-details-grid{grid-template-columns:1fr}
+  .campaign-summary-page .summary-detail-card,.campaign-summary-page .summary-detail-card:last-child{grid-column:auto;min-height:250px}
+  .campaign-summary-page .summary-creators{min-height:720px}
+  .campaign-summary-page .summary-creators>div{grid-template-columns:1fr 1fr}
+  .campaign-summary-page .summary-creators article{height:190px}
+  .campaign-summary-page .summary-budget{height:auto;min-height:205px}
+  .campaign-summary-page .summary-budget>div{height:auto;min-height:120px;grid-template-columns:1fr}
+  .campaign-summary-page .summary-budget>div span{min-height:40px;font-size:8px}
+  .campaign-summary-page .summary-budget>div strong{font-size:8px}
+  .campaign-summary-page .summary-actions{height:auto;min-height:165px;grid-template-columns:1fr;gap:9px;padding-top:18px}
+  .campaign-summary-page .summary-actions>a,.campaign-summary-page .summary-actions>button{width:100%}
+  .campaign-summary-page .summary-aside{grid-template-columns:1fr}
+  .campaign-summary-page .summary-analysis,.campaign-summary-page .summary-performance{min-height:360px}
+}
+
+@media(max-width:430px){
+  .campaign-summary-page .create-campaign-header button{width:137px}
+  .campaign-summary-page .summary-creators{min-height:1120px}
+  .campaign-summary-page .summary-creators>div{grid-template-columns:1fr}
+  .campaign-summary-page .summary-creators article{height:192px}
+  .campaign-summary-page .summary-detail-card dl>div{grid-template-columns:42% 58%}
+  .campaign-summary-page .summary-performance>div{grid-template-columns:1fr}
+  .campaign-summary-page .summary-performance{min-height:505px}
+}
