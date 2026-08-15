@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AppSidebar } from "../components/AppShell";
 import { InfluencerProfileLink } from "../components/InfluencerProfileLink";
 import { SocialLogo } from "../components/SocialLogo";
@@ -41,13 +41,12 @@ function RankBadgeIcon() {
 function CreatorResultCard({ creator, saved, onSave }: { creator:typeof creators[number]; saved:boolean; onSave:()=>void }) {
   return <article className="advanced-creator-card influencer-card-target">
     <InfluencerProfileLink name={creator.name} />
-    <header className="influencer-card-controls"><span className="advanced-creator-rank"><RankBadgeIcon />{creator.score}</span><button type="button" aria-label={`Options pour ${creator.name}`}>⋮</button></header>
+    <header className="influencer-card-controls"><span className="advanced-creator-rank"><RankBadgeIcon />{creator.score}</span><div className="advanced-card-header-actions"><button className={saved ? "advanced-card-save saved" : "advanced-card-save"} type="button" onClick={onSave} aria-label={saved ? `Retirer ${creator.name} des favoris` : `Ajouter ${creator.name} aux favoris`}>{saved ? "♥" : "♡"}</button><button type="button" aria-label={`Options pour ${creator.name}`}>⋮</button></div></header>
     <div className="advanced-creator-avatar"><img src={creator.image} alt={creator.name}/><i className={creator.verified}>✓</i></div>
     <h2>{creator.name}</h2><p>{creator.niche}</p><small>⌾　{creator.city}</small>
     <div className="advanced-social-row"><SocialMetric platform="instagram" value={creator.instagram}/><SocialMetric platform="tiktok" value={creator.tiktok}/><SocialMetric platform="youtube" value={creator.youtube}/></div>
     <div className="advanced-performance"><span>Engagement<strong>{creator.engagement}</strong></span><span>Vues moyennes<strong>{creator.views}</strong></span></div>
     <div className="advanced-match"><b>{creator.score}</b><strong>{creator.match}</strong></div>
-    <footer className="influencer-card-controls"><span>Budget estimé<strong>{creator.budget}</strong><small>par collaboration</small></span><button className={saved ? "saved" : ""} type="button" onClick={onSave} aria-label={saved ? `Retirer ${creator.name} des favoris` : `Ajouter ${creator.name} aux favoris`}>{saved ? "▮" : "▯"}</button></footer>
   </article>;
 }
 
@@ -78,6 +77,11 @@ export default function Explorer() {
   const resultCount=search ? visibleCreators.length : 247;
   const resultLabel=resultCount === 1 ? "créateur trouvé" : "créateurs trouvés";
   const advancedFilterCount=Number(level !== "") + Number(platforms.length > 0);
+
+  useEffect(()=>{
+    const automaticClose=window.setTimeout(()=>setDrawerOpen(false),1600);
+    return ()=>window.clearTimeout(automaticClose);
+  },[]);
 
   return <main className="dashboard-page advanced-explorer-page">
     <AppSidebar active="explorer"/>
