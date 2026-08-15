@@ -57,13 +57,14 @@ function PlatformIcon({ name }: { name: "instagram" | "tiktok" | "youtube" }) {
   return <span className={`profile-platform ${name}`} role="img" aria-label={label}><SocialLogo network={name} /></span>;
 }
 
-type ProfileIconName = "arrow-left" | "arrow-right" | "calendar" | "compare" | "eye" | "globe" | "heart" | "info" | "location" | "message" | "plus" | "search" | "shield" | "sparkles" | "star" | "trend" | "users";
+type ProfileIconName = "arrow-left" | "arrow-right" | "calendar" | "compare" | "download" | "eye" | "globe" | "heart" | "info" | "location" | "message" | "plus" | "search" | "shield" | "sparkles" | "star" | "trend" | "users";
 
 const profileIconPaths: Record<ProfileIconName, ReactNode> = {
   "arrow-left": <><path d="m15 5-7 7 7 7" /><path d="M8 12h12" /></>,
   "arrow-right": <><path d="m9 5 7 7-7 7" /><path d="M4 12h12" /></>,
   calendar: <><rect x="3.5" y="5.5" width="17" height="15" rx="2" /><path d="M7.5 3v5M16.5 3v5M3.5 10h17" /></>,
   compare: <><path d="M4 8h14M15 5l3 3-3 3M20 16H6M9 13l-3 3 3 3" /></>,
+  download: <><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5" /><path d="M4 18.5v2h16v-2" /></>,
   eye: <><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" /><circle cx="12" cy="12" r="2.8" /></>,
   globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18" /></>,
   heart: <path d="M20.7 8.5c0 5.1-8.7 10.8-8.7 10.8S3.3 13.6 3.3 8.5A4.6 4.6 0 0 1 12 6.4a4.6 4.6 0 0 1 8.7 2.1Z" />,
@@ -106,6 +107,7 @@ function FollowersChart() {
 export default function InfluencerProfile() {
   const [favorite, setFavorite] = useState(false);
   const [added, setAdded] = useState(false);
+  const [reportDownloaded, setReportDownloaded] = useState(false);
   const [activeTab, setActiveTab] = useState("Aperçu");
 
   const sectionTargets: Record<string, string> = {
@@ -120,6 +122,52 @@ export default function InfluencerProfile() {
   function selectSection(tab: string) {
     setActiveTab(tab);
     document.getElementById(sectionTargets[tab])?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function downloadReport() {
+    const generatedAt = new Intl.DateTimeFormat("fr-FR", { dateStyle: "long", timeStyle: "short" }).format(new Date());
+    const report = [
+      "SOMATCH — RAPPORT INFLUENCEUR",
+      "",
+      "Maya El Amrani — @mayaelamrani",
+      "Profil vérifié · Beauté · Lifestyle",
+      "Casablanca, Maroc · Français, arabe et anglais",
+      "",
+      "SOMATCH SCORE",
+      "92/100 — Excellent",
+      "",
+      "INDICATEURS CLÉS",
+      "Abonnés : 256 K",
+      "Engagement moyen : 4,8 %",
+      "Vues moyennes par Reel : 78 K",
+      "Interactions moyennes : 3,2 K",
+      "",
+      "RÉSEAUX",
+      "Instagram : 178 K abonnés · 4,6 % d’engagement",
+      "TikTok : 72 K abonnés · 5,1 % d’engagement",
+      "YouTube : 6 K abonnés · 3,2 % d’engagement",
+      "",
+      "AUDIENCE",
+      "78 % de femmes · 20 % d’hommes · 2 % autres",
+      "Principale tranche d’âge : 25–34 ans (46 %)",
+      "Principal pays : Maroc (72 %)",
+      "",
+      "ANALYSE SOMATCH",
+      "Maya El Amrani dispose d’une communauté engagée et qualifiée, d’un contenu aligné avec les univers Beauté et Lifestyle et de solides performances sur Instagram et TikTok.",
+      "",
+      `Rapport généré le ${generatedAt}.`,
+    ].join("\n");
+
+    const blob = new Blob(["\uFEFF", report], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "rapport-maya-el-amrani.txt";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    setReportDownloaded(true);
   }
 
   return (
@@ -158,7 +206,10 @@ export default function InfluencerProfile() {
           <div className="profile-actions">
             <button type="button" className={favorite ? "is-active" : ""} aria-pressed={favorite} onClick={() => setFavorite((value) => !value)}><ProfileIcon name="heart" />{favorite ? "Ajoutée aux favoris" : "Ajouter aux favoris"}</button>
             <button type="button" className={`campaign-action ${added ? "is-added" : ""}`} aria-pressed={added} onClick={() => setAdded((value) => !value)}><ProfileIcon name="plus" />{added ? "Ajoutée à la campagne" : "Ajouter à une campagne"}</button>
-            <a className="profile-action-link" href="/comparer"><ProfileIcon name="compare" />Comparer</a>
+            <div className="profile-actions-secondary">
+              <a className="profile-action-link" href="/comparer"><ProfileIcon name="compare" />Comparer</a>
+              <button type="button" className={`profile-action-link ${reportDownloaded ? "is-active" : ""}`} onClick={downloadReport}><ProfileIcon name="download" />{reportDownloaded ? "Rapport téléchargé" : "Télécharger le rapport"}</button>
+            </div>
           </div>
         </section>
 
