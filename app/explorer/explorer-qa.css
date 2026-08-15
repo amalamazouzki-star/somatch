@@ -35,6 +35,28 @@
   flex-basis: 16px;
 }
 
+.advanced-creator-card {
+  height: 400px;
+}
+
+.advanced-card-header-actions {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.advanced-creator-card > header .advanced-card-save {
+  color: #f31564;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.advanced-creator-card > header .advanced-card-save.saved {
+  transform: scale(1.06);
+}
+
 /* Cinq profils par rangée sur les grands écrans, puis réduction progressive. */
 @media (min-width: 1281px) {
   .advanced-results-grid:not(.list) {
