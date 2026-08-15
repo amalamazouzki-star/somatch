@@ -18,6 +18,7 @@ const creators = [
   { name:"Amine HLS", image:"/explorer/amine.png", niche:"Family · Méga", city:"Marrakech, Maroc", score:89, instagram:"717K", tiktok:"1,2 M", youtube:"210K", engagement:"4,7 %", views:"1,2 M", match:"Très bon match", budget:"21 000 MAD", verified:"dark" },
   { name:"Sofia HLS", image:"/explorer/sarah.png", niche:"Family · Méga", city:"Marrakech, Maroc", score:89, instagram:"667K", tiktok:"980K", youtube:"–", engagement:"4,5 %", views:"980K", match:"Très bon match", budget:"20 000 MAD", verified:"dark" },
   { name:"Souhaila Abbad", image:"/explorer/salma.png", niche:"Lifestyle · Macro", city:"Kénitra, Maroc", score:85, instagram:"176K", tiktok:"92K", youtube:"–", engagement:"6,1 %", views:"92K", match:"Bon match", budget:"15 000 MAD", verified:"dark" },
+  { name:"Imane Green", image:"/explorer/imane.png", niche:"Éco · Lifestyle", city:"Rabat, Maroc", score:84, instagram:"231K", tiktok:"148K", youtube:"–", engagement:"5,4 %", views:"184K", match:"Bon match", budget:"14 000 MAD", verified:"green" },
 ] as const;
 
 function SelectField({ label, value, options = [value] }: { label:string; value:string; options?:readonly string[] }) {
@@ -56,7 +57,7 @@ function FilterSection({ index, title, children, open, onToggle }: { index:numbe
 
 export default function Explorer() {
   const [search,setSearch]=useState("");
-  const [drawerOpen,setDrawerOpen]=useState(false);
+  const [drawerOpen,setDrawerOpen]=useState(true);
   const [savedSearch,setSavedSearch]=useState(false);
   const [savedCreators,setSavedCreators]=useState<string[]>([]);
   const [activeFilters,setActiveFilters]=useState(["Maroc","Instagram","Engagement ≥ 3 %","SoMatch Score ≥ 80"]);
