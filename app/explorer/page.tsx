@@ -56,7 +56,7 @@ function FilterSection({ index, title, children, open, onToggle }: { index:numbe
 
 export default function Explorer() {
   const [search,setSearch]=useState("");
-  const [drawerOpen,setDrawerOpen]=useState(true);
+  const [drawerOpen,setDrawerOpen]=useState(false);
   const [savedSearch,setSavedSearch]=useState(false);
   const [savedCreators,setSavedCreators]=useState<string[]>([]);
   const [activeFilters,setActiveFilters]=useState(["Maroc","Instagram","Engagement ≥ 3 %","SoMatch Score ≥ 80"]);
