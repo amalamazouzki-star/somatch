@@ -57,6 +57,37 @@
   transform: scale(1.06);
 }
 
+.advanced-ai-help {
+  border-color: #f2e5df;
+  background: linear-gradient(100deg, #fff7f5, #fffdf5);
+}
+
+.advanced-ai-help > i {
+  border-radius: 9px;
+  background: linear-gradient(135deg, #f82870, #ff9f1c);
+  color: #fff;
+}
+
+.advanced-ai-help a {
+  justify-content: center;
+  border: 0;
+  background: linear-gradient(95deg, #f5276c, #ff9c18);
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .advanced-ai-help:hover {
+    border-color: #f3cab8;
+    box-shadow: 0 15px 34px rgba(246, 50, 104, 0.11);
+  }
+
+  .advanced-ai-help a:hover {
+    border-color: transparent;
+    box-shadow: 0 10px 24px rgba(246, 50, 104, 0.2);
+  }
+}
+
 /* Cinq profils par rangée sur les grands écrans, puis réduction progressive. */
 @media (min-width: 1281px) {
   .advanced-results-grid:not(.list) {
