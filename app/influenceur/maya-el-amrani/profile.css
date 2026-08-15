@@ -21,7 +21,7 @@
 .profile-user span { color:#0f1727; font-size:18px; }
 
 .animated-card { transition:transform .4s var(--profile-spring),box-shadow .42s var(--profile-spring),border-color .32s ease,background-color .32s ease; }
-.influencer-hero { height:196px; display:grid; grid-template-columns:minmax(480px,1fr) 280px 258px; align-items:center; gap:26px; padding:21px 27px 20px 23px; border:1px solid #e9ebef; border-radius:14px; background:#fff; }
+.influencer-hero { min-height:196px; height:auto; display:grid; grid-template-columns:minmax(480px,1fr) 280px 258px; align-items:center; gap:26px; padding:21px 27px 20px 23px; border:1px solid #e9ebef; border-radius:14px; background:#fff; }
 .identity-block { min-width:0; display:flex; align-items:center; gap:24px; }
 .influencer-avatar { width:139px; height:139px; flex:0 0 auto; border-radius:50%; object-fit:cover; image-rendering:auto; box-shadow:0 0 0 1px #eef0f3; transition:transform .45s var(--profile-spring),box-shadow .4s ease,filter .4s ease; }
 .identity-copy { min-width:250px; }
@@ -34,8 +34,9 @@
 .identity-details { display:flex; flex-wrap:wrap; gap:13px 28px; color:#566279; font-size:12px; }
 .identity-details span { display:flex; align-items:center; gap:7px; min-width:0; line-height:1.35; }
 .identity-details .profile-vector-icon { width:15px; height:15px; }
-.identity-reach { display:flex; align-items:center; gap:12px; margin-top:14px; color:#4d5970; font-size:12px; }
+.identity-reach { display:flex; align-items:center; flex-wrap:wrap; gap:8px 12px; margin-top:14px; color:#4d5970; font-size:12px; line-height:1.35; }
 .identity-reach b { padding:5px 13px; border-radius:7px; background:#fff0f4; color:#f72967; font-size:11px; }
+.identity-reach span { min-width:0; overflow-wrap:anywhere; }
 .identity-platforms { align-self:flex-start; display:flex; gap:10px; margin:31px 0 0 2px; padding:7px; border:1px solid #e7e9ed; border-radius:8px; background:#fff; }
 .profile-platform { position:relative; width:23px; height:23px; display:inline-grid; place-items:center; border-radius:6px; color:#fff; flex:0 0 auto; transition:transform .35s var(--profile-spring),box-shadow .35s ease,filter .35s ease; }
 .profile-platform.tiktok { padding:2px; background:#07090c; }
