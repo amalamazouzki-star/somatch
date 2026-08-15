@@ -81,7 +81,7 @@ export default function SupportPage() {
 
         <section className="support-top-grid">
           <div className="quick-access-section"><h2>Accès rapides</h2><div className="quick-access-grid">{visibleAccess.map((item) => <button type="button" className="quick-access-card support-motion-card" onClick={() => showFeedback(`Ouverture de l’aide « ${item.title} » en mode démonstration.`)} key={item.title}><i className={item.tone}><SupportIcon name={item.icon} /></i><span><strong>{item.title}</strong><small>{item.description}</small></span><b><SupportIcon name="arrow" /></b></button>)}</div>{visibleAccess.length === 0 ? <div className="support-empty"><p>Aucun article ne correspond à cette recherche.</p><button type="button" onClick={() => setQuery("")}>Effacer la recherche</button></div> : null}</div>
-          <aside className="support-ai-card support-motion-card"><div><i><SupportIcon name="sparkles" /></i><h2>Posez votre question<br />à SoMatch AI</h2></div><p>Obtenez des réponses instantanées sur l’utilisation de la plateforme.</p><a href="/somatch-ai">Discuter avec SoMatch AI <SupportIcon name="sparkles" /></a></aside>
+          <aside className="support-ai-card support-motion-card"><div><i><SupportIcon name="sparkles" /></i><h2>Posez votre question<br />{" "}à SoMatch AI</h2></div><p>Obtenez des réponses instantanées sur l’utilisation de la plateforme.</p><a href="/somatch-ai">Discuter avec SoMatch AI <SupportIcon name="sparkles" /></a></aside>
         </section>
 
         <section className="support-lower-grid">
