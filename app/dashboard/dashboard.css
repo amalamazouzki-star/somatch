@@ -89,7 +89,8 @@
 .sidebar-profile > span { flex:1; display:flex; flex-direction:column; gap:5px; }
 .sidebar-profile strong { font-size:12px; }
 .sidebar-profile small { color:#5f6a80; font-size:11px; }
-.sidebar-profile b { font-size:17px; }
+.sidebar-profile b { display:grid; place-items:center; font-size:17px; }
+.sidebar-profile b svg,.profile-menu span svg { width:16px; height:16px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 
 .dashboard-main { flex:1; min-width:0; height:100vh; overflow-y:auto; overflow-x:hidden; padding:0 26px 10px; background:linear-gradient(130deg,#fff 0,#fff 74%,#fffdfb 100%); scrollbar-width:thin; }
 .dashboard-header { height:105px; display:flex; align-items:center; justify-content:space-between; padding:0 4px 0 7px; }

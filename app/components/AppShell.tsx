@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { NotificationTrigger } from "./NotificationCenter";
 
-type SidebarIconName = "home" | "sparkles" | "search" | "trending" | "grid" | "heart" | "campaign" | "verified" | "user" | "settings" | "help";
+type SidebarIconName = "home" | "sparkles" | "search" | "trending" | "grid" | "heart" | "campaign" | "verified" | "user" | "settings" | "help" | "chevron";
 
 const SIDEBAR_ICON_PATHS: Record<SidebarIconName, ReactNode> = {
     home: <><path d="M3.5 10.5 12 3.8l8.5 6.7" /><path d="M5.7 9.3v10.2h12.6V9.3M9.4 19.5v-6.2h5.2v6.2" /></>,
@@ -15,6 +15,7 @@ const SIDEBAR_ICON_PATHS: Record<SidebarIconName, ReactNode> = {
     user: <><circle cx="12" cy="7.2" r="3.6" /><path d="M4.7 20.1c.5-4 3.2-6.5 7.3-6.5s6.8 2.5 7.3 6.5" /></>,
     settings: <><circle cx="12" cy="12" r="3.1" /><path d="M19.2 13.8a7.6 7.6 0 0 0 0-3.6l2-1.5-2-3.5-2.5 1a8 8 0 0 0-3.1-1.8L13.2 2H9.1l-.4 2.4a8 8 0 0 0-3.1 1.8l-2.4-1-2 3.5 2 1.5a7.6 7.6 0 0 0 0 3.6l-2 1.5 2 3.5 2.4-1a8 8 0 0 0 3.1 1.8l.4 2.4h4.1l.4-2.4a8 8 0 0 0 3.1-1.8l2.5 1 2-3.5-2-1.5Z" /></>,
     help: <><circle cx="12" cy="12" r="9" /><path d="M9.6 9.1a2.7 2.7 0 1 1 3.5 2.6c-.8.3-1.1.9-1.1 1.8M12 17.2h.01" /></>,
+    chevron: <path d="m8.5 10 3.5 3.5 3.5-3.5" />,
 };
 
 function SidebarIcon({ name }: { name: SidebarIconName }) {
@@ -85,7 +86,7 @@ export function AppSidebar({ active, context }: { active: "accueil" | "somatch A
       <a className="sidebar-profile" href="/profil" aria-label="Ouvrir le profil de Sara Benali" style={{ textDecoration: "none" }}>
         <img src="/dashboard/profile-sara.png" alt="Sara Benali" />
         <span><strong>Sara Benali</strong><small>Marketeuse</small></span>
-        <b>⌄</b>
+        <b><SidebarIcon name="chevron" /></b>
       </a>
     </aside>
   );
@@ -97,7 +98,7 @@ export function AppHeader({ title, subtitle }: { title: ReactNode; subtitle: str
       <div><h1>{title}</h1><p>{subtitle}</p></div>
       <div className="header-actions">
         <NotificationTrigger />
-        <a className="profile-menu" href="/profil" aria-label="Ouvrir mon profil" style={{ textDecoration: "none" }}><img src="/dashboard/profile-sara.png" alt="Sara" /><span>⌄</span></a>
+        <a className="profile-menu" href="/profil" aria-label="Ouvrir mon profil" style={{ textDecoration: "none" }}><img src="/dashboard/profile-sara.png" alt="Sara Benali" /><span><SidebarIcon name="chevron" /></span></a>
       </div>
     </header>
   );
