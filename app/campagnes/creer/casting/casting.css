@@ -7,3 +7,116 @@
 @media(max-width:760px){.casting-header{height:auto}.casting-stepper{width:620px}.casting-workspace{min-width:760px}.casting-summary{grid-template-columns:repeat(4,minmax(170px,1fr))}.casting-page-grid{min-width:760px}.casting-aside{grid-template-columns:1fr}.casting-main{padding-right:14px}.casting-actions button{width:260px}}
 @media(prefers-reduced-motion:reduce){.campaign-casting-page *{animation:none!important;transition-duration:.01ms!important}}
 .casting-actions .casting-recap-link{width:278px;border:0;background:linear-gradient(100deg,#ed086c,#ff8618);background-size:180% 100%;color:#fff}.casting-actions .casting-recap-link:hover{color:#fff;background-position:100% 0}.casting-actions .casting-recap-link~button{display:none}@media(max-width:760px){.casting-actions .casting-recap-link{width:260px}}
+
+/* QA étape 3 : icônes réelles, données cohérentes, filtres fonctionnels et responsive sans débordement global. */
+.campaign-casting-page .campaign-icon{width:1em;height:1em;display:block;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.campaign-casting-page .create-campaign-header button{display:flex;align-items:center;justify-content:center;gap:7px}
+.campaign-casting-page .create-campaign-header button .campaign-icon{width:15px;height:15px}
+.campaign-casting-page .casting-stepper i .campaign-icon{width:18px;height:18px}
+.campaign-casting-page .casting-summary article>i{font-size:0}
+.campaign-casting-page .casting-summary article>i .campaign-icon{width:20px;height:20px}
+.campaign-casting-page .casting-summary .budget-stat b{max-width:100%}
+.campaign-casting-page .casting-tabs button>b{width:18px;height:18px;display:grid;flex:0 0 18px;place-items:center;font-size:0}
+.campaign-casting-page .casting-tabs button>b .campaign-icon{width:18px;height:18px}
+.campaign-casting-page .casting-filters button{display:flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap}
+.campaign-casting-page .casting-filters button .campaign-icon{width:15px;height:15px}
+.campaign-casting-page .casting-filters button.active{border-color:#f31568;background:#fff2f6;color:#f31568}
+.campaign-casting-page .casting-list article{column-gap:5px}
+.campaign-casting-page .casting-identity strong{display:flex;align-items:center;gap:4px;min-width:0;white-space:nowrap}
+.campaign-casting-page .casting-identity strong>i{width:13px;height:13px;display:inline-grid;flex:0 0 13px;place-items:center;font-size:0}
+.campaign-casting-page .casting-identity strong>i .campaign-icon{width:13px;height:13px;fill:#f31568;stroke:#fff;stroke-width:1.4}
+.campaign-casting-page .casting-identity em{display:flex;align-items:center;gap:3px;min-width:0;white-space:nowrap}
+.campaign-casting-page .casting-identity em .campaign-icon{width:10px;height:10px;flex:0 0 10px;color:#f31568}
+.campaign-casting-page .casting-social{overflow:visible;border-radius:0;background:none!important;font-size:0}
+.campaign-casting-page .casting-social svg.social-logo{width:14px!important;height:14px!important;min-width:14px!important;max-width:14px!important;display:block;flex:0 0 14px!important}
+.campaign-casting-page .casting-engagement strong{display:flex;align-items:center;gap:5px}
+.campaign-casting-page .casting-engagement strong .campaign-icon{width:14px;height:14px;color:#12a34b}
+.campaign-casting-page .casting-score small{max-width:78px;overflow:hidden;text-align:center;text-overflow:ellipsis}
+.campaign-casting-page .casting-budget{min-width:0}
+.campaign-casting-page .casting-budget strong,.campaign-casting-page .casting-budget em{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.campaign-casting-page .casting-check .campaign-icon{width:13px;height:13px}
+.campaign-casting-page .casting-why{bottom:2px;display:flex;align-items:center;justify-content:center;gap:4px}
+.campaign-casting-page .casting-why .campaign-icon{width:11px;height:11px}
+.campaign-casting-page .load-creators{display:flex;align-items:center;justify-content:center;gap:9px}
+.campaign-casting-page .load-creators .campaign-icon{width:14px;height:14px}
+.campaign-casting-page .casting-actions{position:relative}
+.campaign-casting-page .casting-actions>a{gap:8px}
+.campaign-casting-page .casting-actions>a .campaign-icon{width:17px;height:17px}
+.campaign-casting-page .casting-actions>span{position:absolute;left:125px;right:292px;bottom:12px;min-width:0;overflow:hidden;color:#657087;font-size:8.5px;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+.campaign-casting-page .casting-actions .casting-recap-link{justify-content:space-between;padding:0 17px 0 28px}
+.campaign-casting-page .casting-actions .casting-recap-link.disabled{cursor:not-allowed;filter:grayscale(.75);opacity:.55;box-shadow:none}
+.campaign-casting-page .casting-overview header>i{font-size:0}
+.campaign-casting-page .casting-overview header>i .campaign-icon{width:24px;height:24px}
+.campaign-casting-page .casting-overview article i{display:grid;place-items:center;font-size:0}
+.campaign-casting-page .casting-overview article i .campaign-icon{width:17px;height:17px}
+.campaign-casting-page .selected-platforms .casting-social svg.social-logo{width:12px!important;height:12px!important;min-width:12px!important;max-width:12px!important;flex-basis:12px!important}
+.campaign-casting-page .selected-casting article>button{display:grid;place-items:center;padding:0}
+.campaign-casting-page .selected-casting article>button .campaign-icon{width:13px;height:13px}
+.campaign-casting-page .clear-casting{display:flex;align-items:center;justify-content:center;gap:8px}
+.campaign-casting-page .clear-casting .campaign-icon{width:16px;height:16px}
+.campaign-casting-page .clear-casting:disabled{cursor:not-allowed;opacity:.45}
+.casting-empty{height:450px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#657087;text-align:center}
+.casting-empty>.campaign-icon{width:35px;height:35px;color:#8d65da}
+.casting-empty strong{font-size:11px}
+.casting-empty button{height:34px;padding:0 18px;border:1px solid #f31568;border-radius:7px;background:#fff;color:#f31568;font-family:inherit;font-size:9px;cursor:pointer}
+.selected-empty{height:290px;display:grid;place-items:center;margin:0;color:#657087;font-size:10px;text-align:center}
+
+@media(max-width:1400px){
+  .campaign-casting-page .casting-list article{grid-template-columns:24px 55px minmax(125px,1.35fr) 83px 78px 72px 96px 20px}
+  .campaign-casting-page .casting-filters{grid-template-columns:140px 118px 140px minmax(138px,1fr) 118px}
+  .campaign-casting-page .casting-filters button{padding-left:7px;padding-right:7px;font-size:8.5px}
+  .campaign-casting-page .casting-summary .budget-stat strong{font-size:14px}
+}
+
+@media(max-width:1150px){
+  .campaign-casting-page .casting-main{overflow-x:hidden}
+  .campaign-casting-page .casting-workspace{min-width:0}
+  .campaign-casting-page .casting-summary{height:auto;min-height:180px;grid-template-columns:1fr 1fr;row-gap:10px}
+  .campaign-casting-page .casting-summary article{min-height:72px}
+  .campaign-casting-page .casting-selector-card{height:auto;min-height:632px}
+  .campaign-casting-page .casting-filters{height:auto;min-height:118px;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:12px 16px}
+  .campaign-casting-page .casting-list{overflow-x:auto;overscroll-behavior-x:contain}
+  .campaign-casting-page .casting-list article{width:100%;min-width:760px}
+  .campaign-casting-page .casting-aside{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:760px){
+  .campaign-casting-page .casting-main{overflow-x:hidden;padding-right:14px}
+  .campaign-casting-page .casting-stepper{width:min(100%,620px)}
+  .campaign-casting-page .casting-page-grid{min-width:0}
+  .campaign-casting-page .casting-workspace{min-width:0}
+  .campaign-casting-page .casting-summary{grid-template-columns:1fr 1fr;padding:12px}
+  .campaign-casting-page .casting-summary article{gap:9px}
+  .campaign-casting-page .casting-tabs{height:auto;grid-template-columns:1fr}
+  .campaign-casting-page .casting-tabs button{min-height:82px}
+  .campaign-casting-page .casting-filters{grid-template-columns:1fr 1fr}
+  .campaign-casting-page .casting-filters button{grid-column:1/-1}
+  .campaign-casting-page .casting-list{overflow:visible;padding:0 10px}
+  .campaign-casting-page .casting-list article{width:100%;min-width:0;height:auto;min-height:216px;grid-template-columns:24px 50px minmax(0,1fr) 28px;grid-template-areas:"rank avatar identity check" ". platforms engagement ." ". score budget ." ". why why .";gap:10px 7px;padding:12px 4px}
+  .campaign-casting-page .creator-rank{grid-area:rank}
+  .campaign-casting-page .casting-avatar{grid-area:avatar}
+  .campaign-casting-page .casting-identity{grid-area:identity}
+  .campaign-casting-page .casting-platform-numbers{grid-area:platforms;flex-direction:row;flex-wrap:wrap}
+  .campaign-casting-page .casting-engagement{grid-area:engagement}
+  .campaign-casting-page .casting-score{grid-area:score;align-items:flex-start}
+  .campaign-casting-page .casting-budget{grid-area:budget}
+  .campaign-casting-page .casting-check{grid-area:check}
+  .campaign-casting-page .casting-why{position:static;grid-area:why;width:100%;height:30px}
+  .campaign-casting-page .casting-list article.selected::before{left:-10px;top:10px;bottom:10px}
+  .campaign-casting-page .load-creators{margin-top:12px;margin-bottom:12px}
+  .campaign-casting-page .casting-actions{height:auto;min-height:145px;flex-wrap:wrap;align-content:flex-end;gap:10px;padding-top:34px}
+  .campaign-casting-page .casting-actions>a,.campaign-casting-page .casting-actions .casting-recap-link{width:100%}
+  .campaign-casting-page .casting-actions>span{position:static;order:-1;width:100%;min-height:18px;white-space:normal}
+  .campaign-casting-page .casting-aside{grid-template-columns:1fr}
+  .campaign-casting-page .casting-overview,.campaign-casting-page .selected-casting{min-height:330px}
+}
+
+@media(max-width:430px){
+  .campaign-casting-page .create-campaign-header button{width:137px}
+  .campaign-casting-page .casting-summary{grid-template-columns:1fr}
+  .campaign-casting-page .casting-summary article{min-height:76px}
+  .campaign-casting-page .casting-filters{grid-template-columns:1fr}
+  .campaign-casting-page .casting-filters button{grid-column:auto}
+  .campaign-casting-page .casting-list article{grid-template-columns:22px 46px minmax(0,1fr) 24px;gap:9px 5px}
+  .campaign-casting-page .casting-platform-numbers{gap:5px}
+}
