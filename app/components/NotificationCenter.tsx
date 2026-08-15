@@ -28,7 +28,7 @@ const groups = ["Aujourd’hui", "Cette semaine", "Plus tôt"] as const;
 
 export function NotificationTrigger({ className = "notification-button", count = 6 }: { className?: string; count?: number }) {
   const [open, setOpen] = useState(false);
-  return <><button type="button" className={className} aria-label="Ouvrir les notifications" aria-expanded={open} onClick={() => setOpen(true)}>♧<span>{count}</span></button>{open ? <NotificationCenter onClose={() => setOpen(false)} /> : null}</>;
+  return <><button type="button" className={className} aria-label="Ouvrir les notifications" aria-expanded={open} onClick={() => setOpen(true)}><span>{count}</span></button>{open ? <NotificationCenter onClose={() => setOpen(false)} /> : null}</>;
 }
 
 export function NotificationCenter({ onClose }: { onClose: () => void }) {
@@ -36,7 +36,7 @@ export function NotificationCenter({ onClose }: { onClose: () => void }) {
   const [tab, setTab] = useState<"Toutes" | "Non lues">("Toutes");
   const visible = tab === "Toutes" ? notifications : notifications.filter(item => item.unread);
   const unreadCount = notifications.filter(item => item.unread).length;
-  const close = useCallback(onClose, [onClose]);
+  const close = useCallback(() => onClose(), [onClose]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -50,10 +50,11 @@ export function NotificationCenter({ onClose }: { onClose: () => void }) {
     setNotifications(current => current.map(item => ({ ...item, unread: false })));
   }
 
-  return <div className="notification-overlay" role="presentation" onMouseDown={onClose}>
-    <aside className="notification-drawer" role="dialog" aria-modal="true" aria-labelledby="notification-title" onMouseDown={event => event.stopPropagation()}>
+  return <div className="notification-overlay">
+    <button type="button" className="notification-backdrop" aria-label="Fermer les notifications" onClick={onClose} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", padding: 0, border: 0, background: "transparent", cursor: "default" }} />
+    <aside className="notification-drawer" role="dialog" aria-modal="true" aria-labelledby="notification-title">
       <header className="notification-drawer-header"><h2 id="notification-title">Notifications</h2><button type="button" aria-label="Fermer les notifications" onClick={onClose}>×</button></header>
-      <nav className="notification-tabs" aria-label="Filtres des notifications"><button className={tab === "Toutes" ? "active" : ""} type="button" onClick={() => setTab("Toutes")}>Toutes ({notifications.length})</button><button className={tab === "Non lues" ? "active" : ""} type="button" onClick={() => setTab("Non lues")}>Non lues ({unreadCount})</button><button className="mark-read" type="button" onClick={markAllRead}>✓　Tout marquer comme lu</button><a href="/parametres" aria-label="Paramètres des notifications">⚙</a></nav>
+      <nav className="notification-tabs" aria-label="Filtres des notifications"><button className={tab === "Toutes" ? "active" : ""} type="button" onClick={() => setTab("Toutes")}>Toutes ({notifications.length})</button><button className={tab === "Non lues" ? "active" : ""} type="button" onClick={() => setTab("Non lues")}>Non lues ({unreadCount})</button><button className="mark-read" type="button" onClick={markAllRead}>✓ Tout marquer comme lu</button><a href="/parametres" aria-label="Paramètres des notifications">⚙</a></nav>
       <div className="notification-scroll">
         {groups.map(group => {
           const items = visible.filter(item => item.group === group);
@@ -61,7 +62,7 @@ export function NotificationCenter({ onClose }: { onClose: () => void }) {
         })}
         {visible.length === 0 ? <div className="notification-empty"><i>✓</i><strong>Tout est à jour</strong><p>Vous n’avez aucune notification non lue.</p></div> : null}
       </div>
-      <footer><button type="button" onClick={() => setTab("Toutes")}>Voir toutes les notifications　→</button></footer>
+      <footer><button type="button" onClick={() => setTab("Toutes")}>Voir toutes les notifications →</button></footer>
     </aside>
   </div>;
 }

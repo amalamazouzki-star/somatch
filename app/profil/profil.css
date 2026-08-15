@@ -7,3 +7,36 @@
 @media(max-width:1100px){.profile-main{overflow-y:auto}.profile-tabs{width:100%;padding-right:300px}.profile-grid{height:auto;grid-template-columns:1fr}.profile-column{grid-template-rows:auto auto}.personal-card,.organisation-card{min-height:419px}.security-card,.team-card{min-height:288px}.profile-savebar{margin-bottom:18px}}
 @media(max-width:720px){.profile-main{height:auto;min-height:100vh;padding:0 12px 20px;overflow:visible}.profile-header{height:84px}.profile-tabs{grid-template-columns:1fr 1fr;height:auto;padding:0}.profile-tabs button{height:50px}.agency-account{position:static;width:100%;margin:12px 0}.profile-grid{margin-top:12px}.personal-top,.organisation-top{height:auto;grid-template-columns:1fr}.personal-fields,.profile-two-columns{grid-template-columns:1fr}.personal-card>.profile-two-columns:last-child{margin-top:14px}.profile-column{display:flex;flex-direction:column}.profile-card{height:auto!important;min-height:0}.team-card{overflow-x:auto}.team-list,.team-columns{min-width:600px}.profile-savebar{height:auto;flex-direction:column;gap:16px;padding:16px}.profile-savebar>button{width:100%}}
 @media(prefers-reduced-motion:reduce){.profile-page *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Profile quality pass: real vector icons, resilient labels and responsive rows. */
+.profile-icon{width:1em;height:1em;display:block;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.profile-header h1,.profile-card h2{text-transform:none}
+.profile-tabs button,.profile-tabs a{position:relative;height:70px;display:flex;align-items:center;justify-content:center;gap:9px;border:0;background:transparent;color:#2c3851;font-size:10px;font-weight:600;text-decoration:none;cursor:pointer;transition:transform .25s var(--profile-spring),color .25s ease}
+.profile-tabs button.active:after{content:"";position:absolute;right:0;bottom:0;left:0;height:2px;border-radius:2px;background:#f52666}
+.profile-tabs i{display:grid;place-items:center;font-size:0;font-style:normal}
+.profile-tabs i .profile-icon{width:22px;height:22px}
+.agency-account>i{display:grid;place-items:center;font-size:0}
+.agency-account>i .profile-icon{width:27px;height:27px}
+.profile-menu span{display:grid;place-items:center}
+.profile-menu .profile-icon{width:12px;height:12px}
+.profile-avatar button,.organisation-logo button{display:grid;place-items:center;font-size:0}
+.profile-avatar button{right:0;bottom:3px}
+.organisation-logo button{right:0;bottom:0}
+.profile-avatar button .profile-icon,.organisation-logo button .profile-icon{width:14px;height:14px}
+.website-field i{display:grid;place-items:center;font-size:0}
+.website-field .profile-icon{width:14px;height:14px}
+.team-heading button{display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap}
+.team-heading button .profile-icon{width:13px;height:13px}
+.team-list article>button{display:grid;place-items:center}
+.team-list article>button .profile-icon{width:17px;height:17px}
+.profile-savebar>div>i{font-size:0}
+.profile-savebar>div>i .profile-icon{width:29px;height:29px}
+.profile-savebar>button{display:flex;align-items:center;justify-content:center;gap:8px}
+.profile-savebar>button .profile-icon{width:17px;height:17px}
+.profile-feedback{position:fixed;z-index:110;left:50%;bottom:18px;max-width:min(440px,calc(100vw - 32px));margin:0;padding:12px 18px;border:1px solid #ffd0dc;border-radius:10px;background:#fff;color:#172034;box-shadow:0 15px 35px rgba(28,22,40,.16);font-size:11px;font-weight:600;opacity:0;pointer-events:none;transform:translate(-50%,12px);transition:opacity .25s ease,transform .25s var(--profile-spring)}
+.profile-feedback.visible{opacity:1;transform:translate(-50%,0)}
+.team-role,.team-access{min-width:0;line-height:1.3;overflow-wrap:anywhere}
+@media(hover:hover) and (pointer:fine){.profile-tabs a:hover{transform:translateY(-2px);color:#f52666}}
+@media(max-width:900px){.profile-tabs{padding-right:0}.agency-account{position:static;width:100%;margin:12px 0}.profile-grid{margin-top:12px}}
+@media(max-width:720px){.profile-tabs a{height:50px}.team-card{overflow:hidden}.team-columns{display:none}.team-list{min-width:0}.team-list article{height:auto;min-height:98px;grid-template-columns:minmax(0,1fr) 24px;grid-template-areas:"person more" "role role" "access access";align-content:center;gap:8px 10px;padding:10px 5px}.team-person{grid-area:person}.team-role{grid-area:role;padding-left:42px}.team-access{grid-area:access;padding-left:42px}.team-list article>button{grid-area:more}.profile-savebar>div{align-items:flex-start}.profile-savebar>div>i{flex:0 0 auto}.profile-savebar strong,.profile-savebar small{line-height:1.35}}
+@media(max-width:430px){.profile-tabs{grid-template-columns:1fr 1fr}.profile-header p{max-width:230px;line-height:1.35}.team-heading{height:auto;grid-template-columns:1fr auto;row-gap:8px}.team-heading>span{justify-self:end}.team-heading button{grid-column:1/-1;width:100%}.profile-savebar>div>i{width:40px;height:40px}.profile-savebar>div>i .profile-icon{width:24px;height:24px}}
