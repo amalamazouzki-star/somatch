@@ -17,6 +17,8 @@
 /* QA étape 1 : icônes homogènes, actions accessibles et contenu résilient. */
 .create-campaign-page .campaign-information-card{position:relative}
 .create-campaign-page .campaign-icon{display:block}
+.create-campaign-page .campaign-overview-card{display:block;height:359px;min-height:0;overflow:visible;grid-template-columns:none;padding:28px 25px}
+.create-campaign-page .campaign-objectives{height:auto;min-height:0;padding:0}
 .create-campaign-page .create-campaign-header a{width:32px;height:32px;border-radius:8px;font-size:0;font-weight:400}
 .create-campaign-page .create-campaign-header a .campaign-icon{width:23px;height:23px}
 .create-campaign-page .campaign-date-field label>div>.campaign-icon{width:17px;height:17px;flex:0 0 17px;margin:0 12px;color:#313c55}
@@ -44,6 +46,14 @@
   .create-campaign-page .campaign-form-actions button:hover::after{left:125%}
 }
 
+@media(max-width:1280px){
+  .create-campaign-page .campaign-overview-card{padding-left:20px;padding-right:20px}
+}
+
+@media(max-width:1050px){
+  .create-campaign-page .campaign-overview-card{height:330px}
+}
+
 @media(max-width:760px){
   .create-campaign-page .create-campaign-header p{line-height:1.45}
   .create-campaign-page .campaign-stepper{grid-template-columns:repeat(4,145px);scrollbar-width:none}
@@ -51,6 +61,7 @@
   .create-campaign-page .campaign-stepper b{margin:0 8px}
   .create-campaign-page .campaign-form-actions button{width:100%;padding-left:calc(50% - 32px)}
   .create-campaign-page .campaign-save-status{right:16px}
+  .create-campaign-page .campaign-overview-card{height:auto;min-height:320px}
 }
 
 @media(max-width:430px){
