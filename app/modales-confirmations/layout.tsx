@@ -3,7 +3,7 @@ import "../dashboard/dashboard.css";
 import "./modales-confirmations.css";
 
 export const metadata: Metadata = {
-  title: "Modales & Confirmations | SoMatch",
+  title: "Modales et confirmations | SoMatch",
   description: "Bibliothèque frontend des modales, toasts et confirmations SoMatch.",
 };
 
